@@ -1,7 +1,23 @@
 module recyexchange::recicly {
     
-    
     use std::debug::print;
+    use aptos_std::table::{Self, Table};
+    use std::string::{String, utf8};
+    use std::signer::address_of;
+    use std::option::{Self, Option, some};
+
+    
+    const YA_INICIALIZADO: u64 = 1;    
+    const NO_INICIALIZADO: u64 = 2;    
+    const REGISTRO_NO_EXISTE: u64 = 3;    
+    const REGISTRO_YA_EXISTE: u64 = 4;   
+    const NADA_A_MODIFICAR: u64 = 5;
+    const MANTENIMIENTO: u64 = 6;
+
+    struct Driver has store, copy, drop {        
+        name: String,
+        lastName: String,        
+    }
 
     fun practica() {
         // Tipo no referenciado:
