@@ -20,8 +20,7 @@ module recyexchange::recicly {
         date: String,
         state: String,
         discussion: Chat,
-        recycling: Recycling,
-        
+        recycling: Recycling,        
     }
 
     struct Chat has store, copy, drop {
@@ -110,7 +109,7 @@ module recyexchange::recicly {
     }
 
     #[view]
-    public fun get_driver(cuenta: address, id: u64): Chat acquires BdRecy {
+    public fun get_chat(cuenta: address, id: u64): Chat acquires BdRecy {
         assert!(exists<BdRecy>(cuenta), NO_INICIALIZADO);
 
         let registros = borrow_global<BdRecy>(cuenta);
@@ -119,7 +118,7 @@ module recyexchange::recicly {
     }
 
     #[view]
-    public fun get_route(cuenta: address, id: u64): Recycling acquires BdRecy {
+    public fun get_recycling(cuenta: address, id: u64): Recycling acquires BdRecy {
         assert!(exists<BdRecy>(cuenta), NO_INICIALIZADO);
 
         let registros = borrow_global<BdRecy>(cuenta);
