@@ -1,10 +1,10 @@
 module recyexchange::recicly {
     
-    use std::debug::print;
+    
     use aptos_std::table::{Self, Table};
-    use std::string::{String, utf8};
+    use std::string::{String};
     use std::signer::address_of;
-    use std::option::{Self, Option, some};
+    use std::option::{Option};
 
     
     const YA_INICIALIZADO: u64 = 1;    
@@ -18,8 +18,7 @@ module recyexchange::recicly {
         rol: String,
         location: vector<u64>,  
         date: String,
-        state: String,
-        discussion: Chat,
+        state: String,        
         recycling: Recycling,        
     }
 
@@ -53,7 +52,8 @@ module recyexchange::recicly {
     public entry fun set_chat(        
         cuenta: &signer, 
         id: u64,
-        chat: Chat,
+        topic: Option<String>,
+        response: String
     ) acquires BdRecy {
         assert!(exists<BdRecy>(address_of(cuenta)), NO_INICIALIZADO); // Necesitamos que se haya corrido la funcion de inicializar primero.
 
@@ -62,40 +62,70 @@ module recyexchange::recicly {
 
         table::add(&mut registros.chats,
         id, 
-        chat,
-        );
+        Chat{
+            topic,
+            response,
+        });
     }
 
     public entry fun set_recycling(        
         cuenta: &signer, 
         id: u64,
-        recycling : Recycling,
+        type: String,
+        quantity: u64,
+        priceKg: u64,
+        id_chat: u64,
     ) acquires BdRecy {
         assert!(exists<BdRecy>(address_of(cuenta)), NO_INICIALIZADO); // Necesitamos que se haya corrido la funcion de inicializar primero.
 
         let registros = borrow_global_mut<BdRecy>(address_of(cuenta));
         assert!(!table::contains(&registros.recyclings, id), REGISTRO_YA_EXISTE);
 
+        
+        assert!(table::contains(&registros.chats, id_chat), REGISTRO_NO_EXISTE);
+        let regi_chat = table::borrow(&registros.chats, id_chat);
+           
+
+
         table::add(&mut registros.recyclings,
         id, 
-        recycling
-        );
+        Recycling{
+            type,
+            quantity,
+            priceKg,
+            chat: *regi_chat,
+        });
     }
 
     public entry fun set_user(
         
         cuenta: &signer, 
         id: u64,
-        user: User,
+        rol: String,
+        location: vector<u64>,  
+        date: String,
+        state: String,        
+        id_recycling: u64,    
     ) acquires BdRecy {
         assert!(exists<BdRecy>(address_of(cuenta)), NO_INICIALIZADO); // Necesitamos que se haya corrido la funcion de inicializar primero.
 
         let registros = borrow_global_mut<BdRecy>(address_of(cuenta));
-        assert!(!table::contains(&registros.users, id), REGISTRO_YA_EXISTE);
+        assert!(!table::contains(&registros.users, id), REGISTRO_YA_EXISTE);       
+        
+        assert!(table::contains(&registros.recyclings, id_recycling), REGISTRO_NO_EXISTE);
+        let regi_recyclings = table::borrow(&registros.recyclings, id_recycling);
+           
 
-        table::add(&mut registros.users,
-        id, 
-        user,
+        table::add(
+            &mut registros.users,
+            id, 
+            User{
+                rol,
+                location,  
+                date,
+                state,            
+                recycling: *regi_recyclings, 
+            }
         );
     }
 

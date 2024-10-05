@@ -5,13 +5,14 @@ compiled_package_info:
     Extensions: "0000000000000000000000000000000000000000000000000000000000000001"
     aptos_framework: "0000000000000000000000000000000000000000000000000000000000000001"
     aptos_std: "0000000000000000000000000000000000000000000000000000000000000001"
-    recyexchange: 00000000000000000000000000000000000000000000005a6f6e612054726573
+    cuenta: 7ba23f3b116da3871b06133fda6f9ba93339b6714213f643a85d608beeaa9044
+    recyexchange: 7ba23f3b116da3871b06133fda6f9ba93339b6714213f643a85d608beeaa9044
     std: "0000000000000000000000000000000000000000000000000000000000000001"
     vm: "0000000000000000000000000000000000000000000000000000000000000000"
-  source_digest: 95B4CF40E093B5EDF1342BD704A497040EB1F940E6D679622225B62CB20DE318
+  source_digest: D5707D72CB85E23B051A7111B57F8D4F6FC7F21881CB405BA100CCCBB265071E
   build_flags:
-    dev_mode: true
-    test_mode: true
+    dev_mode: false
+    test_mode: false
     override_std: ~
     generate_docs: false
     generate_abis: false
@@ -19,7 +20,8 @@ compiled_package_info:
     full_model_generation: false
     install_dir: ~
     force_recompilation: false
-    additional_named_addresses: {}
+    additional_named_addresses:
+      cuenta: 7ba23f3b116da3871b06133fda6f9ba93339b6714213f643a85d608beeaa9044
     architecture: ~
     fetch_deps_only: false
     skip_fetch_latest_git_deps: false
