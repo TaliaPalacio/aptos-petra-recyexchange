@@ -1,0 +1,58 @@
+{
+    "sourceFile": "src/components/button.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1728430079231,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1728430100756,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,10 +26,11 @@\n           onClick={conexionWallet}\n           className=\"color-primary w-40 h-11 text-white font-bold text-base rounded-full \n           shadow-xl hover:opacity-70 transition ease-in-out hover:-translate-y-1 hover:scale-110 \n           duration-300\"\n+          \n         >\n-          {connected ? \"Disconnect\" : \"Connect\"}\n+          {connected ? \"Disconect\" : \"Conect\"}\n         </button>\n       </div>\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1728433434441,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,22 +1,27 @@\n import React from \"react\";\n-import { Aptos, AptosConfig, Network } from \"@aptos-labs/ts-sdk\";\n-import { useWallet, WalletName } from \"@aptos-labs/wallet-adapter-react\";\n+import { useWallet } from \"@aptos-labs/wallet-adapter-react\";\n+import { WalletName } from \"@aptos-labs/wallet-adapter-react\";\n import { useWalletContext } from \"./walletContext\";\n \n-export const aptos = new Aptos(new AptosConfig({ network: Network.TESTNET }));\n-\n const Button = () => {\n-  const { connect, connected, disconnect } = useWallet();\n-  const { setConnected } = useWalletContext(); // Usa el contexto\n+  const { connect, connected, disconnect} = useWallet();  // Asegúrate de obtener correctamente el estado de la wallet\n+  const { setConnected } = useWalletContext();  // Usa el contexto si es necesario para manejar el estado global\n \n   const conexionWallet = async () => {\n-    if (connected) {\n-      await disconnect();\n-      setConnected(false); // Actualiza el contexto\n-    } else {\n-      await connect(\"Petra\" as WalletName);\n-      setConnected(true); // Actualiza el contexto\n+ \n+    try {\n+      if (connected) {\n+        await disconnect();  // Desconectar la wallet si ya está conectada\n+        setConnected(false);  // Actualiza el estado global si es necesario\n+      } else {\n+        await connect(\"Petra\" as WalletName);  // Conectar a la wallet Petra\n+        //setConnected(true);  // Actualiza el estado global si es necesario\n+      }\n+\n+      \n+    } catch (error) {\n+      console.error(\"Error al conectar o desconectar la wallet:\", error);\n     }\n   };\n \n   return (\n@@ -26,11 +31,10 @@\n           onClick={conexionWallet}\n           className=\"color-primary w-40 h-11 text-white font-bold text-base rounded-full \n           shadow-xl hover:opacity-70 transition ease-in-out hover:-translate-y-1 hover:scale-110 \n           duration-300\"\n-          \n         >\n-          {connected ? \"Disconect\" : \"Conect\"}\n+          {connected ? \"Disconnect\" : \"Connect\"}\n         </button>\n       </div>\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1728433487296,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,27 +1,22 @@\n import React from \"react\";\n-import { useWallet } from \"@aptos-labs/wallet-adapter-react\";\n-import { WalletName } from \"@aptos-labs/wallet-adapter-react\";\n+import { Aptos, AptosConfig, Network } from \"@aptos-labs/ts-sdk\";\n+import { useWallet, WalletName } from \"@aptos-labs/wallet-adapter-react\";\n import { useWalletContext } from \"./walletContext\";\n \n+export const aptos = new Aptos(new AptosConfig({ network: Network.TESTNET }));\n+\n const Button = () => {\n-  const { connect, connected, disconnect} = useWallet();  // Asegúrate de obtener correctamente el estado de la wallet\n-  const { setConnected } = useWalletContext();  // Usa el contexto si es necesario para manejar el estado global\n+  const { connect, connected, disconnect } = useWallet();\n+  const { setConnected } = useWalletContext(); // Usa el contexto\n \n   const conexionWallet = async () => {\n- \n-    try {\n-      if (connected) {\n-        await disconnect();  // Desconectar la wallet si ya está conectada\n-        setConnected(false);  // Actualiza el estado global si es necesario\n-      } else {\n-        await connect(\"Petra\" as WalletName);  // Conectar a la wallet Petra\n-        //setConnected(true);  // Actualiza el estado global si es necesario\n-      }\n-\n-      \n-    } catch (error) {\n-      console.error(\"Error al conectar o desconectar la wallet:\", error);\n+    if (connected) {\n+      await disconnect();\n+      setConnected(false); // Actualiza el contexto\n+    } else {\n+      await connect(\"Petra\" as WalletName);\n+      setConnected(true); // Actualiza el contexto\n     }\n   };\n \n   return (\n@@ -31,10 +26,11 @@\n           onClick={conexionWallet}\n           className=\"color-primary w-40 h-11 text-white font-bold text-base rounded-full \n           shadow-xl hover:opacity-70 transition ease-in-out hover:-translate-y-1 hover:scale-110 \n           duration-300\"\n+          \n         >\n-          {connected ? \"Disconnect\" : \"Connect\"}\n+          {connected ? \"Disconect\" : \"Conect\"}\n         </button>\n       </div>\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1728433718914,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,8 @@\n           onClick={conexionWallet}\n           className=\"color-primary w-40 h-11 text-white font-bold text-base rounded-full \n           shadow-xl hover:opacity-70 transition ease-in-out hover:-translate-y-1 hover:scale-110 \n           duration-300\"\n-          \n         >\n           {connected ? \"Disconect\" : \"Conect\"}\n         </button>\n       </div>\n"
+                },
+                {
+                    "date": 1728443570915,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n     }\n   };\n \n   return (\n-    <div>\n+    <div className=\"flex items-end\">\n       <div className=\"hidden lg:flex lg:flex-1 lg:justify-end\">\n         <button\n           onClick={conexionWallet}\n           className=\"color-primary w-40 h-11 text-white font-bold text-base rounded-full \n"
+                },
+                {
+                    "date": 1728443588323,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n     }\n   };\n \n   return (\n-    <div className=\"flex items-end\">\n+    <div className=\"flex items-center\">\n       <div className=\"hidden lg:flex lg:flex-1 lg:justify-end\">\n         <button\n           onClick={conexionWallet}\n           className=\"color-primary w-40 h-11 text-white font-bold text-base rounded-full \n"
+                },
+                {
+                    "date": 1728443631694,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n     }\n   };\n \n   return (\n-    <div className=\"flex items-center\">\n+    <div className=\"flex items-center justify-end\">\n       <div className=\"hidden lg:flex lg:flex-1 lg:justify-end\">\n         <button\n           onClick={conexionWallet}\n           className=\"color-primary w-40 h-11 text-white font-bold text-base rounded-full \n"
+                },
+                {
+                    "date": 1728443690878,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n     }\n   };\n \n   return (\n-    <div className=\"flex items-center justify-end\">\n+    <div className=\"flex items-center justify-self-end\">\n       <div className=\"hidden lg:flex lg:flex-1 lg:justify-end\">\n         <button\n           onClick={conexionWallet}\n           className=\"color-primary w-40 h-11 text-white font-bold text-base rounded-full \n"
+                },
+                {
+                    "date": 1728443740821,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,10 +19,10 @@\n     }\n   };\n \n   return (\n-    <div className=\"flex items-center justify-self-end\">\n-      <div className=\"hidden lg:flex lg:flex-1 lg:justify-end\">\n+    <div className=\"\">\n+      <div className=\"hidden lg:flex lg:flex-1 lg:justify-end flex items-center justify-self-end\">\n         <button\n           onClick={conexionWallet}\n           className=\"color-primary w-40 h-11 text-white font-bold text-base rounded-full \n           shadow-xl hover:opacity-70 transition ease-in-out hover:-translate-y-1 hover:scale-110 \n"
+                },
+                {
+                    "date": 1728443766292,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,10 +19,10 @@\n     }\n   };\n \n   return (\n-    <div className=\"\">\n-      <div className=\"hidden lg:flex lg:flex-1 lg:justify-end flex items-center justify-self-end\">\n+    <div className=\"flex items-center justify-self-end\">\n+      <div className=\"hidden lg:flex lg:flex-1 lg:justify-end\">\n         <button\n           onClick={conexionWallet}\n           className=\"color-primary w-40 h-11 text-white font-bold text-base rounded-full \n           shadow-xl hover:opacity-70 transition ease-in-out hover:-translate-y-1 hover:scale-110 \n"
+                }
+            ],
+            "date": 1728430079231,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\nimport { Aptos, AptosConfig, Network } from \"@aptos-labs/ts-sdk\";\nimport { useWallet, WalletName } from \"@aptos-labs/wallet-adapter-react\";\nimport { useWalletContext } from \"./walletContext\";\n\nexport const aptos = new Aptos(new AptosConfig({ network: Network.TESTNET }));\n\nconst Button = () => {\n  const { connect, connected, disconnect } = useWallet();\n  const { setConnected } = useWalletContext(); // Usa el contexto\n\n  const conexionWallet = async () => {\n    if (connected) {\n      await disconnect();\n      setConnected(false); // Actualiza el contexto\n    } else {\n      await connect(\"Petra\" as WalletName);\n      setConnected(true); // Actualiza el contexto\n    }\n  };\n\n  return (\n    <div>\n      <div className=\"hidden lg:flex lg:flex-1 lg:justify-end\">\n        <button\n          onClick={conexionWallet}\n          className=\"color-primary w-40 h-11 text-white font-bold text-base rounded-full \n          shadow-xl hover:opacity-70 transition ease-in-out hover:-translate-y-1 hover:scale-110 \n          duration-300\"\n        >\n          {connected ? \"Disconnect\" : \"Connect\"}\n        </button>\n      </div>\n    </div>\n  );\n};\n\nexport default Button;\n"
+        }
+    ]
+}

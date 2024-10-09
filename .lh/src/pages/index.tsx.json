@@ -1,0 +1,42 @@
+{
+    "sourceFile": "src/pages/index.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1728431759146,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1728431838290,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,27 +2,31 @@\n import { AptosWalletAdapterProvider } from \"@aptos-labs/wallet-adapter-react\";\n import { Network } from \"@aptos-labs/ts-sdk\";\n import Home from \"@/components/home\";\n \n-\n const PrinPage = () => {\n   return (\n     <div className=\"w-full\">\n       <React.StrictMode>\n         <AptosWalletAdapterProvider\n-          //si hay f5 la wallet no se quede desconectada\n-          autoConnect={true}\n-          //Aqui se colocan las wallwets que se van a usar\n+          autoConnect = {true}\n           optInWallets={[\"Petra\"]}\n-          //Aqui se coloca la red en la que se va a trabajar, en este caso es testnet\n-          dappConfig={{ network: Network.TESTNET }}\n-          //Aqui se coloca el error que se va a mostrar si hay un error\n+          dappConfig={{network: Network.TESTNET}}\n           onError={(error) => console.log(error)}\n-          //Aqui si vamos a usar otro tipo de Wallets y se debe importar el paquete de esa wallet\n           plugins={[]}\n-        >        \n+        >\n+\n+//si hay f5 la wallet no se quede desconectada\n+      \n+      //Aqui se colocan las wallwets que se van a usar\n+      \n+      //Aqui se coloca la red en la que se va a trabajar, en este caso es testnet\n+      \n+      //Aqui se coloca el error que se va a mostrar si hay un error\n+      \n+      //Aqui si vamos a usar otro tipo de Wallets y se debe importar el paquete de esa wallet\n+      \n           <Home />\n-          \n         </AptosWalletAdapterProvider>\n       </React.StrictMode>\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1728431888478,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,19 +13,9 @@\n           dappConfig={{network: Network.TESTNET}}\n           onError={(error) => console.log(error)}\n           plugins={[]}\n         >\n-\n-//si hay f5 la wallet no se quede desconectada\n       \n-      //Aqui se colocan las wallwets que se van a usar\n-      \n-      //Aqui se coloca la red en la que se va a trabajar, en este caso es testnet\n-      \n-      //Aqui se coloca el error que se va a mostrar si hay un error\n-      \n-      //Aqui si vamos a usar otro tipo de Wallets y se debe importar el paquete de esa wallet\n-      \n           <Home />\n         </AptosWalletAdapterProvider>\n       </React.StrictMode>\n     </div>\n"
+                },
+                {
+                    "date": 1728438787682,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import React from \"react\";\n import { AptosWalletAdapterProvider } from \"@aptos-labs/wallet-adapter-react\";\n import { Network } from \"@aptos-labs/ts-sdk\";\n-import Home from \"@/components/home\";\n \n+\n const PrinPage = () => {\n   return (\n     <div className=\"w-full\">\n       <React.StrictMode>\n@@ -14,9 +14,9 @@\n           onError={(error) => console.log(error)}\n           plugins={[]}\n         >\n       \n-          <Home />\n+          \n         </AptosWalletAdapterProvider>\n       </React.StrictMode>\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1728438828012,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n           onError={(error) => console.log(error)}\n           plugins={[]}\n         >\n       \n-          \n+          <>  </>\n         </AptosWalletAdapterProvider>\n       </React.StrictMode>\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1728438902163,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import React from \"react\";\n import { AptosWalletAdapterProvider } from \"@aptos-labs/wallet-adapter-react\";\n import { Network } from \"@aptos-labs/ts-sdk\";\n+import Home from \"@/components/home\";\n \n-\n const PrinPage = () => {\n   return (\n     <div className=\"w-full\">\n       <React.StrictMode>\n@@ -14,9 +14,9 @@\n           onError={(error) => console.log(error)}\n           plugins={[]}\n         >\n       \n-          <>  </>\n+          <Home />\n         </AptosWalletAdapterProvider>\n       </React.StrictMode>\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1728438931211,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,8 @@\n           dappConfig={{network: Network.TESTNET}}\n           onError={(error) => console.log(error)}\n           plugins={[]}\n         >\n-      \n           <Home />\n         </AptosWalletAdapterProvider>\n       </React.StrictMode>\n     </div>\n"
+                }
+            ],
+            "date": 1728431759146,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\nimport { AptosWalletAdapterProvider } from \"@aptos-labs/wallet-adapter-react\";\nimport { Network } from \"@aptos-labs/ts-sdk\";\nimport Home from \"@/components/home\";\n\n\nconst PrinPage = () => {\n  return (\n    <div className=\"w-full\">\n      <React.StrictMode>\n        <AptosWalletAdapterProvider\n          //si hay f5 la wallet no se quede desconectada\n          autoConnect={true}\n          //Aqui se colocan las wallwets que se van a usar\n          optInWallets={[\"Petra\"]}\n          //Aqui se coloca la red en la que se va a trabajar, en este caso es testnet\n          dappConfig={{ network: Network.TESTNET }}\n          //Aqui se coloca el error que se va a mostrar si hay un error\n          onError={(error) => console.log(error)}\n          //Aqui si vamos a usar otro tipo de Wallets y se debe importar el paquete de esa wallet\n          plugins={[]}\n        >        \n          <Home />\n          \n        </AptosWalletAdapterProvider>\n      </React.StrictMode>\n    </div>\n  );\n};\n\nexport default PrinPage;\n"
+        }
+    ]
+}

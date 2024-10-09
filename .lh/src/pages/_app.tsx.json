@@ -1,0 +1,138 @@
+{
+    "sourceFile": "src/pages/_app.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 30,
+            "patches": [
+                {
+                    "date": 1728433104172,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1728434711151,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,8 @@\n   return (\n     <WalletProvider>\n       \n       <Component {...pageProps} />\n-      <Header />\n+      \n     </WalletProvider>\n   );  \n }\n"
+                },
+                {
+                    "date": 1728434846421,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,8 @@\n   return (\n     <WalletProvider>\n       \n       <Component {...pageProps} />\n-      \n+      <Header />\n     </WalletProvider>\n   );  \n }\n"
+                },
+                {
+                    "date": 1728435131088,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,10 +5,10 @@\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n     <WalletProvider>\n-      \n+        <Header />\n       <Component {...pageProps} />\n-      <Header />\n+    \n     </WalletProvider>\n   );  \n }\n"
+                },
+                {
+                    "date": 1728439197477,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,10 +5,9 @@\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n     <WalletProvider>\n-        <Header />\n+  \n       <Component {...pageProps} />\n-    \n     </WalletProvider>\n-  );  \n+  );\n }\n"
+                },
+                {
+                    "date": 1728439407540,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,10 +4,14 @@\n import Header from \"@/components/header\";\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n+    <>\n+    <Header/>\n+    \n     <WalletProvider>\n   \n       <Component {...pageProps} />\n     </WalletProvider>\n+    </>\n   );\n }\n"
+                },
+                {
+                    "date": 1728439414226,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,13 +5,12 @@\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n     <>\n-    <Header/>\n-    \n-    <WalletProvider>\n-  \n-      <Component {...pageProps} />\n-    </WalletProvider>\n+      <Header />\n+\n+      <WalletProvider>\n+        <Component {...pageProps} />\n+      </WalletProvider>\n     </>\n   );\n }\n"
+                },
+                {
+                    "date": 1728439472820,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,13 +4,10 @@\n import Header from \"@/components/header\";\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n-    <>\n-      <Header />\n-\n       <WalletProvider>\n         <Component {...pageProps} />\n       </WalletProvider>\n-    </>\n+    \n   );\n }\n"
+                },
+                {
+                    "date": 1728440109418,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import type { AppProps } from \"next/app\";\n import { WalletProvider } from \"@/components/walletContext\";\n import Header from \"@/components/header\";\n \n-export default function App({ Component, pageProps }: AppProps) {\n+export default function App({ Component, pageProps }) {\n   return (\n       <WalletProvider>\n         <Component {...pageProps} />\n       </WalletProvider>\n"
+                },
+                {
+                    "date": 1728440121780,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import type { AppProps } from \"next/app\";\n import { WalletProvider } from \"@/components/walletContext\";\n import Header from \"@/components/header\";\n \n-export default function App({ Component, pageProps }) {\n+export default function App({ Component, pageProps }: AppProps) {\n   return (\n       <WalletProvider>\n         <Component {...pageProps} />\n       </WalletProvider>\n"
+                },
+                {
+                    "date": 1728440425262,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,14 @@\n import \"@/styles/globals.css\";\n import type { AppProps } from \"next/app\";\n import { WalletProvider } from \"@/components/walletContext\";\n import Header from \"@/components/header\";\n+import Button from \"@/components/button\";\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n       <WalletProvider>\n+        <Button/>\n         <Component {...pageProps} />\n       </WalletProvider>\n     \n   );\n"
+                },
+                {
+                    "date": 1728440456106,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n   return (\n       <WalletProvider>\n         <Button/>\n         <Component {...pageProps} />\n+        <Button/>\n       </WalletProvider>\n     \n   );\n }\n"
+                },
+                {
+                    "date": 1728440494559,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,11 +6,11 @@\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n       <WalletProvider>\n-        <Button/>\n+     \n         <Component {...pageProps} />\n-        <Button/>\n+       \n       </WalletProvider>\n     \n   );\n }\n"
+                },
+                {
+                    "date": 1728440603399,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,16 @@\n import \"@/styles/globals.css\";\n import type { AppProps } from \"next/app\";\n import { WalletProvider } from \"@/components/walletContext\";\n+import { useWallet } from \"@aptos-labs/wallet-adapter-react\";\n import Header from \"@/components/header\";\n import Button from \"@/components/button\";\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n       <WalletProvider>\n-     \n+\n+     <Button />\n         <Component {...pageProps} />\n        \n       </WalletProvider>\n     \n"
+                },
+                {
+                    "date": 1728440708484,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,7 @@\n import \"@/styles/globals.css\";\n import type { AppProps } from \"next/app\";\n import { WalletProvider } from \"@/components/walletContext\";\n-import { useWallet } from \"@aptos-labs/wallet-adapter-react\";\n-import Header from \"@/components/header\";\n import Button from \"@/components/button\";\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n"
+                },
+                {
+                    "date": 1728440721226,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,10 +5,9 @@\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n       <WalletProvider>\n-\n-     <Button />\n+        <Button />\n         <Component {...pageProps} />\n        \n       </WalletProvider>\n     \n"
+                },
+                {
+                    "date": 1728440733830,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,8 @@\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n       <WalletProvider>\n-        <Button />\n         <Component {...pageProps} />\n        \n       </WalletProvider>\n     \n"
+                },
+                {
+                    "date": 1728441209823,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n       <WalletProvider>\n+        <Button />\n         <Component {...pageProps} />\n        \n       </WalletProvider>\n     \n"
+                },
+                {
+                    "date": 1728441230664,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,13 @@\n import \"@/styles/globals.css\";\n import type { AppProps } from \"next/app\";\n import { WalletProvider } from \"@/components/walletContext\";\n-import Button from \"@/components/button\";\n+import Header from \"@/components/header\";\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n       <WalletProvider>\n-        <Button />\n+        <Header />\n         <Component {...pageProps} />\n        \n       </WalletProvider>\n     \n"
+                },
+                {
+                    "date": 1728441366428,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n       <WalletProvider>\n-        <Header />\n+      \n         <Component {...pageProps} />\n        \n       </WalletProvider>\n     \n"
+                },
+                {
+                    "date": 1728441451904,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,14 @@\n import \"@/styles/globals.css\";\n import type { AppProps } from \"next/app\";\n import { WalletProvider } from \"@/components/walletContext\";\n import Header from \"@/components/header\";\n+import Button from \"@/components/button\";\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n       <WalletProvider>\n-      \n+      <Button/>\n         <Component {...pageProps} />\n        \n       </WalletProvider>\n     \n"
+                },
+                {
+                    "date": 1728441473401,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,13 @@\n import \"@/styles/globals.css\";\n import type { AppProps } from \"next/app\";\n import { WalletProvider } from \"@/components/walletContext\";\n import Header from \"@/components/header\";\n-import Button from \"@/components/button\";\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n       <WalletProvider>\n-      <Button/>\n+      \n         <Component {...pageProps} />\n        \n       </WalletProvider>\n     \n"
+                },
+                {
+                    "date": 1728441496067,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,11 +5,9 @@\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n       <WalletProvider>\n-      \n         <Component {...pageProps} />\n-       \n       </WalletProvider>\n     \n   );\n }\n"
+                },
+                {
+                    "date": 1728441907289,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,7 @@\n import \"@/styles/globals.css\";\n import type { AppProps } from \"next/app\";\n import { WalletProvider } from \"@/components/walletContext\";\n-import Header from \"@/components/header\";\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n       <WalletProvider>\n"
+                },
+                {
+                    "date": 1728441921572,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,10 @@\n import { WalletProvider } from \"@/components/walletContext\";\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n-      <WalletProvider>\n+      \n         <Component {...pageProps} />\n-      </WalletProvider>\n     \n+    \n   );\n }\n"
+                },
+                {
+                    "date": 1728442015564,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,10 @@\n import { WalletProvider } from \"@/components/walletContext\";\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n-      \n+      <WalletProvider>\n         <Component {...pageProps} />\n+      </WalletProvider>\n     \n-    \n   );\n }\n"
+                },
+                {
+                    "date": 1728442535478,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,13 @@\n import \"@/styles/globals.css\";\n import type { AppProps } from \"next/app\";\n import { WalletProvider } from \"@/components/walletContext\";\n+import Header from \"@/components/header\";\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n       <WalletProvider>\n+        <Header/>\n         <Component {...pageProps} />\n       </WalletProvider>\n     \n   );\n"
+                },
+                {
+                    "date": 1728442851648,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,8 @@\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n       <WalletProvider>\n-        <Header/>\n         <Component {...pageProps} />\n       </WalletProvider>\n     \n   );\n"
+                },
+                {
+                    "date": 1728442857600,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,7 @@\n import \"@/styles/globals.css\";\n import type { AppProps } from \"next/app\";\n import { WalletProvider } from \"@/components/walletContext\";\n-import Header from \"@/components/header\";\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n       <WalletProvider>\n"
+                },
+                {
+                    "date": 1728444389480,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,13 @@\n import \"@/styles/globals.css\";\n import type { AppProps } from \"next/app\";\n import { WalletProvider } from \"@/components/walletContext\";\n+import Header from \"@/components/header\";\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n       <WalletProvider>\n+        <Header />\n         <Component {...pageProps} />\n       </WalletProvider>\n     \n   );\n"
+                },
+                {
+                    "date": 1728444495673,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,8 @@\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n       <WalletProvider>\n-        <Header />\n         <Component {...pageProps} />\n       </WalletProvider>\n     \n   );\n"
+                }
+            ],
+            "date": 1728433104172,
+            "name": "Commit-0",
+            "content": "import \"@/styles/globals.css\";\nimport type { AppProps } from \"next/app\";\nimport { WalletProvider } from \"@/components/walletContext\";\nimport Header from \"@/components/header\";\n\nexport default function App({ Component, pageProps }: AppProps) {\n  return (\n    <WalletProvider>\n      \n      <Component {...pageProps} />\n      <Header />\n    </WalletProvider>\n  );  \n}\n"
+        }
+    ]
+}

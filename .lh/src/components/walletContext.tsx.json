@@ -1,0 +1,50 @@
+{
+    "sourceFile": "src/components/walletContext.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1728429760384,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1728441785016,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';\n+import Header from './header';  \n \n interface WalletContextProps {\n   connected: boolean;\n   setConnected: (value: boolean) => void;\n@@ -28,8 +29,9 @@\n   }, [connected]);\n \n   return (\n     <WalletContext.Provider value={{ connected, setConnected }}>\n+      <Header/>\n       {children}\n     </WalletContext.Provider>\n   );\n };\n"
+                },
+                {
+                    "date": 1728441812542,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,8 @@\n   }, [connected]);\n \n   return (\n     <WalletContext.Provider value={{ connected, setConnected }}>\n-      <Header/>\n       {children}\n     </WalletContext.Provider>\n   );\n };\n"
+                },
+                {
+                    "date": 1728442037611,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,8 +29,9 @@\n   }, [connected]);\n \n   return (\n     <WalletContext.Provider value={{ connected, setConnected }}>\n+      <Header />\n       {children}\n     </WalletContext.Provider>\n   );\n };\n"
+                },
+                {
+                    "date": 1728442156914,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,5 @@\n import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';\n-import Header from './header';  \n \n interface WalletContextProps {\n   connected: boolean;\n   setConnected: (value: boolean) => void;\n@@ -29,9 +28,8 @@\n   }, [connected]);\n \n   return (\n     <WalletContext.Provider value={{ connected, setConnected }}>\n-      <Header />\n       {children}\n     </WalletContext.Provider>\n   );\n };\n"
+                },
+                {
+                    "date": 1728442186053,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';\n+import Header from './header';\n \n interface WalletContextProps {\n   connected: boolean;\n   setConnected: (value: boolean) => void;\n"
+                },
+                {
+                    "date": 1728442191744,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,8 +29,9 @@\n   }, [connected]);\n \n   return (\n     <WalletContext.Provider value={{ connected, setConnected }}>\n+      <Header />\n       {children}\n     </WalletContext.Provider>\n   );\n };\n"
+                },
+                {
+                    "date": 1728442274798,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,12 +28,15 @@\n     }\n   }, [connected]);\n \n   return (\n+    <div>\n+      <Header/>\n+    \n     <WalletContext.Provider value={{ connected, setConnected }}>\n-      <Header />\n       {children}\n     </WalletContext.Provider>\n+    </div>\n   );\n };\n \n export const useWalletContext = () => {\n"
+                },
+                {
+                    "date": 1728442329735,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,15 +28,11 @@\n     }\n   }, [connected]);\n \n   return (\n-    <div>\n-      <Header/>\n-    \n     <WalletContext.Provider value={{ connected, setConnected }}>\n       {children}\n     </WalletContext.Provider>\n-    </div>\n   );\n };\n \n export const useWalletContext = () => {\n"
+                }
+            ],
+            "date": 1728429760384,
+            "name": "Commit-0",
+            "content": "import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';\n\ninterface WalletContextProps {\n  connected: boolean;\n  setConnected: (value: boolean) => void;\n}\n\nconst WalletContext = createContext<WalletContextProps | undefined>(undefined);\n\nexport const WalletProvider = ({ children }: { children: ReactNode }) => {\n  const [connected, setConnected] = useState<boolean>(false);\n\n  useEffect(() => {\n    // Solo acceder a localStorage en el cliente\n    if (typeof window !== 'undefined') {\n      const storedConnected = localStorage.getItem('walletConnected');\n      if (storedConnected) {\n        setConnected(storedConnected === 'true');\n      }\n    }\n  }, []);\n\n  useEffect(() => {\n    // Guardar el estado de conexión en localStorage cuando cambie\n    if (typeof window !== 'undefined') {\n      localStorage.setItem('walletConnected', connected.toString());\n    }\n  }, [connected]);\n\n  return (\n    <WalletContext.Provider value={{ connected, setConnected }}>\n      {children}\n    </WalletContext.Provider>\n  );\n};\n\nexport const useWalletContext = () => {\n  const context = useContext(WalletContext);\n  if (!context) {\n    throw new Error('useWalletContext must be used within a WalletProvider');\n  }\n  return context;\n};\n"
+        }
+    ]
+}
