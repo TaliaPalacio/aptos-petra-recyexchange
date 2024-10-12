@@ -3,11 +3,31 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 5,
             "patches": [
                 {
                     "date": 1728431429895,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1728764804243,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n import Image from \"next/image\";\n import { useWalletContext } from \"./walletContext\";\n \n const DropdownMenu = () => {\n+\n   const [isOpen, setIsOpen] = useState(false);\n   const menuRef = useRef<HTMLDivElement>(null);\n   const { connected } = useWalletContext(); // Usa el contexto\n \n@@ -30,8 +31,9 @@\n   }, []);\n \n   if (!connected) return null; // No mostrar el menú si la wallet no está conectada\n \n+  console.log(\"Menu se está renderizando\");\n   return (\n     <div className=\"relative\">\n       <button\n         type=\"button\"\n"
+                },
+                {
+                    "date": 1728764883405,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,8 @@\n   }, []);\n \n   if (!connected) return null; // No mostrar el menú si la wallet no está conectada\n \n-  console.log(\"Menu se está renderizando\");\n   return (\n     <div className=\"relative\">\n       <button\n         type=\"button\"\n"
+                },
+                {
+                    "date": 1728771771806,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,9 @@\n \n   const [isOpen, setIsOpen] = useState(false);\n   const menuRef = useRef<HTMLDivElement>(null);\n   const { connected } = useWalletContext(); // Usa el contexto\n+  \n \n   const toggleMenu = () => {\n     setIsOpen((prev) => !prev);\n   };\n"
+                },
+                {
+                    "date": 1728772156655,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n       document.removeEventListener(\"mousedown\", handleClickOutside);\n     };\n   }, []);\n \n-  if (!connected) return null; // No mostrar el menú si la wallet no está conectada\n+  if (connected) return null; // No mostrar el menú si la wallet no está conectada\n \n   return (\n     <div className=\"relative\">\n       <button\n"
+                },
+                {
+                    "date": 1728772182683,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n       document.removeEventListener(\"mousedown\", handleClickOutside);\n     };\n   }, []);\n \n-  if (connected) return null; // No mostrar el menú si la wallet no está conectada\n+  if (!connected) return null; // No mostrar el menú si la wallet no está conectada\n \n   return (\n     <div className=\"relative\">\n       <button\n"
                 }
             ],
             "date": 1728431429895,

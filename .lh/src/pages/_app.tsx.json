@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 30,
+            "activePatchIndex": 51,
             "patches": [
                 {
                     "date": 1728433104172,
@@ -128,6 +128,90 @@
                 {
                     "date": 1728444495673,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,8 @@\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n       <WalletProvider>\n-        <Header />\n         <Component {...pageProps} />\n       </WalletProvider>\n     \n   );\n"
+                },
+                {
+                    "date": 1728758451030,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n       <WalletProvider>\n+        <Header />\n         <Component {...pageProps} />\n       </WalletProvider>\n     \n   );\n"
+                },
+                {
+                    "date": 1728758657286,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,15 @@\n import \"@/styles/globals.css\";\n import type { AppProps } from \"next/app\";\n import { WalletProvider } from \"@/components/walletContext\";\n import Header from \"@/components/header\";\n+import Button from \"@/components/button\";\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n       <WalletProvider>\n         <Header />\n+        <Button />\n         <Component {...pageProps} />\n       </WalletProvider>\n     \n   );\n"
+                },
+                {
+                    "date": 1728758781467,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,11 @@\n import \"@/styles/globals.css\";\n import type { AppProps } from \"next/app\";\n import { WalletProvider } from \"@/components/walletContext\";\n-import Header from \"@/components/header\";\n-import Button from \"@/components/button\";\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n       <WalletProvider>\n-        <Header />\n-        <Button />\n         <Component {...pageProps} />\n       </WalletProvider>\n     \n   );\n"
+                },
+                {
+                    "date": 1728759724157,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,23 @@\n import \"@/styles/globals.css\";\n import type { AppProps } from \"next/app\";\n+import React from \"react\";\n+import { AptosWalletAdapterProvider } from \"@aptos-labs/wallet-adapter-react\";\n import { WalletProvider } from \"@/components/walletContext\";\n+import { Network } from \"@aptos-labs/ts-sdk\";\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n-      <WalletProvider>\n+    <React.StrictMode>\n+      <AptosWalletAdapterProvider\n+        autoConnect={true}\n+        optInWallets={[\"Petra\"]}\n+        dappConfig={{ network: Network.TESTNET }}\n+        onError={(error) => console.log(error)}\n+        plugins={[]}\n+      >\n+        {/* Aquí renderizas la página actual */}\n         <Component {...pageProps} />\n-      </WalletProvider>\n-    \n+      </AptosWalletAdapterProvider>\n+    </React.StrictMode>\n   );\n }\n"
+                },
+                {
+                    "date": 1728760611477,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,10 +14,13 @@\n         dappConfig={{ network: Network.TESTNET }}\n         onError={(error) => console.log(error)}\n         plugins={[]}\n       >\n+        <WalletProvider>\n         {/* Aquí renderizas la página actual */}\n         <Component {...pageProps} />\n+        </WalletProvider>\n+\n       </AptosWalletAdapterProvider>\n     </React.StrictMode>\n   );\n }\n"
+                },
+                {
+                    "date": 1728764741629,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n import React from \"react\";\n import { AptosWalletAdapterProvider } from \"@aptos-labs/wallet-adapter-react\";\n import { WalletProvider } from \"@/components/walletContext\";\n import { Network } from \"@aptos-labs/ts-sdk\";\n+import Header from \"@/components/header\";\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n     <React.StrictMode>\n@@ -16,9 +17,11 @@\n         plugins={[]}\n       >\n         <WalletProvider>\n         {/* Aquí renderizas la página actual */}\n+\n         <Component {...pageProps} />\n+        <Header/>\n         </WalletProvider>\n \n       </AptosWalletAdapterProvider>\n     </React.StrictMode>\n"
+                },
+                {
+                    "date": 1728765346172,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,11 +17,11 @@\n         plugins={[]}\n       >\n         <WalletProvider>\n         {/* Aquí renderizas la página actual */}\n-\n+        <Header/>\n         <Component {...pageProps} />\n-        <Header/>\n+        \n         </WalletProvider>\n \n       </AptosWalletAdapterProvider>\n     </React.StrictMode>\n"
+                },
+                {
+                    "date": 1728765362120,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,8 @@\n         <WalletProvider>\n         {/* Aquí renderizas la página actual */}\n         <Header/>\n         <Component {...pageProps} />\n-        \n         </WalletProvider>\n \n       </AptosWalletAdapterProvider>\n     </React.StrictMode>\n"
+                },
+                {
+                    "date": 1728770239938,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n import { AptosWalletAdapterProvider } from \"@aptos-labs/wallet-adapter-react\";\n import { WalletProvider } from \"@/components/walletContext\";\n import { Network } from \"@aptos-labs/ts-sdk\";\n import Header from \"@/components/header\";\n+import Menu from \"@/components/menu\";\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n     <React.StrictMode>\n@@ -18,8 +19,9 @@\n       >\n         <WalletProvider>\n         {/* Aquí renderizas la página actual */}\n         <Header/>\n+        <Menu/>\n         <Component {...pageProps} />\n         </WalletProvider>\n \n       </AptosWalletAdapterProvider>\n"
+                },
+                {
+                    "date": 1728770280165,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,8 @@\n       >\n         <WalletProvider>\n         {/* Aquí renderizas la página actual */}\n         <Header/>\n-        <Menu/>\n         <Component {...pageProps} />\n         </WalletProvider>\n \n       </AptosWalletAdapterProvider>\n"
+                },
+                {
+                    "date": 1728770287531,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,8 @@\n         plugins={[]}\n       >\n         <WalletProvider>\n         {/* Aquí renderizas la página actual */}\n-        <Header/>\n         <Component {...pageProps} />\n         </WalletProvider>\n \n       </AptosWalletAdapterProvider>\n"
+                },
+                {
+                    "date": 1728770336561,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,11 +3,10 @@\n import React from \"react\";\n import { AptosWalletAdapterProvider } from \"@aptos-labs/wallet-adapter-react\";\n import { WalletProvider } from \"@/components/walletContext\";\n import { Network } from \"@aptos-labs/ts-sdk\";\n-import Header from \"@/components/header\";\n-import Menu from \"@/components/menu\";\n \n+\n export default function App({ Component, pageProps }: AppProps) {\n   return (\n     <React.StrictMode>\n       <AptosWalletAdapterProvider\n"
+                },
+                {
+                    "date": 1728770397472,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n import React from \"react\";\n import { AptosWalletAdapterProvider } from \"@aptos-labs/wallet-adapter-react\";\n import { WalletProvider } from \"@/components/walletContext\";\n import { Network } from \"@aptos-labs/ts-sdk\";\n+import Header from \"@/components/header\";\n \n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n@@ -17,8 +18,9 @@\n         plugins={[]}\n       >\n         <WalletProvider>\n         {/* Aquí renderizas la página actual */}\n+        <Header />\n         <Component {...pageProps} />\n         </WalletProvider>\n \n       </AptosWalletAdapterProvider>\n"
+                },
+                {
+                    "date": 1728770414790,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,11 +16,12 @@\n         dappConfig={{ network: Network.TESTNET }}\n         onError={(error) => console.log(error)}\n         plugins={[]}\n       >\n+        <Header />\n         <WalletProvider>\n         {/* Aquí renderizas la página actual */}\n-        <Header />\n+        \n         <Component {...pageProps} />\n         </WalletProvider>\n \n       </AptosWalletAdapterProvider>\n"
+                },
+                {
+                    "date": 1728770438870,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,12 +16,11 @@\n         dappConfig={{ network: Network.TESTNET }}\n         onError={(error) => console.log(error)}\n         plugins={[]}\n       >\n-        <Header />\n         <WalletProvider>\n         {/* Aquí renderizas la página actual */}\n-        \n+        <Header />\n         <Component {...pageProps} />\n         </WalletProvider>\n \n       </AptosWalletAdapterProvider>\n"
+                },
+                {
+                    "date": 1728771850794,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,8 @@\n         plugins={[]}\n       >\n         <WalletProvider>\n         {/* Aquí renderizas la página actual */}\n-        <Header />\n         <Component {...pageProps} />\n         </WalletProvider>\n \n       </AptosWalletAdapterProvider>\n"
+                },
+                {
+                    "date": 1728771902317,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,12 +16,13 @@\n         dappConfig={{ network: Network.TESTNET }}\n         onError={(error) => console.log(error)}\n         plugins={[]}\n       >\n-        <WalletProvider>\n+\n+       <Header/>\n         {/* Aquí renderizas la página actual */}\n         <Component {...pageProps} />\n-        </WalletProvider>\n+      \n \n       </AptosWalletAdapterProvider>\n     </React.StrictMode>\n   );\n"
+                },
+                {
+                    "date": 1728771924095,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,13 +16,13 @@\n         dappConfig={{ network: Network.TESTNET }}\n         onError={(error) => console.log(error)}\n         plugins={[]}\n       >\n-\n-       <Header/>\n+        <Header />\n+        <WalletProvider>\n         {/* Aquí renderizas la página actual */}\n         <Component {...pageProps} />\n-      \n+        </WalletProvider>\n \n       </AptosWalletAdapterProvider>\n     </React.StrictMode>\n   );\n"
+                },
+                {
+                    "date": 1728771968996,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,21 +9,23 @@\n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n     <React.StrictMode>\n+      <WalletProvider>\n       <AptosWalletAdapterProvider\n         autoConnect={true}\n         optInWallets={[\"Petra\"]}\n         dappConfig={{ network: Network.TESTNET }}\n         onError={(error) => console.log(error)}\n         plugins={[]}\n       >\n-        <Header />\n-        <WalletProvider>\n+        \n+        <Header/>\n         {/* Aquí renderizas la página actual */}\n         <Component {...pageProps} />\n-        </WalletProvider>\n+        \n \n       </AptosWalletAdapterProvider>\n+      </WalletProvider>\n     </React.StrictMode>\n   );\n }\n"
+                },
+                {
+                    "date": 1728772023535,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,10 +8,11 @@\n \n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n+    <WalletProvider>\n     <React.StrictMode>\n-      <WalletProvider>\n+      \n       <AptosWalletAdapterProvider\n         autoConnect={true}\n         optInWallets={[\"Petra\"]}\n         dappConfig={{ network: Network.TESTNET }}\n@@ -24,8 +25,9 @@\n         <Component {...pageProps} />\n         \n \n       </AptosWalletAdapterProvider>\n-      </WalletProvider>\n+      \n     </React.StrictMode>\n+    </WalletProvider>\n   );\n }\n"
+                },
+                {
+                    "date": 1728772222290,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,26 +8,23 @@\n \n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n-    <WalletProvider>\n     <React.StrictMode>\n-      \n       <AptosWalletAdapterProvider\n         autoConnect={true}\n         optInWallets={[\"Petra\"]}\n         dappConfig={{ network: Network.TESTNET }}\n         onError={(error) => console.log(error)}\n         plugins={[]}\n       >\n         \n-        <Header/>\n+        <WalletProvider>\n+        <Header />\n         {/* Aquí renderizas la página actual */}\n         <Component {...pageProps} />\n-        \n+        </WalletProvider>\n \n       </AptosWalletAdapterProvider>\n-      \n     </React.StrictMode>\n-    </WalletProvider>\n   );\n }\n"
                 }
             ],
             "date": 1728433104172,
