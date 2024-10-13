@@ -1,10 +1,13 @@
 module recyexchange::recicly {
     
     
-    use aptos_std::table::{Self, Table};
+    use aptos_std::table::{Self, Table};   
     use std::string::{String};
     use std::signer::address_of;
-    use std::option::{Option};
+    use std::option::{Option, some};
+    use std::vector;
+
+
 
     
     const YA_INICIALIZADO: u64 = 1;    
@@ -13,139 +16,176 @@ module recyexchange::recicly {
     const REGISTRO_YA_EXISTE: u64 = 4;   
     const NADA_A_MODIFICAR: u64 = 5;
     const MANTENIMIENTO: u64 = 6;
+    const BDNOINICIALICER: u64 = 7;
 
-    struct User has store, copy, drop {        
-        rol: String,
-        location: vector<u64>,  
-        date: String,
-        state: String,        
-        recycling: Recycling,        
-    }
 
     struct Chat has store, copy, drop {
-        topic: Option<String>,
+        topic: String,
         response: String,
     }
 
     struct Recycling has store, copy, drop {
+        owner: address,
         type: String,
-        quantity: u64,
-        priceKg: u64,
-        chat: Chat,
+        ubication: String,
+        weight: u64,
+        pricePound: u64,
+        observations: String,        
+        chats: vector<Option<Chat>>, // Cambiar de chat a un vector de Option<Chat>
+        available: bool,
     }
 
-    struct BdRecy has key { // Dado a que utilizaremos este struct con operaciones del global_storage, necesita tener la habilidad key
-        users : Table<u64, User>, 
-        chats : Table<u64, Chat>,
-        recyclings : Table<u64, Recycling>,        
+    struct BdRecy has key {       
+        recyclings: Table<u64, Recycling>,    
+        recyclings_ids: vector<u64>,  
+        count: u64,  
+        
     }
 
-    public entry fun inicializar(cuenta: &signer) {
-        assert!(!exists<BdRecy>(address_of(cuenta)), YA_INICIALIZADO); // En dado caso de que YA exista la Agenda, abortamos el proceso.
-        move_to(cuenta, BdRecy {            
-            users: table::new<u64, User>(), // Declaramos tipo trenes
-            chats: table::new<u64, Chat>(),            
+
+    public entry fun inicializar(count: &signer) {
+        
+        assert!(!exists<BdRecy>(address_of(count)), YA_INICIALIZADO);
+        move_to(count, BdRecy {          
+                 
             recyclings: table::new<u64, Recycling>(),  
+            recyclings_ids: vector::empty<u64>(),    
+            count: 0,  
+
         })
     }
 
-    public entry fun set_chat(        
-        cuenta: &signer, 
-        id: u64,
-        topic: Option<String>,
-        response: String
-    ) acquires BdRecy {
-        assert!(exists<BdRecy>(address_of(cuenta)), NO_INICIALIZADO); // Necesitamos que se haya corrido la funcion de inicializar primero.
-
-        let registros = borrow_global_mut<BdRecy>(address_of(cuenta));
-        assert!(!table::contains(&registros.chats, id), REGISTRO_YA_EXISTE);
-
-        table::add(&mut registros.chats,
-        id, 
-        Chat{
-            topic,
-            response,
-        });
-    }
 
     public entry fun set_recycling(        
-        cuenta: &signer, 
-        id: u64,
+        count: &signer,        
         type: String,
-        quantity: u64,
-        priceKg: u64,
-        id_chat: u64,
+        ubication: String,
+        weight: u64,
+        pricePound: u64,
+        observations: String,
+        chats: vector<Option<Chat>>, // Cambiar a un vector de IDs de chats
+        available: bool,
     ) acquires BdRecy {
-        assert!(exists<BdRecy>(address_of(cuenta)), NO_INICIALIZADO); // Necesitamos que se haya corrido la funcion de inicializar primero.
+        assert!(exists<BdRecy>(address_of(count)), NO_INICIALIZADO);
 
-        let registros = borrow_global_mut<BdRecy>(address_of(cuenta));
-        assert!(!table::contains(&registros.recyclings, id), REGISTRO_YA_EXISTE);
-
+        let registros = borrow_global_mut<BdRecy>(address_of(count));
         
-        assert!(table::contains(&registros.chats, id_chat), REGISTRO_NO_EXISTE);
-        let regi_chat = table::borrow(&registros.chats, id_chat);
-           
 
+        let id: u64 = 1;
+        registros.count = registros.count + id;
+        let id_generate = registros.count;
+        
+        vector::push_back(&mut registros.recyclings_ids, id_generate);
 
         table::add(&mut registros.recyclings,
-        id, 
-        Recycling{
+        id_generate,
+        Recycling {
+            owner: address_of(count),
             type,
-            quantity,
-            priceKg,
-            chat: *regi_chat,
-        });
+            ubication,
+            weight,
+            pricePound,
+            observations,            
+            chats, // Asignar el vector de chats
+            available,
+        });       
     }
 
-    public entry fun set_user(
-        
-        cuenta: &signer, 
+    // function to set chat in a recycling
+    public entry fun set_chat(
+        count: &signer,
         id: u64,
-        rol: String,
-        location: vector<u64>,  
-        date: String,
-        state: String,        
-        id_recycling: u64,    
+        topic: String,
+        response: String,
     ) acquires BdRecy {
-        assert!(exists<BdRecy>(address_of(cuenta)), NO_INICIALIZADO); // Necesitamos que se haya corrido la funcion de inicializar primero.
+        assert!(exists<BdRecy>(address_of(count)), NO_INICIALIZADO);
+        let registros = borrow_global_mut<BdRecy>(address_of(count));
+        let recycling = table::borrow_mut(&mut registros.recyclings, id);
+        let chat = Chat {
+            topic,
+            response,
+        };
+        vector::push_back(&mut recycling.chats, some(chat));
+    }
 
-        let registros = borrow_global_mut<BdRecy>(address_of(cuenta));
-        assert!(!table::contains(&registros.users, id), REGISTRO_YA_EXISTE);       
+    // function to get chat in a recycling by id
+    public fun get_chat(
+        count: &signer,
+        id: u64,        
+    ): vector<Option<Chat>> acquires BdRecy {
+        assert!(exists<BdRecy>(address_of(count)), NO_INICIALIZADO);
+        let registros = borrow_global<BdRecy>(address_of(count));
+        let recycling = table::borrow(&registros.recyclings, id);
+        let chats = recycling.chats;  // Eliminar la referencia '&'
+        chats  // Devolver el vector directamente
+    }
+
+
+    
+    #[view]
+    public fun get_recycling_ids(cuenta: address): vector<u64> acquires BdRecy {
+        assert!(exists<BdRecy>(cuenta), NO_INICIALIZADO);
+        let registros = borrow_global<BdRecy>(cuenta);
+        registros.recyclings_ids
+    }
+
+    #[view]
+    public fun get_all_recyclings(cuenta: address): vector<Recycling> acquires BdRecy {
+
+        assert!(exists<BdRecy>(cuenta), NO_INICIALIZADO);
         
-        assert!(table::contains(&registros.recyclings, id_recycling), REGISTRO_NO_EXISTE);
-        let regi_recyclings = table::borrow(&registros.recyclings, id_recycling);
-           
-
-        table::add(
-            &mut registros.users,
-            id, 
-            User{
-                rol,
-                location,  
-                date,
-                state,            
-                recycling: *regi_recyclings, 
-            }
-        );
-    }
-
-    #[view]
-    public fun get_user_by_id(cuenta: address, id: u64): User acquires BdRecy {
-        assert!(exists<BdRecy>(cuenta), NO_INICIALIZADO);
-
         let registros = borrow_global<BdRecy>(cuenta);
-        let resultado = table::borrow(&registros.users, id);
+        
+        let all_recyclings = vector::empty<Recycling>();
+        
+        let recyclings_ids = &registros.recyclings_ids;
+        
+        let num_recyclings = vector::length(recyclings_ids);
+        let i = 0;
+        
+        while (i < num_recyclings) {
+            let id = vector::borrow(recyclings_ids, i);
+            let recycling = table::borrow(&registros.recyclings, *id);
+            
+            vector::push_back(&mut all_recyclings, *recycling);
+            i = i + 1;
+        };
+        
+        all_recyclings
+    }
+    
+    #[view]
+    public fun get_recycling_count_id(count: address, id: u64): Recycling acquires BdRecy {
+        assert!(exists<BdRecy>(count), NO_INICIALIZADO);
+
+        let registros = borrow_global<BdRecy>(count);
+        let resultado = table::borrow(&registros.recyclings, id);
         *resultado
     }
 
     #[view]
-    public fun get_chat(cuenta: address, id: u64): Chat acquires BdRecy {
-        assert!(exists<BdRecy>(cuenta), NO_INICIALIZADO);
+    public fun get_chat_count_id(count: address, id: u64): vector<Option<Chat>> acquires BdRecy {
+        assert!(exists<BdRecy>(count), NO_INICIALIZADO);
+        let registros = borrow_global<BdRecy>(count);
+        let recycling = table::borrow(&registros.recyclings, id);
+        recycling.chats
+    }   
 
-        let registros = borrow_global<BdRecy>(cuenta);
-        let resultado = table::borrow(&registros.chats, id);
+    #[view]
+    public fun get_recycling_id(count: address, id: u64): Recycling acquires BdRecy {
+        assert!(exists<BdRecy>(count), NO_INICIALIZADO);
+
+        let registros = borrow_global<BdRecy>(count);
+        let resultado = table::borrow(&registros.recyclings, id);
         *resultado
     }
 
-
+    #[test(a = @0x1)]
+    fun test_inicializar(a: &signer) {
+        // Llamamos a la funcion inicializar
+        inicializar(a);
+        
+        // Verificamos que el recurso BdRecy ha sido movido a la cuenta
+        assert!(exists<BdRecy>(address_of(a)), BDNOINICIALICER);
+    }  
 }

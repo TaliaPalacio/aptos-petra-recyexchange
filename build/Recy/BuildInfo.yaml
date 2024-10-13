@@ -5,11 +5,11 @@ compiled_package_info:
     Extensions: "0000000000000000000000000000000000000000000000000000000000000001"
     aptos_framework: "0000000000000000000000000000000000000000000000000000000000000001"
     aptos_std: "0000000000000000000000000000000000000000000000000000000000000001"
-    cuenta: 7ba23f3b116da3871b06133fda6f9ba93339b6714213f643a85d608beeaa9044
-    recyexchange: 7ba23f3b116da3871b06133fda6f9ba93339b6714213f643a85d608beeaa9044
+    cuenta: fed39611e5ac476394ec5799b1e0ed2a577a47dcfa522ab92df24d5667bc4720
+    recyexchange: fed39611e5ac476394ec5799b1e0ed2a577a47dcfa522ab92df24d5667bc4720
     std: "0000000000000000000000000000000000000000000000000000000000000001"
     vm: "0000000000000000000000000000000000000000000000000000000000000000"
-  source_digest: D5707D72CB85E23B051A7111B57F8D4F6FC7F21881CB405BA100CCCBB265071E
+  source_digest: A0043A99E5241F77E82CA2ACD23325D59CED83AA62AC62E4C7FF67AAB4C9B1FE
   build_flags:
     dev_mode: false
     test_mode: false
@@ -21,12 +21,12 @@ compiled_package_info:
     install_dir: ~
     force_recompilation: false
     additional_named_addresses:
-      cuenta: 7ba23f3b116da3871b06133fda6f9ba93339b6714213f643a85d608beeaa9044
+      cuenta: fed39611e5ac476394ec5799b1e0ed2a577a47dcfa522ab92df24d5667bc4720
     architecture: ~
     fetch_deps_only: false
     skip_fetch_latest_git_deps: false
     compiler_config:
-      bytecode_version: ~
+      bytecode_version: 6
       known_attributes:
         - bytecode_instruction
         - deprecated
@@ -35,6 +35,7 @@ compiled_package_info:
         - "fmt::skip"
         - legacy_entry_fun
         - "lint::allow_unsafe_randomness"
+        - "lint::skip"
         - native_interface
         - randomness
         - resource_group
@@ -46,6 +47,8 @@ compiled_package_info:
       skip_attribute_checks: false
       compiler_version: ~
       language_version: ~
+      experiments:
+        - optimize=on
 dependencies:
   - AptosStdlib
   - MoveStdlib
