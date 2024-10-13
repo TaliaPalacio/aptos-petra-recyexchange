@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/pages/api/chats/[recyclingId].ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1728696419194,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1728696419194,
+            "name": "Commit-0",
+            "content": "// pages/api/chats/[recyclingId].ts\n\nimport { NextApiRequest, NextApiResponse } from 'next';\n\n// Simulando una base de datos en memoria (puedes reemplazar esto por una conexión real a tu base de datos)\nconst chatsDB: { [key: string]: { topic: string; message: string }[] } = {};\n\nexport default async function handler(req: NextApiRequest, res: NextApiResponse) {\n    const {\n        query: { recyclingId }, // Obtener el recyclingId de la URL\n        body,\n        method,\n    } = req;\n\n    // Manejar la solicitud POST\n    if (method === 'POST') {\n        const { topic, message } = body;\n\n        // Verificar si hay un recyclingId válido\n        if (!recyclingId || typeof recyclingId !== 'string') {\n            return res.status(400).json({ success: false, message: 'Invalid recycling ID' });\n        }\n\n        // Agregar el chat a la base de datos simulada\n        if (!chatsDB[recyclingId]) {\n            chatsDB[recyclingId] = []; // Inicializar el array si no existe\n        }\n        \n        chatsDB[recyclingId].push({ topic, message }); // Guardar el mensaje\n\n        return res.status(200).json({\n            success: true,\n            recyclingId,\n            topic,\n            message,\n        });\n    } else {\n        res.setHeader('Allow', ['POST']);\n        return res.status(405).end(`Method ${method} Not Allowed`);\n    }\n}\n"
+        }
+    ]
+}

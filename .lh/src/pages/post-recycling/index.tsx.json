@@ -1,0 +1,334 @@
+{
+    "sourceFile": "src/pages/post-recycling/index.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 79,
+            "patches": [
+                {
+                    "date": 1728513649302,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1728513863565,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import React from 'react'\n \n+\n const postRecycling = () => {\n   return (\n     <div>index</div>\n   )\n"
+                },
+                {
+                    "date": 1728513946113,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import React from 'react'\n+import Carousel from \"@/components/carouse-shadcn\";\n \n \n const postRecycling = () => {\n   return (\n"
+                },
+                {
+                    "date": 1728513960595,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import React from 'react'\n import Carousel from \"@/components/carouse-shadcn\";\n+import Header from \"@/components/header\";\n \n \n const postRecycling = () => {\n   return (\n"
+                },
+                {
+                    "date": 1728515251149,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,99 @@\n-import React from 'react'\n+import React, { useState } from \"react\";\n+import RadioGroupGlobal from \"@/components/radio-group-global\";\n import Carousel from \"@/components/carouse-shadcn\";\n import Header from \"@/components/header\";\n \n+const RegisterPage = () => {\n+  const options = [\n+    { id: \"check-recycling\", label: \"Check Available Recycling\", description: \"This option allows you to check which recycling is available for collection in your area. Remember that you can communicate with the client through the integrated chat..\" },\n+    { id: \"post-recycling\", label: \"Post Recycling\", description: \"This option allows you to post your recycling for pickup. If you have questions about what you can recycle, you can enter here..\" },\n+  ];\n \n\\ No newline at end of file\n-const postRecycling = () => {\n+  const [selectedDescription, setSelectedDescription] = useState<string>(\"\");\n+\n+  const handleRadioChange = (description: string) => {\n+    setSelectedDescription(description);\n+  };\n+\n   return (\n-    <div>index</div>\n-  )\n-}\n \n-export default postRecycling;\n+    <div className=\"flex flex-col W-full items-center\">\n+      <div className=\"\">\n+        <Header />\n+      </div>\n+      <div className=\"w-full flex items-center flex-col\">\n+      <form className=\"w-full max-w-lg bg-green-100 border border-blue-500 p-6 rounded-lg shadow-md transition-transform transform hover:scale-105 duration-300\">\n+        <div className=\"space-y-12\">\n+          <div className=\"border-b border-gray-900/10 pb-12\">\n+            <div className=\"mt-10 space-y-10\">\n+              \n+              <fieldset>\n+                <legend className=\"text-center font-semibold leading-6 text-gray-900\">\n+                  Select an Option\n+                </legend>\n+                \n+                <p className=\"mt-1 text-sm leading-6 text-gray-600\">\n+                  Choose one of the following options.\n+                </p>\n+                <div className=\"mt-6 space-y-6\">\n+                  {options.map((option) => (\n+                    <div className=\"flex items-center gap-x-3\" key={option.id}>\n+                      <input\n+                        id={option.id}\n+                        name=\"recycling-options\"\n+                        type=\"radio\"\n+                        className=\"h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600\"\n+                        onChange={() => handleRadioChange(option.description)}\n+                      />\n+                      <label\n+                        htmlFor={option.id}\n+                        className=\"block text-lg font-medium leading-6 text-gray-900 transition-transform transform hover:scale-105 duration-300\"\n+                      >\n+                        {option.label}\n+                      </label>\n+                    </div>\n+                  ))}\n+                </div>\n+              </fieldset>\n+            </div>\n+          </div>\n+        </div>\n+\n+        <div className=\"mt-6 flex items-center justify-end gap-x-6\">\n+          <button\n+            type=\"button\"\n+            className=\"text-sm font-semibold leading-6 text-gray-900 transition-colors hover:text-indigo-600\"\n+          >\n+            Cancel\n+          </button>\n+          <button\n+            type=\"submit\"\n+            className=\"rounded-md bg-orange-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-transform transform hover:scale-105 duration-300\"\n+          >\n+            Submit\n+          </button>\n+        </div>\n+      </form>\n+\n+      \n+      {/* Cuadro de descripción fuera del formulario */}\n+      <div className=\"mt-8 w-full max-w-lg bg-white border border-blue-500 p-4 rounded-lg shadow-md transition-opacity duration-300\">\n+        <h3 className=\"text-lg font-semibold leading-6 text-gray-900\">\n+          \n+          Description of each option\n+        </h3>\n+        <p className=\"mt-2 text-sm leading-6 text-gray-600\">\n+          {selectedDescription || \"Select an option to see the description here.\"}\n+        </p>\n+      </div>\n+        <RadioGroupGlobal />\n+        <Carousel />\n+\n+        </div>\n+    </div>\n+  );\n+};\n+\n+export default RegisterPage;\n+\n+\n"
+                },
+                {
+                    "date": 1728517042698,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,98 +1,9 @@\n-import React, { useState } from \"react\";\n-import RadioGroupGlobal from \"@/components/radio-group-global\";\n-import Carousel from \"@/components/carouse-shadcn\";\n-import Header from \"@/components/header\";\n+import React from 'react'\n \n-const RegisterPage = () => {\n-  const options = [\n-    { id: \"check-recycling\", label: \"Check Available Recycling\", description: \"This option allows you to check which recycling is available for collection in your area. Remember that you can communicate with the client through the integrated chat..\" },\n-    { id: \"post-recycling\", label: \"Post Recycling\", description: \"This option allows you to post your recycling for pickup. If you have questions about what you can recycle, you can enter here..\" },\n-  ];\n-\n-  const [selectedDescription, setSelectedDescription] = useState<string>(\"\");\n-\n-  const handleRadioChange = (description: string) => {\n-    setSelectedDescription(description);\n-  };\n-\n+const postRecycling = () => {\n   return (\n+    <div>index</div>\n+  )\n+}\n \n-    <div className=\"flex flex-col W-full items-center\">\n-      <div className=\"\">\n-        <Header />\n-      </div>\n-      <div className=\"w-full flex items-center flex-col\">\n-      <form className=\"w-full max-w-lg bg-green-100 border border-blue-500 p-6 rounded-lg shadow-md transition-transform transform hover:scale-105 duration-300\">\n-        <div className=\"space-y-12\">\n-          <div className=\"border-b border-gray-900/10 pb-12\">\n-            <div className=\"mt-10 space-y-10\">\n-              \n-              <fieldset>\n-                <legend className=\"text-center font-semibold leading-6 text-gray-900\">\n-                  Select an Option\n-                </legend>\n-                \n-                <p className=\"mt-1 text-sm leading-6 text-gray-600\">\n-                  Choose one of the following options.\n-                </p>\n-                <div className=\"mt-6 space-y-6\">\n-                  {options.map((option) => (\n-                    <div className=\"flex items-center gap-x-3\" key={option.id}>\n-                      <input\n-                        id={option.id}\n-                        name=\"recycling-options\"\n-                        type=\"radio\"\n-                        className=\"h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600\"\n-                        onChange={() => handleRadioChange(option.description)}\n-                      />\n-                      <label\n-                        htmlFor={option.id}\n-                        className=\"block text-lg font-medium leading-6 text-gray-900 transition-transform transform hover:scale-105 duration-300\"\n-                      >\n-                        {option.label}\n-                      </label>\n-                    </div>\n-                  ))}\n-                </div>\n-              </fieldset>\n-            </div>\n-          </div>\n-        </div>\n-\n-        <div className=\"mt-6 flex items-center justify-end gap-x-6\">\n-          <button\n-            type=\"button\"\n-            className=\"text-sm font-semibold leading-6 text-gray-900 transition-colors hover:text-indigo-600\"\n-          >\n-            Cancel\n-          </button>\n-          <button\n-            type=\"submit\"\n-            className=\"rounded-md bg-orange-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-transform transform hover:scale-105 duration-300\"\n-          >\n-            Submit\n-          </button>\n-        </div>\n-      </form>\n-\n-      \n-      {/* Cuadro de descripción fuera del formulario */}\n-      <div className=\"mt-8 w-full max-w-lg bg-white border border-blue-500 p-4 rounded-lg shadow-md transition-opacity duration-300\">\n-        <h3 className=\"text-lg font-semibold leading-6 text-gray-900\">\n-          \n-          Description of each option\n-        </h3>\n-        <p className=\"mt-2 text-sm leading-6 text-gray-600\">\n-          {selectedDescription || \"Select an option to see the description here.\"}\n-        </p>\n-      </div>\n-        <RadioGroupGlobal />\n-        <Carousel />\n-\n-        </div>\n-    </div>\n-  );\n-};\n-\n-export default RegisterPage;\n-\n+export default postRecycling;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1728520911738,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,12 @@\n import React from 'react'\n+import Header from '@/components/header'\n \n const postRecycling = () => {\n   return (\n-    <div>index</div>\n+    <div>\n+        <Header />\n+    </div>\n   )\n }\n \n export default postRecycling;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1728521005066,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,13 @@\n import React from 'react'\n import Header from '@/components/header'\n+import Carousel from '@/components/carousel'\n \n const postRecycling = () => {\n   return (\n     <div>\n         <Header />\n+        <Carousel />\n     </div>\n   )\n }\n \n"
+                },
+                {
+                    "date": 1728521149775,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import React from 'react'\n import Header from '@/components/header'\n-import Carousel from '@/components/carousel'\n+import Carousel from \"@/components/carousel-shadcn\";\n \n const postRecycling = () => {\n   return (\n     <div>\n"
+                },
+                {
+                    "date": 1728521658359,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,11 @@\n \n const postRecycling = () => {\n   return (\n     <div>\n+        <div>\n         <Header />\n+        </div>\n         <Carousel />\n     </div>\n   )\n }\n"
+                },
+                {
+                    "date": 1728521686572,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,12 +4,12 @@\n \n const postRecycling = () => {\n   return (\n     <div>\n+        <Header />\n         <div>\n-        <Header />\n+        <Carousel />\n         </div>\n-        <Carousel />\n     </div>\n   )\n }\n \n"
+                },
+                {
+                    "date": 1728521700606,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n const postRecycling = () => {\n   return (\n     <div>\n         <Header />\n-        <div>\n+        <div className=\"m-10\">\n         <Carousel />\n         </div>\n     </div>\n   )\n"
+                },
+                {
+                    "date": 1728525261684,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,19 @@\n import React from 'react'\n import Header from '@/components/header'\n import Carousel from \"@/components/carousel-shadcn\";\n+import FormRegister from '@/components/formRegister';\n \n const postRecycling = () => {\n   return (\n     <div>\n         <Header />\n         <div className=\"m-10\">\n         <Carousel />\n         </div>\n+        <div>\n+            <FormRegister />        \n+        </div>\n     </div>\n   )\n }\n \n"
+                },
+                {
+                    "date": 1728525303419,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,20 +1,20 @@\n-import React from 'react'\n-import Header from '@/components/header'\n+import React from \"react\";\n+import Header from \"@/components/header\";\n import Carousel from \"@/components/carousel-shadcn\";\n-import FormRegister from '@/components/formRegister';\n+import FormRegister from \"@/components/formRegister\";\n \n const postRecycling = () => {\n   return (\n     <div>\n-        <Header />\n-        <div className=\"m-10\">\n+      <Header />\n+      <div>\n+        <FormRegister />\n+      </div>\n+      <div className=\"m-10\">\n         <Carousel />\n-        </div>\n\\ No newline at end of file\n-        <div>\n-            <FormRegister />        \n-        </div>\n+      </div>\n     </div>\n-  )\n-}\n+  );\n+};\n \n-export default postRecycling;\n+export default postRecycling;\n"
+                },
+                {
+                    "date": 1728525403808,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,11 +6,10 @@\n const postRecycling = () => {\n   return (\n     <div>\n       <Header />\n-      <div>\n         <FormRegister />\n-      </div>\n+      \n       <div className=\"m-10\">\n         <Carousel />\n       </div>\n     </div>\n"
+                },
+                {
+                    "date": 1728525417668,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     <div>\n       <Header />\n         <FormRegister />\n       \n-      <div className=\"m-10\">\n+      <div>\n         <Carousel />\n       </div>\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1728525446124,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,10 +6,11 @@\n const postRecycling = () => {\n   return (\n     <div>\n       <Header />\n+        <div className=\"flex justify-center mt-0\">\n         <FormRegister />\n-      \n+      </div>\n       <div>\n         <Carousel />\n       </div>\n     </div>\n"
+                },
+                {
+                    "date": 1728525470996,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,11 +9,11 @@\n       <Header />\n         <div className=\"flex justify-center mt-0\">\n         <FormRegister />\n       </div>\n-      <div>\n+      \n         <Carousel />\n-      </div>\n+      \n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1728525483507,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,13 +6,14 @@\n const postRecycling = () => {\n   return (\n     <div>\n       <Header />\n+      <Carousel />\n         <div className=\"flex justify-center mt-0\">\n         <FormRegister />\n       </div>\n       \n-        <Carousel />\n+        \n       \n     </div>\n   );\n };\n"
+                },
+                {
+                    "date": 1728525498111,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   return (\n     <div>\n       <Header />\n       <Carousel />\n-        <div className=\"flex justify-center mt-0\">\n+        <div className=\"flex justify-end mt-0\">\n         <FormRegister />\n       </div>\n       \n         \n"
+                },
+                {
+                    "date": 1728525531336,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,12 @@\n const postRecycling = () => {\n   return (\n     <div>\n       <Header />\n+      <div className=\"mt-10\">\n       <Carousel />\n+      </div>\n+      \n         <div className=\"flex justify-end mt-0\">\n         <FormRegister />\n       </div>\n       \n"
+                },
+                {
+                    "date": 1728525539154,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n const postRecycling = () => {\n   return (\n     <div>\n       <Header />\n-      <div className=\"mt-10\">\n+      <div className=\"mt-30\">\n       <Carousel />\n       </div>\n       \n         <div className=\"flex justify-end mt-0\">\n"
+                },
+                {
+                    "date": 1728525560519,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n const postRecycling = () => {\n   return (\n     <div>\n       <Header />\n-      <div className=\"mt-30\">\n+      <div className=\"mt-20\">\n       <Carousel />\n       </div>\n       \n         <div className=\"flex justify-end mt-0\">\n"
+                },
+                {
+                    "date": 1728525645709,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,10 +9,9 @@\n       <Header />\n       <div className=\"mt-20\">\n       <Carousel />\n       </div>\n-      \n-        <div className=\"flex justify-end mt-0\">\n+        <div className=\"flex mt-0\">\n         <FormRegister />\n       </div>\n       \n         \n"
+                },
+                {
+                    "date": 1728525661539,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,16 +7,13 @@\n   return (\n     <div>\n       <Header />\n       <div className=\"mt-20\">\n-      <Carousel />\n+        <Carousel />\n       </div>\n-        <div className=\"flex mt-0\">\n+      <div className=\"flex mt-0\">\n         <FormRegister />\n       </div>\n-      \n-        \n-      \n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1728525688392,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,14 +6,16 @@\n const postRecycling = () => {\n   return (\n     <div>\n       <Header />\n-      <div className=\"mt-20\">\n-        <Carousel />\n+      <div>\n+        <div className=\"mt-20\">\n+          <Carousel />\n+        </div>\n+        <div className=\"flex mt-0\">\n+          <FormRegister />\n+        </div>\n       </div>\n-      <div className=\"flex mt-0\">\n-        <FormRegister />\n-      </div>\n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1728525731606,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n const postRecycling = () => {\n   return (\n     <div>\n       <Header />\n-      <div>\n+      <div className=\"flex justify-center\">\n         <div className=\"mt-20\">\n           <Carousel />\n         </div>\n         <div className=\"flex mt-0\">\n"
+                },
+                {
+                    "date": 1728525751868,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n const postRecycling = () => {\n   return (\n     <div>\n       <Header />\n-      <div className=\"flex justify-center\">\n+      <div className=\"flex justify-between\">\n         <div className=\"mt-20\">\n           <Carousel />\n         </div>\n         <div className=\"flex mt-0\">\n"
+                },
+                {
+                    "date": 1728525780266,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n const postRecycling = () => {\n   return (\n     <div>\n       <Header />\n-      <div className=\"flex justify-between\">\n+      <div className=\"flex justify-around\">\n         <div className=\"mt-20\">\n           <Carousel />\n         </div>\n         <div className=\"flex mt-0\">\n"
+                },
+                {
+                    "date": 1728525797532,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n       <div className=\"flex justify-around\">\n         <div className=\"mt-20\">\n           <Carousel />\n         </div>\n-        <div className=\"flex mt-0\">\n+        <div className=\"\">\n           <FormRegister />\n         </div>\n       </div>\n     </div>\n"
+                },
+                {
+                    "date": 1728525855676,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n const postRecycling = () => {\n   return (\n     <div>\n       <Header />\n-      <div className=\"flex justify-around\">\n+      <div className=\"flex justify-around py-3\">\n         <div className=\"mt-20\">\n           <Carousel />\n         </div>\n         <div className=\"\">\n"
+                },
+                {
+                    "date": 1728525880639,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,10 +6,10 @@\n const postRecycling = () => {\n   return (\n     <div>\n       <Header />\n-      <div className=\"flex justify-around py-3\">\n-        <div className=\"mt-20\">\n+      <div className=\"flex justify-around py-10\">\n+        <div className=\"\">\n           <Carousel />\n         </div>\n         <div className=\"\">\n           <FormRegister />\n"
+                },
+                {
+                    "date": 1728525899767,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   return (\n     <div>\n       <Header />\n       <div className=\"flex justify-around py-10\">\n-        <div className=\"\">\n+        <div className=\"w-full\">\n           <Carousel />\n         </div>\n         <div className=\"\">\n           <FormRegister />\n"
+                },
+                {
+                    "date": 1728525921638,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,10 +6,10 @@\n const postRecycling = () => {\n   return (\n     <div>\n       <Header />\n-      <div className=\"flex justify-around py-10\">\n-        <div className=\"w-full\">\n+      <div className=\"flex justify-around py-10 w-full\">\n+        <div className=\"\">\n           <Carousel />\n         </div>\n         <div className=\"\">\n           <FormRegister />\n"
+                },
+                {
+                    "date": 1728525934327,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   return (\n     <div>\n       <Header />\n       <div className=\"flex justify-around py-10 w-full\">\n-        <div className=\"\">\n+        <div className=\"w-1/2\">\n           <Carousel />\n         </div>\n         <div className=\"\">\n           <FormRegister />\n"
+                },
+                {
+                    "date": 1728525945632,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n       <div className=\"flex justify-around py-10 w-full\">\n         <div className=\"w-1/2\">\n           <Carousel />\n         </div>\n-        <div className=\"\">\n+        <div className=\"w-1/2\">\n           <FormRegister />\n         </div>\n       </div>\n     </div>\n"
+                },
+                {
+                    "date": 1728525971922,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,10 +6,10 @@\n const postRecycling = () => {\n   return (\n     <div>\n       <Header />\n-      <div className=\"flex justify-around py-10 w-full\">\n-        <div className=\"w-1/2\">\n+      <div className=\"flex justify-around py-10 w-full items-center\">\n+        <div className=\"w-1/2 flex \">\n           <Carousel />\n         </div>\n         <div className=\"w-1/2\">\n           <FormRegister />\n"
+                },
+                {
+                    "date": 1728525989839,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n const postRecycling = () => {\n   return (\n     <div>\n       <Header />\n-      <div className=\"flex justify-around py-10 w-full items-center\">\n+      <div className=\"flex justify-around py-10 w-full\">\n         <div className=\"w-1/2 flex \">\n           <Carousel />\n         </div>\n         <div className=\"w-1/2\">\n"
+                },
+                {
+                    "date": 1728526075177,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   return (\n     <div>\n       <Header />\n       <div className=\"flex justify-around py-10 w-full\">\n-        <div className=\"w-1/2 flex \">\n+        <div className=\"flex justify-center \">\n           <Carousel />\n         </div>\n         <div className=\"w-1/2\">\n           <FormRegister />\n"
+                },
+                {
+                    "date": 1728526091401,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,12 +7,12 @@\n   return (\n     <div>\n       <Header />\n       <div className=\"flex justify-around py-10 w-full\">\n-        <div className=\"flex justify-center \">\n+        <div className=\"w-1/2 flex justify-center \">\n           <Carousel />\n         </div>\n-        <div className=\"w-1/2\">\n+        <div className=\"\">\n           <FormRegister />\n         </div>\n       </div>\n     </div>\n"
+                },
+                {
+                    "date": 1728526421417,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   return (\n     <div>\n       <Header />\n       <div className=\"flex justify-around py-10 w-full\">\n-        <div className=\"w-1/2 flex justify-center \">\n+        <div className=\"\">\n           <Carousel />\n         </div>\n         <div className=\"\">\n           <FormRegister />\n"
+                },
+                {
+                    "date": 1728526750810,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,13 +6,13 @@\n const postRecycling = () => {\n   return (\n     <div>\n       <Header />\n-      <div className=\"flex justify-around py-10 w-full\">\n-        <div className=\"\">\n+      <div className=\"flex justify-center items-center py-10 w-full\">\n+        <div className=\"w-1/2 flex justify-center\">\n           <Carousel />\n         </div>\n-        <div className=\"\">\n+        <div className=\"w-1/2 flex justify-center\">\n           <FormRegister />\n         </div>\n       </div>\n     </div>\n"
+                },
+                {
+                    "date": 1728526846762,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   return (\n     <div>\n       <Header />\n       <div className=\"flex justify-center items-center py-10 w-full\">\n-        <div className=\"w-1/2 flex justify-center\">\n+        <div className=\"w-2/5 flex justify-end pr-10\">\n           <Carousel />\n         </div>\n         <div className=\"w-1/2 flex justify-center\">\n           <FormRegister />\n"
+                },
+                {
+                    "date": 1728526861077,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n       <div className=\"flex justify-center items-center py-10 w-full\">\n         <div className=\"w-2/5 flex justify-end pr-10\">\n           <Carousel />\n         </div>\n-        <div className=\"w-1/2 flex justify-center\">\n+        <div className=\"w-2/5 flex justify-start\">\n           <FormRegister />\n         </div>\n       </div>\n     </div>\n"
+                },
+                {
+                    "date": 1728527016038,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   return (\n     <div>\n       <Header />\n       <div className=\"flex justify-center items-center py-10 w-full\">\n-        <div className=\"w-2/5 flex justify-end pr-10\">\n+        <div className=\"w-2/5 flex justify-end pr-4\">\n           <Carousel />\n         </div>\n         <div className=\"w-2/5 flex justify-start\">\n           <FormRegister />\n"
+                },
+                {
+                    "date": 1728528481176,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   return (\n     <div>\n       <Header />\n       <div className=\"flex justify-center items-center py-10 w-full\">\n-        <div className=\"w-2/5 flex justify-end pr-4\">\n+        <div className=\"w-2/5 flex justify-center\">\n           <Carousel />\n         </div>\n         <div className=\"w-2/5 flex justify-start\">\n           <FormRegister />\n"
+                },
+                {
+                    "date": 1728528824431,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   return (\n     <div>\n       <Header />\n       <div className=\"flex justify-center items-center py-10 w-full\">\n-        <div className=\"w-2/5 flex justify-center\">\n+        <div className=\"w-2/5 flex justify-center m-0\">\n           <Carousel />\n         </div>\n         <div className=\"w-2/5 flex justify-start\">\n           <FormRegister />\n"
+                },
+                {
+                    "date": 1728528865535,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   return (\n     <div>\n       <Header />\n       <div className=\"flex justify-center items-center py-10 w-full\">\n-        <div className=\"w-2/5 flex justify-center m-0\">\n+        <div className=\"w-2/5 flex justify-center pb-10\">\n           <Carousel />\n         </div>\n         <div className=\"w-2/5 flex justify-start\">\n           <FormRegister />\n"
+                },
+                {
+                    "date": 1728528871570,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   return (\n     <div>\n       <Header />\n       <div className=\"flex justify-center items-center py-10 w-full\">\n-        <div className=\"w-2/5 flex justify-center pb-10\">\n+        <div className=\"w-2/5 flex justify-center pb-50\">\n           <Carousel />\n         </div>\n         <div className=\"w-2/5 flex justify-start\">\n           <FormRegister />\n"
+                },
+                {
+                    "date": 1728528885711,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   return (\n     <div>\n       <Header />\n       <div className=\"flex justify-center items-center py-10 w-full\">\n-        <div className=\"w-2/5 flex justify-center pb-50\">\n+        <div className=\"w-2/5 flex justify-center pb-96\">\n           <Carousel />\n         </div>\n         <div className=\"w-2/5 flex justify-start\">\n           <FormRegister />\n"
+                },
+                {
+                    "date": 1728530427163,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   return (\n     <div>\n       <Header />\n       <div className=\"flex justify-center items-center py-10 w-full\">\n-        <div className=\"w-2/5 flex justify-center pb-96\">\n+        <div className=\"w-2/5 flex justify-center pb-80\">\n           <Carousel />\n         </div>\n         <div className=\"w-2/5 flex justify-start\">\n           <FormRegister />\n"
+                },
+                {
+                    "date": 1728530445728,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   return (\n     <div>\n       <Header />\n       <div className=\"flex justify-center items-center py-10 w-full\">\n-        <div className=\"w-2/5 flex justify-center pb-80\">\n+        <div className=\"w-2/5 flex justify-center pb-60\">\n           <Carousel />\n         </div>\n         <div className=\"w-2/5 flex justify-start\">\n           <FormRegister />\n"
+                },
+                {
+                    "date": 1728530476357,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   return (\n     <div>\n       <Header />\n       <div className=\"flex justify-center items-center py-10 w-full\">\n-        <div className=\"w-2/5 flex justify-center pb-60\">\n+        <div className=\"w-2/5 flex justify-center pb-40\">\n           <Carousel />\n         </div>\n         <div className=\"w-2/5 flex justify-start\">\n           <FormRegister />\n"
+                },
+                {
+                    "date": 1728530682193,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n const postRecycling = () => {\n   return (\n     <div>\n       <Header />\n-      <div className=\"flex justify-center items-center py-10 w-full\">\n+      <div className=\"flex justify-center items-center py-10 w-full mt-4\">\n         <div className=\"w-2/5 flex justify-center pb-40\">\n           <Carousel />\n         </div>\n         <div className=\"w-2/5 flex justify-start\">\n"
+                },
+                {
+                    "date": 1728530738042,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,13 +6,13 @@\n const postRecycling = () => {\n   return (\n     <div>\n       <Header />\n-      <div className=\"flex justify-center items-center py-10 w-full mt-4\">\n-        <div className=\"w-2/5 flex justify-center pb-40\">\n+      <div className=\"flex justify-around py-10\">\n+        <div className=\"w-full\">\n           <Carousel />\n         </div>\n-        <div className=\"w-2/5 flex justify-start\">\n+        <div className=\"\">\n           <FormRegister />\n         </div>\n       </div>\n     </div>\n"
+                },
+                {
+                    "date": 1728530763477,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,12 @@\n \n const postRecycling = () => {\n   return (\n     <div>\n-      <Header />\n+      <div>\n+        <Header />\n+      </div>\n+\n       <div className=\"flex justify-around py-10\">\n         <div className=\"w-full\">\n           <Carousel />\n         </div>\n"
+                },
+                {
+                    "date": 1728530784954,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,17 +5,14 @@\n \n const postRecycling = () => {\n   return (\n     <div>\n+      <Header />\n       <div>\n-        <Header />\n-      </div>\n-\n-      <div className=\"flex justify-around py-10\">\n-        <div className=\"w-full\">\n+        <div className=\"mt-20\">\n           <Carousel />\n         </div>\n-        <div className=\"\">\n+        <div className=\"flex mt-0\">\n           <FormRegister />\n         </div>\n       </div>\n     </div>\n"
+                },
+                {
+                    "date": 1728530796376,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,16 +6,17 @@\n const postRecycling = () => {\n   return (\n     <div>\n       <Header />\n-      <div>\n-        <div className=\"mt-20\">\n-          <Carousel />\n-        </div>\n+      <div className=\"mt-20\">\n+      <Carousel />\n+      </div>\n         <div className=\"flex mt-0\">\n-          <FormRegister />\n-        </div>\n+        <FormRegister />\n       </div>\n+      \n+        \n+      \n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1728530816478,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,12 +6,10 @@\n const postRecycling = () => {\n   return (\n     <div>\n       <Header />\n-      <div className=\"mt-20\">\n       <Carousel />\n-      </div>\n-        <div className=\"flex mt-0\">\n+        <div className=\"flex justify-end mt-0\">\n         <FormRegister />\n       </div>\n       \n         \n"
+                },
+                {
+                    "date": 1728530837592,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,21 +1,18 @@\n-import React from \"react\";\n-import Header from \"@/components/header\";\n+import React from 'react'\n+import Header from '@/components/header'\n import Carousel from \"@/components/carousel-shadcn\";\n-import FormRegister from \"@/components/formRegister\";\n+import FormRegister from '@/components/formRegister';\n \n const postRecycling = () => {\n   return (\n     <div>\n-      <Header />\n-      <Carousel />\n-        <div className=\"flex justify-end mt-0\">\n-        <FormRegister />\n-      </div>\n-      \n+        <Header />\n+        <div className=\"m-10\">\n+        <Carousel />\n+        </div>\n         \n-      \n     </div>\n-  );\n-};\n+  )\n+}\n \n-export default postRecycling;\n+export default postRecycling;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1728530871840,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,11 +6,8 @@\n const postRecycling = () => {\n   return (\n     <div>\n         <Header />\n-        <div className=\"m-10\">\n-        <Carousel />\n-        </div>\n         \n     </div>\n   )\n }\n"
+                },
+                {
+                    "date": 1728530938896,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,15 @@\n const postRecycling = () => {\n   return (\n     <div>\n         <Header />\n+        <div className=\"flex justify-center items-center py-10 w-full mt-4\">\n+        <div className=\"w-2/5 flex justify-center pb-40\">\n+          <Carousel />\n+        </div>\n+        </div>\n+\n+\n         \n     </div>\n   )\n }\n"
+                },
+                {
+                    "date": 1728530970884,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,22 +1,23 @@\n-import React from 'react'\n-import Header from '@/components/header'\n+import React from \"react\";\n+import Header from \"@/components/header\";\n import Carousel from \"@/components/carousel-shadcn\";\n-import FormRegister from '@/components/formRegister';\n+import FormRegister from \"@/components/formRegister\";\n \n const postRecycling = () => {\n   return (\n     <div>\n-        <Header />\n-        <div className=\"flex justify-center items-center py-10 w-full mt-4\">\n+      <Header />\n+      <div className=\"flex justify-center items-center py-10 w-full mt-4\">\n         <div className=\"w-2/5 flex justify-center pb-40\">\n           <Carousel />\n         </div>\n+        <div className=\"w-2/5 flex justify-start\">\n+          <FormRegister />\n         </div>\n \n\\ No newline at end of file\n-\n-        \n+      </div>\n     </div>\n-  )\n-}\n+  );\n+};\n \n-export default postRecycling;\n+export default postRecycling;\n"
+                },
+                {
+                    "date": 1728530983541,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,14 +10,11 @@\n       <div className=\"flex justify-center items-center py-10 w-full mt-4\">\n         <div className=\"w-2/5 flex justify-center pb-40\">\n           <Carousel />\n         </div>\n-        <div className=\"w-2/5 flex justify-start\">\n-          <FormRegister />\n-        </div>\n-\n+        \n       </div>\n     </div>\n   );\n };\n \n\\ No newline at end of file\n-export default postRecycling;\n+export default postRecycling;\n"
+                },
+                {
+                    "date": 1728531048408,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,11 +10,13 @@\n       <div className=\"flex justify-center items-center py-10 w-full mt-4\">\n         <div className=\"w-2/5 flex justify-center pb-40\">\n           <Carousel />\n         </div>\n-        \n+        <div className=\"w-2/5 flex justify-start\">\n+          <FormRegister />\n+        </div>\n       </div>\n     </div>\n   );\n\\ No newline at end of file\n };\n \n-export default postRecycling;\n+export default postRecycling;\n"
+                },
+                {
+                    "date": 1728531156197,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,12 +11,12 @@\n         <div className=\"w-2/5 flex justify-center pb-40\">\n           <Carousel />\n         </div>\n         <div className=\"w-2/5 flex justify-start\">\n-          <FormRegister />\n+          \n         </div>\n       </div>\n     </div>\n   );\n };\n \n\\ No newline at end of file\n-export default postRecycling;\n+export default postRecycling;\n"
+                },
+                {
+                    "date": 1728531166693,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,12 +11,12 @@\n         <div className=\"w-2/5 flex justify-center pb-40\">\n           <Carousel />\n         </div>\n         <div className=\"w-2/5 flex justify-start\">\n-          \n+          <FormRegister />\n         </div>\n       </div>\n     </div>\n   );\n };\n \n\\ No newline at end of file\n-export default postRecycling;\n+export default postRecycling;\n"
+                },
+                {
+                    "date": 1728537089657,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n import React from \"react\";\n import Header from \"@/components/header\";\n import Carousel from \"@/components/carousel-shadcn\";\n import FormRegister from \"@/components/formRegister\";\n+import Table from \"@/components/table\";\n \n const postRecycling = () => {\n   return (\n     <div>\n@@ -13,10 +14,11 @@\n         </div>\n         <div className=\"w-2/5 flex justify-start\">\n           <FormRegister />\n         </div>\n+        \n       </div>\n     </div>\n   );\n };\n \n\\ No newline at end of file\n-export default postRecycling;\n+export default postRecycling;\n"
+                },
+                {
+                    "date": 1728537282590,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,11 +14,10 @@\n         </div>\n         <div className=\"w-2/5 flex justify-start\">\n           <FormRegister />\n         </div>\n-        \n       </div>\n     </div>\n   );\n };\n \n-export default postRecycling;\n\\ No newline at end of file\n+export default postRecycling;\n"
+                },
+                {
+                    "date": 1728537732569,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import React from \"react\";\n import Header from \"@/components/header\";\n import Carousel from \"@/components/carousel-shadcn\";\n import FormRegister from \"@/components/formRegister\";\n-import Table from \"@/components/table\";\n+import { DataTableDemo } from \"@/components/table\";\n \n const postRecycling = () => {\n   return (\n     <div>\n@@ -15,8 +15,11 @@\n         <div className=\"w-2/5 flex justify-start\">\n           <FormRegister />\n         </div>\n       </div>\n+        <div className=\"w-10/12\">\n+            <DataTableDemo />\n+        </div>\n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1728538914628,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n const postRecycling = () => {\n   return (\n     <div>\n       <Header />\n-      <div className=\"flex justify-center items-center py-10 w-full mt-4\">\n+      <div className=\"flex justify-center items-center py-10 w-full mt-2\">\n         <div className=\"w-2/5 flex justify-center pb-40\">\n           <Carousel />\n         </div>\n         <div className=\"w-2/5 flex justify-start\">\n"
+                },
+                {
+                    "date": 1728538932672,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n const postRecycling = () => {\n   return (\n     <div>\n       <Header />\n-      <div className=\"flex justify-center items-center py-10 w-full mt-2\">\n+      <div className=\"flex justify-center items-center py-10 w-full mt-4\">\n         <div className=\"w-2/5 flex justify-center pb-40\">\n           <Carousel />\n         </div>\n         <div className=\"w-2/5 flex justify-start\">\n"
+                },
+                {
+                    "date": 1728539475155,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n         <div className=\"w-2/5 flex justify-start\">\n           <FormRegister />\n         </div>\n       </div>\n-        <div className=\"w-10/12\">\n+        <div className=\"w-10/12 flex justify-center\">\n             <DataTableDemo />\n         </div>\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1728539493997,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n         <div className=\"w-2/5 flex justify-start\">\n           <FormRegister />\n         </div>\n       </div>\n-        <div className=\"w-10/12 flex justify-center\">\n+        <div className=\"w-10/12 flex justify-center items-center\">\n             <DataTableDemo />\n         </div>\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1728539547464,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n         <div className=\"w-2/5 flex justify-start\">\n           <FormRegister />\n         </div>\n       </div>\n-        <div className=\"w-10/12 flex justify-center items-center\">\n+        <div className=\"w-10/12 mx-auto flex justify-center items-center\">\n             <DataTableDemo />\n         </div>\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1728706671350,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,19 +2,22 @@\n import Header from \"@/components/header\";\n import Carousel from \"@/components/carousel-shadcn\";\n import FormRegister from \"@/components/formRegister\";\n import { DataTableDemo } from \"@/components/table\";\n+import { useState } from \"react\";\n \n const postRecycling = () => {\n+  const [selectedType, setSelectedType] = useState(\"\"); \n+\n   return (\n     <div>\n       <Header />\n       <div className=\"flex justify-center items-center py-10 w-full mt-4\">\n         <div className=\"w-2/5 flex justify-center pb-40\">\n-          <Carousel />\n+          <Carousel setSelectedType={setSelectedType} />\n         </div>\n         <div className=\"w-2/5 flex justify-start\">\n-          <FormRegister />\n+          <FormRegister selectedType={selectedType}/>\n         </div>\n       </div>\n         <div className=\"w-10/12 mx-auto flex justify-center items-center\">\n             <DataTableDemo />\n"
+                },
+                {
+                    "date": 1728758244630,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n const postRecycling = () => {\n   const [selectedType, setSelectedType] = useState(\"\"); \n \n   return (\n+    \n     <div>\n       <Header />\n       <div className=\"flex justify-center items-center py-10 w-full mt-4\">\n         <div className=\"w-2/5 flex justify-center pb-40\">\n"
+                },
+                {
+                    "date": 1728760470016,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n import Carousel from \"@/components/carousel-shadcn\";\n import FormRegister from \"@/components/formRegister\";\n import { DataTableDemo } from \"@/components/table\";\n import { useState } from \"react\";\n+import Button from \"@/components/button\";\n \n const postRecycling = () => {\n   const [selectedType, setSelectedType] = useState(\"\"); \n \n@@ -22,8 +23,9 @@\n       </div>\n         <div className=\"w-10/12 mx-auto flex justify-center items-center\">\n             <DataTableDemo />\n         </div>\n+        <Button/>\n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1728760558837,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,8 @@\n import Carousel from \"@/components/carousel-shadcn\";\n import FormRegister from \"@/components/formRegister\";\n import { DataTableDemo } from \"@/components/table\";\n import { useState } from \"react\";\n-import Button from \"@/components/button\";\n \n const postRecycling = () => {\n   const [selectedType, setSelectedType] = useState(\"\"); \n \n@@ -23,9 +22,8 @@\n       </div>\n         <div className=\"w-10/12 mx-auto flex justify-center items-center\">\n             <DataTableDemo />\n         </div>\n-        <Button/>\n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1728770522272,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,5 @@\n import React from \"react\";\n-import Header from \"@/components/header\";\n import Carousel from \"@/components/carousel-shadcn\";\n import FormRegister from \"@/components/formRegister\";\n import { DataTableDemo } from \"@/components/table\";\n import { useState } from \"react\";\n@@ -10,9 +9,8 @@\n \n   return (\n     \n     <div>\n-      <Header />\n       <div className=\"flex justify-center items-center py-10 w-full mt-4\">\n         <div className=\"w-2/5 flex justify-center pb-40\">\n           <Carousel setSelectedType={setSelectedType} />\n         </div>\n"
+                }
+            ],
+            "date": 1728513649302,
+            "name": "Commit-0",
+            "content": "import React from 'react'\n\nconst postRecycling = () => {\n  return (\n    <div>index</div>\n  )\n}\n\nexport default postRecycling;"
+        }
+    ]
+}
