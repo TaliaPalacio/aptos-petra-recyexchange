@@ -1,0 +1,30 @@
+{
+    "sourceFile": "tailwind.config.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1728524489984,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1728524730414,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n import type { Config } from \"tailwindcss\";\n \n const config: Config = {\n   content: [\n+\t './src/**/*.{js,ts,jsx,tsx}',\n     \"./src/pages/**/*.{js,ts,jsx,tsx,mdx}\",\n     \"./src/components/**/*.{js,ts,jsx,tsx,mdx}\",\n     \"./src/app/**/*.{js,ts,jsx,tsx,mdx}\",\n     \"./node_modules/tw-elements/js/**/*.js\",\n"
+                },
+                {
+                    "date": 1728524741871,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import type { Config } from \"tailwindcss\";\n \n const config: Config = {\n   content: [\n-\t './src/**/*.{js,ts,jsx,tsx}',\n+\t \"./src/**/*.{js,ts,jsx,tsx}\",\n     \"./src/pages/**/*.{js,ts,jsx,tsx,mdx}\",\n     \"./src/components/**/*.{js,ts,jsx,tsx,mdx}\",\n     \"./src/app/**/*.{js,ts,jsx,tsx,mdx}\",\n     \"./node_modules/tw-elements/js/**/*.js\",\n"
+                },
+                {
+                    "date": 1728525003248,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import type { Config } from \"tailwindcss\";\n \n const config: Config = {\n   content: [\n-\t \"./src/**/*.{js,ts,jsx,tsx}\",\n+\t\"./src/**/*.{js,ts,jsx,tsx}\",\n     \"./src/pages/**/*.{js,ts,jsx,tsx,mdx}\",\n     \"./src/components/**/*.{js,ts,jsx,tsx,mdx}\",\n     \"./src/app/**/*.{js,ts,jsx,tsx,mdx}\",\n     \"./node_modules/tw-elements/js/**/*.js\",\n@@ -61,8 +61,10 @@\n   \t\t\tsm: 'calc(var(--radius) - 4px)'\n   \t\t}\n   \t}\n   },\n+  \n+\n   darkMode: [\"class\", \"class\"],\n-  plugins: [require(\"tw-elements/plugin.cjs\"), require(\"tailwindcss-animate\")],\n+  plugins: [require(\"tw-elements/plugin.cjs\"), require(\"tailwindcss-animate\"), require(\"@tailwindcss/forms\")],\n };\n export default config;\n"
+                }
+            ],
+            "date": 1728524489984,
+            "name": "Commit-0",
+            "content": "\n\nimport type { Config } from \"tailwindcss\";\n\nconst config: Config = {\n  content: [\n    \"./src/pages/**/*.{js,ts,jsx,tsx,mdx}\",\n    \"./src/components/**/*.{js,ts,jsx,tsx,mdx}\",\n    \"./src/app/**/*.{js,ts,jsx,tsx,mdx}\",\n    \"./node_modules/tw-elements/js/**/*.js\",\n  ],\n\n  theme: {\n  \textend: {\n  \t\tcolors: {\n  \t\t\tbackground: 'hsl(var(--background))',\n  \t\t\tforeground: 'hsl(var(--foreground))',\n  \t\t\tcard: {\n  \t\t\t\tDEFAULT: 'hsl(var(--card))',\n  \t\t\t\tforeground: 'hsl(var(--card-foreground))'\n  \t\t\t},\n  \t\t\tpopover: {\n  \t\t\t\tDEFAULT: 'hsl(var(--popover))',\n  \t\t\t\tforeground: 'hsl(var(--popover-foreground))'\n  \t\t\t},\n  \t\t\tprimary: {\n  \t\t\t\tDEFAULT: 'hsl(var(--primary))',\n  \t\t\t\tforeground: 'hsl(var(--primary-foreground))'\n  \t\t\t},\n  \t\t\tsecondary: {\n  \t\t\t\tDEFAULT: 'hsl(var(--secondary))',\n  \t\t\t\tforeground: 'hsl(var(--secondary-foreground))'\n  \t\t\t},\n  \t\t\tmuted: {\n  \t\t\t\tDEFAULT: 'hsl(var(--muted))',\n  \t\t\t\tforeground: 'hsl(var(--muted-foreground))'\n  \t\t\t},\n  \t\t\taccent: {\n  \t\t\t\tDEFAULT: 'hsl(var(--accent))',\n  \t\t\t\tforeground: 'hsl(var(--accent-foreground))'\n  \t\t\t},\n  \t\t\tdestructive: {\n  \t\t\t\tDEFAULT: 'hsl(var(--destructive))',\n  \t\t\t\tforeground: 'hsl(var(--destructive-foreground))'\n  \t\t\t},\n  \t\t\tborder: 'hsl(var(--border))',\n  \t\t\tinput: 'hsl(var(--input))',\n  \t\t\tring: 'hsl(var(--ring))',\n  \t\t\tchart: {\n  \t\t\t\t'1': 'hsl(var(--chart-1))',\n  \t\t\t\t'2': 'hsl(var(--chart-2))',\n  \t\t\t\t'3': 'hsl(var(--chart-3))',\n  \t\t\t\t'4': 'hsl(var(--chart-4))',\n  \t\t\t\t'5': 'hsl(var(--chart-5))'\n  \t\t\t}\n  \t\t},\n  \t\tborderRadius: {\n  \t\t\tlg: 'var(--radius)',\n  \t\t\tmd: 'calc(var(--radius) - 2px)',\n  \t\t\tsm: 'calc(var(--radius) - 4px)'\n  \t\t}\n  \t}\n  },\n  darkMode: [\"class\", \"class\"],\n  plugins: [require(\"tw-elements/plugin.cjs\"), require(\"tailwindcss-animate\")],\n};\nexport default config;\n"
+        }
+    ]
+}

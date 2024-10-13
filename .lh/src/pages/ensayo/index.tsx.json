@@ -1,0 +1,46 @@
+{
+    "sourceFile": "src/pages/ensayo/index.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1728774752554,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1728774794060,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n         signMessageAndVerify} = useWallet();\n \n     const getRecycling = async () =>{\n         const payload = {\n-            function: `${ADDRESS}::recicly::get_all_recyclings`,\n+            function: `${ADDRESS}::recicly::get_all_recyclings` as `${string}::${string}::${string}`,\n             functionArguments: [`${account?.address}`]\n         }\n         let result = await aptos.view({payload});\n         console.log(result);\n"
+                },
+                {
+                    "date": 1728774814353,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,8 +23,9 @@\n     }\n   \n   return (\n     <div>\n+        <Header />\n         <button onClick={getRecycling}>Obtener todos los reciclajes</button>\n     </div>\n   )\n }\n"
+                },
+                {
+                    "date": 1728775129190,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,8 @@\n     }\n   \n   return (\n     <div>\n-        <Header />\n         <button onClick={getRecycling}>Obtener todos los reciclajes</button>\n     </div>\n   )\n }\n"
+                },
+                {
+                    "date": 1728775308812,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n             function: `${ADDRESS}::recicly::get_all_recyclings` as `${string}::${string}::${string}`,\n             functionArguments: [`${account?.address}`]\n         }\n         let result = await aptos.view({payload});\n-        console.log(result);\n+        console.log(result[0]);\n     }\n   \n   return (\n     <div>\n"
+                },
+                {
+                    "date": 1728775394472,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n             function: `${ADDRESS}::recicly::get_all_recyclings` as `${string}::${string}::${string}`,\n             functionArguments: [`${account?.address}`]\n         }\n         let result = await aptos.view({payload});\n-        console.log(result[0]);\n+        console.log(result[0]?.toString());\n     }\n   \n   return (\n     <div>\n"
+                },
+                {
+                    "date": 1728775500554,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n             function: `${ADDRESS}::recicly::get_all_recyclings` as `${string}::${string}::${string}`,\n             functionArguments: [`${account?.address}`]\n         }\n         let result = await aptos.view({payload});\n-        console.log(result[0]?.toString());\n+        console.log(result[0]);\n     }\n   \n   return (\n     <div>\n"
+                },
+                {
+                    "date": 1728776424735,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,9 @@\n import React from 'react'\n import { Aptos, AptosConfig, Network, Account } from \"@aptos-labs/ts-sdk\";\n-import { useEffect, useState } from 'react';\n import { useWallet } from '@aptos-labs/wallet-adapter-react';\n-import axios from 'axios';\n-import Header from '@/components/header';\n \n+\n export const aptos= new Aptos(new AptosConfig({network: Network.TESTNET}));\n const ADDRESS = \"0xfed39611e5ac476394ec5799b1e0ed2a577a47dcfa522ab92df24d5667bc4720\"\n \n const index = () => {\n"
+                }
+            ],
+            "date": 1728774752554,
+            "name": "Commit-0",
+            "content": "import React from 'react'\nimport { Aptos, AptosConfig, Network, Account } from \"@aptos-labs/ts-sdk\";\nimport { useEffect, useState } from 'react';\nimport { useWallet } from '@aptos-labs/wallet-adapter-react';\nimport axios from 'axios';\nimport Header from '@/components/header';\n\nexport const aptos= new Aptos(new AptosConfig({network: Network.TESTNET}));\nconst ADDRESS = \"0xfed39611e5ac476394ec5799b1e0ed2a577a47dcfa522ab92df24d5667bc4720\"\n\nconst index = () => {\n    const {connect, account, connected, disconnect, signAndSubmitTransaction,\n    signTransaction, signMessage, \n        signMessageAndVerify} = useWallet();\n\n    const getRecycling = async () =>{\n        const payload = {\n            function: `${ADDRESS}::recicly::get_all_recyclings`,\n            functionArguments: [`${account?.address}`]\n        }\n        let result = await aptos.view({payload});\n        console.log(result);\n    }\n  \n  return (\n    <div>\n        <button onClick={getRecycling}>Obtener todos los reciclajes</button>\n    </div>\n  )\n}\n\nexport default index"
+        }
+    ]
+}
