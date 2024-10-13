@@ -111,7 +111,7 @@ const Table = () => {
         
         {selectedRecycling && (
           <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center">
-            <div className=" bg-white rounded-lg p-6 w-96 max-w-lg md:max-w-xl lg:max-w-2xl">
+            <div className=" bg-white rounded-lg p-6 w-32 max-w-lg md:max-w-xl lg:max-w-2xl">
               <h2 className="text-xl mb-4">Recycling Overview</h2>
               <p><strong>Type:</strong> {selectedRecycling.type}</p>
               <p><strong>Ubication:</strong> {selectedRecycling.ubication}</p>

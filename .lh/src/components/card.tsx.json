@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 43,
+            "activePatchIndex": 47,
             "patches": [
                 {
                     "date": 1728626586396,
@@ -180,6 +180,22 @@
                 {
                     "date": 1728691126859,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,10 @@\n         </div>\n       </div>\n \n        {/* Mostrar el chat si está abierto */}\n-      {isChatOpen && <Chat wallet={wallet} recyclingId={recyclingId} />}\n+      {isChatOpen && <Chat recyclingId={recyclingId} onClose={function (): void {\n+      } } />}\n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1728793282799,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,10 +25,10 @@\n           alt={`${type} image`}\n           className=\"w-32 h-32 rounded-full mx-auto mb-4 object-cover\"\n         />\n         <h2 className=\"text-xl font-semibold\">{type}</h2>\n-        <p className=\"text-gray-700 text-sm mb-2\">Costo: ${price}</p>\n-        <p className=\"text-gray-500 text-sm mb-4\">Ubicación: {location}</p>\n+        <p className=\"text-gray-700 text-sm mb-2\">Price: ${price}</p>\n+        <p className=\"text-gray-500 text-sm mb-4\">Ubication: {location}</p>\n         <div className=\"flex justify-around mt-4\">\n           <a href=\"#\" className=\"bg-orange-500 text-white px-4 py-2 rounded-md flex items-center space-x-1 text-sm hover:bg-blue-600 transition-colors\">\n             <span>👁️</span>\n             <span>Ver</span>\n"
+                },
+                {
+                    "date": 1728793321199,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n         <p className=\"text-gray-500 text-sm mb-4\">Ubication: {location}</p>\n         <div className=\"flex justify-around mt-4\">\n           <a href=\"#\" className=\"bg-orange-500 text-white px-4 py-2 rounded-md flex items-center space-x-1 text-sm hover:bg-blue-600 transition-colors\">\n             <span>👁️</span>\n-            <span>Ver</span>\n+            <span>See</span>\n           </a>\n           <button\n             onClick={toggleChat}\n             className=\"bg-orange-500 text-white px-4 py-2 rounded-md flex items-center space-x-1 text-sm hover:bg-blue-600 transition-colors\"\n"
+                },
+                {
+                    "date": 1728793588020,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n           src={imageUrl}\n           alt={`${type} image`}\n           className=\"w-32 h-32 rounded-full mx-auto mb-4 object-cover\"\n         />\n-        <h2 className=\"text-xl font-semibold\">{type}</h2>\n+        <h2 className=\"text-xl font-semibold\">{}</h2>\n         <p className=\"text-gray-700 text-sm mb-2\">Price: ${price}</p>\n         <p className=\"text-gray-500 text-sm mb-4\">Ubication: {location}</p>\n         <div className=\"flex justify-around mt-4\">\n           <a href=\"#\" className=\"bg-orange-500 text-white px-4 py-2 rounded-md flex items-center space-x-1 text-sm hover:bg-blue-600 transition-colors\">\n"
+                },
+                {
+                    "date": 1728793595932,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n           src={imageUrl}\n           alt={`${type} image`}\n           className=\"w-32 h-32 rounded-full mx-auto mb-4 object-cover\"\n         />\n-        <h2 className=\"text-xl font-semibold\">{}</h2>\n+        <h2 className=\"text-xl font-semibold\">{type}</h2>\n         <p className=\"text-gray-700 text-sm mb-2\">Price: ${price}</p>\n         <p className=\"text-gray-500 text-sm mb-4\">Ubication: {location}</p>\n         <div className=\"flex justify-around mt-4\">\n           <a href=\"#\" className=\"bg-orange-500 text-white px-4 py-2 rounded-md flex items-center space-x-1 text-sm hover:bg-blue-600 transition-colors\">\n"
                 }
             ],
             "date": 1728626586396,

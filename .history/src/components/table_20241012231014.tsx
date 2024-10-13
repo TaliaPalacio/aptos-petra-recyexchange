@@ -111,7 +111,7 @@ const Table = () => {
         
         {selectedRecycling && (
           <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center">
-            <div className=" bg-white rounded-lg p-6 w-96 max-w-lg md:max-w-xl lg:max-w-2xl">
+            <div className=" bg-white rounded-lg p-6 w-2/3 max-w-lg md:max-w-xl lg:max-w-2xl">
               <h2 className="text-xl mb-4">Recycling Overview</h2>
               <p><strong>Type:</strong> {selectedRecycling.type}</p>
               <p><strong>Ubication:</strong> {selectedRecycling.ubication}</p>
@@ -119,10 +119,8 @@ const Table = () => {
               <p><strong>Price Per Pound:</strong> {selectedRecycling.pricePound}</p>
               <p><strong>Observations:</strong> {selectedRecycling.observations}</p>
               <p><strong>Available:</strong> {selectedRecycling.available ? "Sí" : "No"}</p>
-              <div className="flex justify-center mt-4 space-x-4">
-              <button onClick={handleCloseModal} className="mt-4 px-4 py-2 block w-32 rounded-md text-center bg-orange-600 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-transform transform hover:scale-105 duration-300">Close</button>
-              <button onClick={handleCloseModal} className="mt-4 px-4 py-2 block w-32 rounded-md text-center bg-orange-600 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-transform transform hover:scale-105 duration-300">See Chat</button>
-              </div>
+              <button onClick={handleCloseModal} className="mt-4 px-2 py-1 block w-full rounded-md text-center bg-orange-600 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-transform transform hover:scale-105 duration-300">Close</button>
+              <button onClick={handleCloseModal} className="mt-4 px-4 py-2 block w-full rounded-md text-center bg-orange-600 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-transform transform hover:scale-105 duration-300">See Chat</button>
             </div>
           </div>
         )}

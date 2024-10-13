@@ -25,7 +25,7 @@ const Card: React.FC<CardProps> = ({ type, price, imageUrl, location, wallet, re
           alt={`${type} image`}
           className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
         />
-        <h2 className="text-xl font-semibold">{type}</h2>
+        <h2 className="text-xl font-semibold">{}</h2>
         <p className="text-gray-700 text-sm mb-2">Price: ${price}</p>
         <p className="text-gray-500 text-sm mb-4">Ubication: {location}</p>
         <div className="flex justify-around mt-4">
