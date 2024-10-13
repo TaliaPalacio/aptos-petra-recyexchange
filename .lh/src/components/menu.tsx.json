@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 5,
+            "activePatchIndex": 7,
             "patches": [
                 {
                     "date": 1728431429895,
@@ -28,6 +28,14 @@
                 {
                     "date": 1728772182683,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n       document.removeEventListener(\"mousedown\", handleClickOutside);\n     };\n   }, []);\n \n-  if (connected) return null; // No mostrar el menú si la wallet no está conectada\n+  if (!connected) return null; // No mostrar el menú si la wallet no está conectada\n \n   return (\n     <div className=\"relative\">\n       <button\n"
+                },
+                {
+                    "date": 1728776836995,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,10 +29,15 @@\n     return () => {\n       document.removeEventListener(\"mousedown\", handleClickOutside);\n     };\n   }, []);\n-\n+  useEffect(() => {\n+    if (connected) {\n+      setIsOpen(true);\n+    }\n+  }, [connected]);\n   if (!connected) return null; // No mostrar el menú si la wallet no está conectada\n+//mostrar el menu si la wallet esta conectada y se actualiza la pagina\n \n   return (\n     <div className=\"relative\">\n       <button\n"
+                },
+                {
+                    "date": 1728776892690,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,13 +29,9 @@\n     return () => {\n       document.removeEventListener(\"mousedown\", handleClickOutside);\n     };\n   }, []);\n-  useEffect(() => {\n-    if (connected) {\n-      setIsOpen(true);\n-    }\n-  }, [connected]);\n+\n   if (!connected) return null; // No mostrar el menú si la wallet no está conectada\n //mostrar el menu si la wallet esta conectada y se actualiza la pagina\n \n   return (\n"
                 }
             ],
             "date": 1728431429895,

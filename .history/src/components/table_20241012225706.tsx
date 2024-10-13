@@ -120,7 +120,7 @@ const Table = () => {
               <p><strong>Observations:</strong> {selectedRecycling.observations}</p>
               <p><strong>Available:</strong> {selectedRecycling.available ? "Sí" : "No"}</p>
               <button onClick={handleCloseModal} className="mt-4 px-4 py-2block w-full rounded-md text-center bg-orange-600 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-transform transform hover:scale-105 duration-300">Close</button>
-              <button onClick={handleCloseModal} className="mt-4 px-4 py-2 block w-full rounded-md text-center bg-orange-600 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-transform transform hover:scale-105 duration-300">See Chat</button>
+              <button onClick={handleCloseModal} className="mt-4 px-4 py-2 block w-full rounded-md text-center bg-orange-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-transform transform hover:scale-105 duration-300">See Chat</button>
             </div>
           </div>
         )}

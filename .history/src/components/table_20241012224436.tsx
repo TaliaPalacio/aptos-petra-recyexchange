@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Aptos, AptosConfig, Network } from "@aptos-labs/ts-sdk";
 import { useWallet } from "@aptos-labs/wallet-adapter-react";
 
@@ -19,12 +19,6 @@ const Table = () => {
   const { account } = useWallet();
   const [recyclings, setRecyclings] = useState<Recycling[][]>([]);
   const [selectedRecycling, setSelectedRecycling] = useState<Recycling | null>(null);
-
-  useEffect(() => {
-    if (account) {
-      getRecycling();
-    }
-  }, [account]);
 
   const getRecycling = async () => {
     const payload = {
@@ -84,23 +78,24 @@ const Table = () => {
               </tr>
             </thead>
             <tbody>
-              {recyclings.flatMap((recyclingArray, index) =>
-                recyclingArray.map((recycling, subIndex) => (
-                  <tr 
-                    key={`${index}-${subIndex}`} 
-                    onClick={() => handleRowClick(recycling)} 
-                    className="hover:bg-blue-200 cursor-pointer transition-colors duration-200"
-                  >
-                    <td className="px-4 py-2 border">{recycling.type}</td>
-                    <td className="px-4 py-2 border">{recycling.ubication}</td>
-                    <td className="px-4 py-2 border">{recycling.weight}</td>
-                    <td className="px-4 py-2 border">{recycling.pricePound}</td>
-                    <td className="px-4 py-2 border">{recycling.observations}</td>
-                    <td className="px-4 py-2 border">{recycling.available ? "Sí" : "No"}</td>
-                  </tr>
-                ))
-              )}
-              {recyclings.length === 0 && (
+              {recyclings.length > 0 ? (
+                recyclings.flatMap((recyclingArray, index) =>
+                  recyclingArray.map((recycling, subIndex) => (
+                    <tr 
+                      key={`${index}-${subIndex}`} 
+                      onClick={() => handleRowClick(recycling)} 
+                      className="hover:bg-blue-200 cursor-pointer transition-colors duration-200"
+                    >
+                      <td className="px-4 py-2 border">{recycling.type}</td>
+                      <td className="px-4 py-2 border">{recycling.ubication}</td>
+                      <td className="px-4 py-2 border">{recycling.weight}</td>
+                      <td className="px-4 py-2 border">{recycling.pricePound}</td>
+                      <td className="px-4 py-2 border">{recycling.observations}</td>
+                      <td className="px-4 py-2 border">{recycling.available ? "Sí" : "No"}</td>
+                    </tr>
+                  ))
+                )
+              ) : (
                 <tr>
                   <td colSpan={6} className="text-center">No hay reciclajes disponibles</td>
                 </tr>
@@ -115,12 +110,12 @@ const Table = () => {
               <h2 className="text-xl mb-4">Recycling Overview</h2>
               <p><strong>Type:</strong> {selectedRecycling.type}</p>
               <p><strong>Ubication:</strong> {selectedRecycling.ubication}</p>
-              <p><strong>Weight:</strong> {selectedRecycling.weight}</p>
+              <p><strong>Weigth:</strong> {selectedRecycling.weight}</p>
               <p><strong>Price Per Pound:</strong> {selectedRecycling.pricePound}</p>
               <p><strong>Observations:</strong> {selectedRecycling.observations}</p>
               <p><strong>Available:</strong> {selectedRecycling.available ? "Sí" : "No"}</p>
-              <button onClick={handleCloseModal} className="mt-4 px-4 py-2block w-full rounded-md text-center bg-orange-600 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-transform transform hover:scale-105 duration-300">Close</button>
-              <button onClick={handleCloseModal} className="mt-4 px-4 py-2 block w-full rounded-md text-center bg-orange-600 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-transform transform hover:scale-105 duration-300">See Chat</button>
+              <button onClick={handleCloseModal} className="mt-4 px-4 py-2 bg-red-500 text-white rounded">Close</button>
+              <button onClick={handleCloseModal} className="mt-4 px-4 py-2 bg-red-500 text-white rounded">See Chat</button>
             </div>
           </div>
         )}
@@ -130,3 +125,4 @@ const Table = () => {
 };
 
 export default Table;
+

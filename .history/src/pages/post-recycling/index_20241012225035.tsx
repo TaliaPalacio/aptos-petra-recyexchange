@@ -18,6 +18,7 @@ const postRecycling = () => {
         </div>
       </div>
       <div className="w-full mx-auto flex justify-center items-center mt-52 pb-12">
+        {" "}
         <Table />
       </div>
     </div>

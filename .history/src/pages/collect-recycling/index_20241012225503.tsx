@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Header from "../../components/header";
 import Card from "../../components/card";
 import Table from "@/components/table";
 
@@ -7,6 +8,7 @@ const collectRecycling = () => {
 
   return (
     <div>
+      <Header />
       <div className="text-center mt-6">
         <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-xl">
           🌱 Help the environment

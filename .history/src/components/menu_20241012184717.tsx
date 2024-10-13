@@ -30,7 +30,11 @@ const DropdownMenu = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-
+  useEffect(() => {
+    if (connected) {
+      setIsOpen(true);
+    }
+  }, [connected]);
   if (!connected) return null; // No mostrar el menú si la wallet no está conectada
 //mostrar el menu si la wallet esta conectada y se actualiza la pagina
 
