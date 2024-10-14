@@ -1,0 +1,50 @@
+{
+    "sourceFile": "src/pages/chatPrueba/index.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1728874213420,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1728874242358,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import axios from \"axios\";\n \n export const aptos = new Aptos(new AptosConfig({ network: Network.TESTNET }));\n const ADDRESS =\n-  \"0x7ba23f3b116da3871b06133fda6f9ba93339b6714213f643a85d608beeaa9044\";\n+  \"0xfed39611e5ac476394ec5799b1e0ed2a577a47dcfa522ab92df24d5667bc4720\";\n const URL = \"https://api.testnet.aptoslabs.com/v1/graphql\";\n \n const chatPrueba = () => {\n   const {\n"
+                },
+                {
+                    "date": 1728874263195,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n   const getChat = async () => {\n     const payload = {\n       function:\n         `${ADDRESS}::recicly::get_chat` as `${string}::${string}::${string}`,\n-      functionArguments: [`${account?.address}`, 4],\n+      functionArguments: [`${account?.address}`],\n     };\n     let result = await aptos.view({ payload });\n     console.log(result);\n   };\n"
+                },
+                {
+                    "date": 1728874375463,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import axios from \"axios\";\n \n export const aptos = new Aptos(new AptosConfig({ network: Network.TESTNET }));\n const ADDRESS =\n-  \"0xfed39611e5ac476394ec5799b1e0ed2a577a47dcfa522ab92df24d5667bc4720\";\n+  \"0x7ba23f3b116da3871b06133fda6f9ba93339b6714213f643a85d608beeaa9044\";\n const URL = \"https://api.testnet.aptoslabs.com/v1/graphql\";\n \n const chatPrueba = () => {\n   const {\n"
+                },
+                {
+                    "date": 1728874392249,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n   const getChat = async () => {\n     const payload = {\n       function:\n         `${ADDRESS}::recicly::get_chat` as `${string}::${string}::${string}`,\n-      functionArguments: [`${account?.address}`],\n+      functionArguments: [`${account?.address}`, 4],\n     };\n     let result = await aptos.view({ payload });\n     console.log(result);\n   };\n"
+                },
+                {
+                    "date": 1728874467518,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,11 +33,11 @@\n   const queryIndexer = async (contractAddress: string) => {\n     try {\n       const response = await axios.post(URL, {\n         query: `\n-                        query GetAccountTransactionsData($address: String! $limit: Int) {\n+                        query GetAccountTransactionsData($contractAddress: String! $limit: Int) {\n                             account_transactions(\n-                                where: { account_address: { _eq: $address } }\n+                                where: { account_address: { _eq: $contractAddress } }\n                                 order_by: { transaction_version: desc }\n                                 limit: $limit\n                             ) {\n                                 account_address\n"
+                },
+                {
+                    "date": 1728874582383,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import axios from \"axios\";\n \n export const aptos = new Aptos(new AptosConfig({ network: Network.TESTNET }));\n const ADDRESS =\n-  \"0x7ba23f3b116da3871b06133fda6f9ba93339b6714213f643a85d608beeaa9044\";\n+  \"0xfed39611e5ac476394ec5799b1e0ed2a577a47dcfa522ab92df24d5667bc4720\";\n const URL = \"https://api.testnet.aptoslabs.com/v1/graphql\";\n \n const chatPrueba = () => {\n   const {\n"
+                },
+                {
+                    "date": 1728874613169,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n   const getChat = async () => {\n     const payload = {\n       function:\n         `${ADDRESS}::recicly::get_chat` as `${string}::${string}::${string}`,\n-      functionArguments: [`${account?.address}`, 4],\n+      functionArguments: [`${account?.address}`, 0],\n     };\n     let result = await aptos.view({ payload });\n     console.log(result);\n   };\n"
+                },
+                {
+                    "date": 1728874628784,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n   const getChat = async () => {\n     const payload = {\n       function:\n         `${ADDRESS}::recicly::get_chat` as `${string}::${string}::${string}`,\n-      functionArguments: [`${account?.address}`, 0],\n+      functionArguments: [`${account?.address}`, 1],\n     };\n     let result = await aptos.view({ payload });\n     console.log(result);\n   };\n"
+                }
+            ],
+            "date": 1728874213420,
+            "name": "Commit-0",
+            "content": "import { Aptos, AptosConfig, Network, Account } from \"@aptos-labs/ts-sdk\";\nimport { useEffect, useState } from \"react\";\nimport { useWallet } from \"@aptos-labs/wallet-adapter-react\";\nimport axios from \"axios\";\n\nexport const aptos = new Aptos(new AptosConfig({ network: Network.TESTNET }));\nconst ADDRESS =\n  \"0x7ba23f3b116da3871b06133fda6f9ba93339b6714213f643a85d608beeaa9044\";\nconst URL = \"https://api.testnet.aptoslabs.com/v1/graphql\";\n\nconst chatPrueba = () => {\n  const {\n    connect,\n    account,\n    connected,\n    disconnect,\n    signAndSubmitTransaction,\n    signTransaction,\n    signMessage,\n    signMessageAndVerify,\n  } = useWallet();\n\n  const getChat = async () => {\n    const payload = {\n      function:\n        `${ADDRESS}::recicly::get_chat` as `${string}::${string}::${string}`,\n      functionArguments: [`${account?.address}`, 4],\n    };\n    let result = await aptos.view({ payload });\n    console.log(result);\n  };\n\n  const queryIndexer = async (contractAddress: string) => {\n    try {\n      const response = await axios.post(URL, {\n        query: `\n                        query GetAccountTransactionsData($address: String! $limit: Int) {\n                            account_transactions(\n                                where: { account_address: { _eq: $address } }\n                                order_by: { transaction_version: desc }\n                                limit: $limit\n                            ) {\n                                account_address\n                                user_transaction {\n                                    __typename\n                                    block_height\n                                    entry_function_id_str\n                                    epoch\n                                    expiration_timestamp_secs\n                                    gas_unit_price\n                                    max_gas_amount\n                                    parent_signature_type\n                                    sender\n                                    sequence_number\n                                    timestamp\n                                    version\n                                }\n                                transaction_version\n                            }\n                        }\n                    `,\n        variables: {\n          contractAddress: contractAddress,\n        },\n      });\n\n      console.log(response.data);\n    } catch (error) {\n      const err = error as any;\n      console.error(\"Error:\", err.response?.data?.errors || err.message);\n    }\n  };\n\n  return (\n    <div>\n      <button onClick={getChat}>Obtener chat</button>\n      <button\n        onClick={() =>\n          queryIndexer(\n            \"0x7ba23f3b116da3871b06133fda6f9ba93339b6714213f643a85d608beeaa9044\"\n          )\n        }\n      >\n        Consultar Bloque\n      </button>\n    </div>\n  );\n};\n\nexport default chatPrueba;\n"
+        }
+    ]
+}

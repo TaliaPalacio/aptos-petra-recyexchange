@@ -4,7 +4,7 @@ import Home from "@/components/home";
 const PrinPage = () => {
   return (
     <div className="w-full">
-          <Home />     
+          <Home />  
     </div>
   );
 };

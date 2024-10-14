@@ -17,7 +17,7 @@ const Carousel = () => {
       data-twe-ride="carousel"
     >
       <div
-        className="absolute bottom-0 left-0 right-0 z-[2] mx-[15%] mb-0 flex list-none justify-center p-0"
+        className="absolute bottom-0 left-0 right-0 z-[2] mx-[15%] mb-0 flex list-none justify-center p-0 w-10/12"
         data-twe-carousel-indicators
       >
         <button
@@ -45,39 +45,30 @@ const Carousel = () => {
         ></button>
       </div>
 
-      <div className="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
+      <div className="relative w-full overflow-hidden after:clear-both after:block after:content-[''] flex items-center">
         <div
-          className="relative float-left -mr-[100%] w-full transition-transform duration-[200ms] ease-in-out motion-reduce:transition-none"
+          className="relative float-left -mr-[100%] hidden w-full  !transform-none opacity-0 transition-opacity duration-[600ms] ease-in-out motion-reduce:transition-none"
+          data-twe-carousel-fade
           data-twe-carousel-item
           data-twe-carousel-active
         >
-          <img
-            src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp"
-            className="block w-full"
-            alt="Wild Landscape"
-          />
+          <video className="w-full" autoPlay loop muted playsInline>
+            <source src="/cristales.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-x-[15%] bottom-5 hidden py-5 text-center text-white md:block">
+            <h5 className="text-xl"></h5>
+            <p>
+              Let's protect our resources and take advantage of what they give
+              us..
+            </p>
+          </div>
         </div>
 
         <div
-          className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+          className="relative float-start -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
           data-twe-carousel-item
         >
-          <img
-            src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp"
-            className="block w-full"
-            alt="Camera"
-          />
-        </div>
-
-        <div
-          className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
-          data-twe-carousel-item
-        >
-          <img
-            src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp"
-            className="block w-full"
-            alt="Exotic Fruits"
-          />
+          <img src="/recy.png" className="block w-full" alt="Camera" />
         </div>
       </div>
 

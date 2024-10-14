@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 21,
+            "activePatchIndex": 23,
             "patches": [
                 {
                     "date": 1728431759146,
@@ -92,6 +92,14 @@
                 {
                     "date": 1728775073002,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,11 @@\n import React from \"react\";\n import Home from \"@/components/home\";\n-import Ensayo  from \"@/pages/ensayo\";\n \n const PrinPage = () => {\n   return (\n     <div className=\"w-full\">\n-          <Home /> \n-            <Ensayo/>\n+          <Home />     \n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1728873803223,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,12 @@\n import React from \"react\";\n import Home from \"@/components/home\";\n-\n+import ChatPrueba from \"./chatPrueba\";\n const PrinPage = () => {\n   return (\n     <div className=\"w-full\">\n-          <Home />     \n+          <Home />   \n+          <ChatPrueba/>  \n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1728873879803,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,11 @@\n import React from \"react\";\n import Home from \"@/components/home\";\n-import ChatPrueba from \"./chatPrueba\";\n+\n const PrinPage = () => {\n   return (\n     <div className=\"w-full\">\n-          <Home />   \n-          <ChatPrueba/>  \n+          <Home />  \n     </div>\n   );\n };\n \n"
                 }
             ],
             "date": 1728431759146,

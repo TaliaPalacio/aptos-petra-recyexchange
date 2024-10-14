@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 14,
+            "activePatchIndex": 15,
             "patches": [
                 {
                     "date": 1728429760384,
@@ -64,6 +64,10 @@
                 {
                     "date": 1728771828649,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,5 @@\n import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';\n-import Header from './header';\n \n interface WalletContextProps {\n   connected: boolean;\n   setConnected: (value: boolean) => void;\n"
+                },
+                {
+                    "date": 1728853766072,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,15 +9,36 @@\n export const WalletProvider = ({ children }: { children: ReactNode }) => {\n   const [connected, setConnected] = useState<boolean>(false);\n \n   useEffect(() => {\n-    // Solo acceder a localStorage en el cliente\n-    if (typeof window !== 'undefined') {\n-      const storedConnected = localStorage.getItem('walletConnected');\n-      if (storedConnected) {\n-        setConnected(storedConnected === 'true');\n+    const checkWalletConnection = async () => {\n+      // Verifica si estamos en el lado del cliente\n+      if (typeof window !== 'undefined') {\n+        // Verifica el estado de conexión en la wallet Petra directamente\n+        const petraWallet = (window as any)?.aptos; // Accede a la API de Petra\n+        if (petraWallet) {\n+          try {\n+            const isConnected = await petraWallet.isConnected(); // Método que verifica si la wallet está conectada\n+            if (isConnected) {\n+              setConnected(true);\n+              localStorage.setItem('walletConnected', 'true');\n+            } else {\n+              setConnected(false);\n+              localStorage.setItem('walletConnected', 'false');\n+            }\n+          } catch (error) {\n+            console.error('Error verificando la conexión con la wallet Petra', error);\n+          }\n+        } else {\n+          const storedConnected = localStorage.getItem('walletConnected');\n+          if (storedConnected) {\n+            setConnected(storedConnected === 'true');\n+          }\n+        }\n       }\n-    }\n+    };\n+\n+    checkWalletConnection();\n   }, []);\n \n   useEffect(() => {\n     // Guardar el estado de conexión en localStorage cuando cambie\n"
                 }
             ],
             "date": 1728429760384,

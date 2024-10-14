@@ -3,7 +3,7 @@ import Modal from "./modal";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useWallet } from "@aptos-labs/wallet-adapter-react";
-import { Aptos, AptosConfig, Network, Account } from "@aptos-labs/ts-sdk";
+import { Aptos, AptosConfig, Network, Account, convertNumber } from "@aptos-labs/ts-sdk";
 
 export const aptos= new Aptos(new AptosConfig({network: Network.TESTNET}));
 
@@ -83,11 +83,20 @@ const FormRegister: React.FC<FormRegisterProps> = ({ selectedType }) => {
       try {
       await aptos.waitForTransaction({ transactionHash: response.hash });
       setFeedback("Reciclaje registrado con éxito.");
+      resetForm();
     } catch (error) {
       setFeedback("Error al registrar el reciclaje.");
     }
 
   }
+  const resetForm = () => {
+    setType("");
+    setUbication("");
+    setWeight(0);
+    setPricePound(0);
+    setObservations("");
+    setAvailable(false);
+  };
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     await registerRecycling();
@@ -168,6 +177,8 @@ const FormRegister: React.FC<FormRegisterProps> = ({ selectedType }) => {
                   type="number"
                   name="Weight"
                   id="weight"
+                  placeholder="Weight in pounds..."
+                  value={weight > 0 ? weight : ""} // Limpia el campo si el peso es 0
                   onChange={(e) => setWeight(Number(e.target.value))}
                   className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
@@ -185,6 +196,8 @@ const FormRegister: React.FC<FormRegisterProps> = ({ selectedType }) => {
                   type="number"
                   name="Price per pound"
                   id="pricePound"
+                  placeholder="Price in aptos..."
+                  value={pricePound > 0 ? pricePound : ""} // Limpia el campo si el precio es 0
                   onChange={(e) => setPricePound(Number(e.target.value))}
                   className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
@@ -202,6 +215,8 @@ const FormRegister: React.FC<FormRegisterProps> = ({ selectedType }) => {
                   type="text"
                   name="Pickup Address"
                   id="ubication"
+                  value={ubication} // Asegúrate de que este valor se limpie si es 0
+                  placeholder="input first the neighborhood..."
                   onChange={(e) => setUbication(e.target.value)}
                   className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />

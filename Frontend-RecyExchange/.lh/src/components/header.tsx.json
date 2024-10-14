@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 66,
+            "activePatchIndex": 120,
             "patches": [
                 {
                     "date": 1728430314767,
@@ -272,6 +272,222 @@
                 {
                     "date": 1728764611173,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n               </a>\n               <Menu />\n             </div>\n           </div>\n-          <div className=\"justify-end\"><Button/></div>\n+          <div className=\"justify justify-end\"><Button/></div>\n         </nav>\n     \n     </div>\n   );\n"
+                },
+                {
+                    "date": 1728852940092,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,26 @@\n import Button from \"./button\";\n import ButtonCreateWallet from \"./buttonCreateWallet\";\n import Image from \"next/image\";\n import Menu from \"./menu\";\n+import { useWalletContext } from \"./walletContext\";\n+import { useEffect } from \"react\";\n \n+\n+\n const Header = () => {\n+\n+  const { connected } = useWalletContext();\n+  // Usa el contexto\n+  useEffect(() => {\n+    // Forzar la actualización del estado del menú basado en la conexión\n+    if (connected) {\n+      console.log(\"Wallet conectada, mostrar el menú\");\n+    } else {\n+      console.log(\"Wallet desconectada, ocultar el menú\");\n+    }\n+  }, [connected]);\n+\n   return (\n     <div className=\"w-10/12\">\n         <nav\n           className=\"flex items-center p-3 lg:px-8\"\n"
+                },
+                {
+                    "date": 1728853009734,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n   const { connected } = useWalletContext();\n   // Usa el contexto\n   useEffect(() => {\n     // Forzar la actualización del estado del menú basado en la conexión\n-    if (connected) {\n+    if (!connected) {\n       console.log(\"Wallet conectada, mostrar el menú\");\n     } else {\n       console.log(\"Wallet desconectada, ocultar el menú\");\n     }\n"
+                },
+                {
+                    "date": 1728853035374,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n   const { connected } = useWalletContext();\n   // Usa el contexto\n   useEffect(() => {\n     // Forzar la actualización del estado del menú basado en la conexión\n-    if (!connected) {\n+    if (connected) {\n       console.log(\"Wallet conectada, mostrar el menú\");\n     } else {\n       console.log(\"Wallet desconectada, ocultar el menú\");\n     }\n"
+                },
+                {
+                    "date": 1728876884386,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,22 +5,10 @@\n import Menu from \"./menu\";\n import { useWalletContext } from \"./walletContext\";\n import { useEffect } from \"react\";\n \n-\n-\n const Header = () => {\n \n-  const { connected } = useWalletContext();\n-  // Usa el contexto\n-  useEffect(() => {\n-    // Forzar la actualización del estado del menú basado en la conexión\n-    if (connected) {\n-      console.log(\"Wallet conectada, mostrar el menú\");\n-    } else {\n-      console.log(\"Wallet desconectada, ocultar el menú\");\n-    }\n-  }, [connected]);\n \n   return (\n     <div className=\"w-10/12\">\n         <nav\n"
+                },
+                {
+                    "date": 1728876913056,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,18 @@\n import { useEffect } from \"react\";\n \n const Header = () => {\n \n+  const { connected } = useWalletContext();\n+  // Usa el contexto\n+  useEffect(() => {\n+    // Forzar la actualización del estado del menú basado en la conexión\n+    if (connected) {\n+      console.log(\"Wallet conectada, mostrar el menú\");\n+    } else {\n+      console.log(\"Wallet desconectada, ocultar el menú\");\n+    }\n+  }, [connected]);\n \n   return (\n     <div className=\"w-10/12\">\n         <nav\n"
+                },
+                {
+                    "date": 1728876935923,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n \n   return (\n     <div className=\"w-10/12\">\n         <nav\n-          className=\"flex items-center p-3 lg:px-8\"\n+          className=\"flex items-center p-3 lg:px-8 bg-blue-900\"\n           aria-label=\"Global\"\n         >\n \n           <div className=\"flex flex-row w-screen justify-between\">\n"
+                },
+                {
+                    "date": 1728876953951,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,11 +19,11 @@\n     }\n   }, [connected]);\n \n   return (\n-    <div className=\"w-10/12\">\n+    <div className=\"w-10/12  bg-blue-900\">\n         <nav\n-          className=\"flex items-center p-3 lg:px-8 bg-blue-900\"\n+          className=\"flex items-center p-3 lg:px-8\"\n           aria-label=\"Global\"\n         >\n \n           <div className=\"flex flex-row w-screen justify-between\">\n"
+                },
+                {
+                    "date": 1728876984184,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n     }\n   }, [connected]);\n \n   return (\n-    <div className=\"w-10/12  bg-blue-900\">\n+    <div className=\"w-full  bg-blue-900\">\n         <nav\n           className=\"flex items-center p-3 lg:px-8\"\n           aria-label=\"Global\"\n         >\n"
+                },
+                {
+                    "date": 1728877023447,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n     }\n   }, [connected]);\n \n   return (\n-    <div className=\"w-full  bg-blue-900\">\n+    <div className=\"w-10/12  bg-blue-900\">\n         <nav\n           className=\"flex items-center p-3 lg:px-8\"\n           aria-label=\"Global\"\n         >\n"
+                },
+                {
+                    "date": 1728877081324,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n     }\n   }, [connected]);\n \n   return (\n-    <div className=\"w-10/12  bg-blue-900\">\n+    <div className=\"w-full flex justify-between bg-blue-900\">\n         <nav\n           className=\"flex items-center p-3 lg:px-8\"\n           aria-label=\"Global\"\n         >\n"
+                },
+                {
+                    "date": 1728877120599,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n     }\n   }, [connected]);\n \n   return (\n-    <div className=\"w-full flex justify-between bg-blue-900\">\n+    <div className=\"w-full flex justify-around bg-blue-900\">\n         <nav\n           className=\"flex items-center p-3 lg:px-8\"\n           aria-label=\"Global\"\n         >\n"
+                },
+                {
+                    "date": 1728877188898,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,10 +44,10 @@\n                 className=\"-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50\"\n               >\n                 ¿Qué puedes reciclar?\n               </a>\n-              <Menu />\n             </div>\n+            <Menu />\n           </div>\n           <div className=\"justify justify-end\"><Button/></div>\n         </nav>\n     \n"
+                },
+                {
+                    "date": 1728877242374,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,10 +46,10 @@\n                 ¿Qué puedes reciclar?\n               </a>\n             </div>\n             <Menu />\n+            <div className=\"justify justify-end\"><Button/></div>\n           </div>\n-          <div className=\"justify justify-end\"><Button/></div>\n         </nav>\n     \n     </div>\n   );\n"
+                },
+                {
+                    "date": 1728877258548,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,10 +44,10 @@\n                 className=\"-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50\"\n               >\n                 ¿Qué puedes reciclar?\n               </a>\n+            <Menu />\n             </div>\n-            <Menu />\n             <div className=\"justify justify-end\"><Button/></div>\n           </div>\n         </nav>\n     \n"
+                },
+                {
+                    "date": 1728877376378,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n                 className=\"-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50\"\n               >\n                 ¿Qué puedes reciclar?\n               </a>\n-            <Menu />\n+              <Menu />\n             </div>\n             <div className=\"justify justify-end\"><Button/></div>\n           </div>\n         </nav>\n"
+                },
+                {
+                    "date": 1728877385545,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n                 ¿Qué puedes reciclar?\n               </a>\n               <Menu />\n             </div>\n-            <div className=\"justify justify-end\"><Button/></div>\n+            <div className=\"\"><Button/></div>\n           </div>\n         </nav>\n     \n     </div>\n"
+                },
+                {
+                    "date": 1728877453085,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,11 +19,11 @@\n     }\n   }, [connected]);\n \n   return (\n-    <div className=\"w-full flex justify-around bg-blue-900\">\n+    <div className=\"\">\n         <nav\n-          className=\"flex items-center p-3 lg:px-8\"\n+          className=\"flex items-center p-3 lg:px-8 w-full flex justify-around bg-blue-900\"\n           aria-label=\"Global\"\n         >\n \n           <div className=\"flex flex-row w-screen justify-between\">\n"
+                },
+                {
+                    "date": 1728877467127,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n \n   return (\n     <div className=\"\">\n         <nav\n-          className=\"flex items-center p-3 lg:px-8 w-full flex justify-around bg-blue-900\"\n+          className=\"flex items-center p-3 lg:px-8 w-full justify-around bg-blue-900\"\n           aria-label=\"Global\"\n         >\n \n           <div className=\"flex flex-row w-screen justify-between\">\n"
+                },
+                {
+                    "date": 1728877512292,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n \n   return (\n     <div className=\"\">\n         <nav\n-          className=\"flex items-center p-3 lg:px-8 w-full justify-around bg-blue-900\"\n+          className=\"flex items-center p-3 lg:px-8 w-full justify-between bg-blue-900\"\n           aria-label=\"Global\"\n         >\n \n           <div className=\"flex flex-row w-screen justify-between\">\n"
+                },
+                {
+                    "date": 1728877528419,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n \n   return (\n     <div className=\"\">\n         <nav\n-          className=\"flex items-center p-3 lg:px-8 w-full justify-between bg-blue-900\"\n+          className=\"flex items-center p-3 lg:px-8 w-full justify-center bg-blue-900\"\n           aria-label=\"Global\"\n         >\n \n           <div className=\"flex flex-row w-screen justify-between\">\n"
+                },
+                {
+                    "date": 1728877557525,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n           className=\"flex items-center p-3 lg:px-8 w-full justify-center bg-blue-900\"\n           aria-label=\"Global\"\n         >\n \n-          <div className=\"flex flex-row w-screen justify-between\">\n+          <div className=\"flex flex-row justify-between\">\n             <div className=\"\">\n               <Image\n                 className=\"rounded-xl\"\n                 src=\"/Logo_RecyExchange.jpg\"\n"
+                },
+                {
+                    "date": 1728877564926,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n           className=\"flex items-center p-3 lg:px-8 w-full justify-center bg-blue-900\"\n           aria-label=\"Global\"\n         >\n \n-          <div className=\"flex flex-row justify-between\">\n+          <div className=\"flex flex-row w-screen justify-between\">\n             <div className=\"\">\n               <Image\n                 className=\"rounded-xl\"\n                 src=\"/Logo_RecyExchange.jpg\"\n"
+                },
+                {
+                    "date": 1728877601514,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n                 height={80}\n               />\n             </div>\n \n-            <div className=\"hidden lg:flex lg:gap-x-12 lg:items-center pr-80\">\n+            <div className=\"hidden lg:flex lg:gap-x-12 lg:items-center pr-80 justify-between\">\n               <ButtonCreateWallet />\n               <a\n                 href=\"#\"\n                 className=\"-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50\"\n"
+                },
+                {
+                    "date": 1728877612505,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n                 height={80}\n               />\n             </div>\n \n-            <div className=\"hidden lg:flex lg:gap-x-12 lg:items-center pr-80 justify-between\">\n+            <div className=\"hidden lg:flex lg:gap-x-12 lg:items-center pr-80\">\n               <ButtonCreateWallet />\n               <a\n                 href=\"#\"\n                 className=\"-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50\"\n"
+                },
+                {
+                    "date": 1728877692492,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n     }\n   }, [connected]);\n \n   return (\n-    <div className=\"\">\n+    <>\n         <nav\n           className=\"flex items-center p-3 lg:px-8 w-full justify-center bg-blue-900\"\n           aria-label=\"Global\"\n         >\n@@ -50,9 +50,9 @@\n             <div className=\"\"><Button/></div>\n           </div>\n         </nav>\n     \n-    </div>\n+    </>\n   );\n };\n \n export default Header;\n"
+                },
+                {
+                    "date": 1728877704978,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,8 @@\n import { useWalletContext } from \"./walletContext\";\n import { useEffect } from \"react\";\n \n const Header = () => {\n-\n   const { connected } = useWalletContext();\n   // Usa el contexto\n   useEffect(() => {\n     // Forzar la actualización del estado del menú basado en la conexión\n@@ -20,38 +19,38 @@\n   }, [connected]);\n \n   return (\n     <>\n-        <nav\n-          className=\"flex items-center p-3 lg:px-8 w-full justify-center bg-blue-900\"\n-          aria-label=\"Global\"\n-        >\n+      <nav\n+        className=\"flex items-center p-3 lg:px-8 w-full justify-center bg-blue-900\"\n+        aria-label=\"Global\"\n+      >\n+        <div className=\"flex flex-row w-screen justify-between\">\n+          <div className=\"\">\n+            <Image\n+              className=\"rounded-xl\"\n+              src=\"/Logo_RecyExchange.jpg\"\n+              alt=\"Logo\"\n+              width={80}\n+              height={80}\n+            />\n+          </div>\n \n-          <div className=\"flex flex-row w-screen justify-between\">\n-            <div className=\"\">\n-              <Image\n-                className=\"rounded-xl\"\n-                src=\"/Logo_RecyExchange.jpg\"\n-                alt=\"Logo\"\n-                width={80}\n-                height={80}\n-              />\n-            </div>\n-\n-            <div className=\"hidden lg:flex lg:gap-x-12 lg:items-center pr-80\">\n-              <ButtonCreateWallet />\n-              <a\n-                href=\"#\"\n-                className=\"-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50\"\n-              >\n-                ¿Qué puedes reciclar?\n-              </a>\n-              <Menu />\n-            </div>\n-            <div className=\"\"><Button/></div>\n+          <div className=\"hidden lg:flex lg:gap-x-12 lg:items-center pr-80\">\n+            <ButtonCreateWallet />\n+            <a\n+              href=\"#\"\n+              className=\"-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50\"\n+            >\n+              ¿Qué puedes reciclar?\n+            </a>\n+            <Menu />\n           </div>\n-        </nav>\n-    \n+          <div className=\"\">\n+            <Button />\n+          </div>\n+        </div>\n+      </nav>\n     </>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1728877767139,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n               height={80}\n             />\n           </div>\n \n-          <div className=\"hidden lg:flex lg:gap-x-12 lg:items-center pr-80\">\n+          <div className=\"hidden lg:flex lg:gap-x-12 lg:items-center\">\n             <ButtonCreateWallet />\n             <a\n               href=\"#\"\n               className=\"-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50\"\n"
+                },
+                {
+                    "date": 1728877792823,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n               ¿Qué puedes reciclar?\n             </a>\n             <Menu />\n           </div>\n-          <div className=\"\">\n+          <div className=\"flex items-center\">\n             <Button />\n           </div>\n         </div>\n       </nav>\n"
+                },
+                {
+                    "date": 1728877804847,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n               ¿Qué puedes reciclar?\n             </a>\n             <Menu />\n           </div>\n-          <div className=\"flex items-center\">\n+          <div className=\"flex items-center justify-center\">\n             <Button />\n           </div>\n         </div>\n       </nav>\n"
+                },
+                {
+                    "date": 1728877823726,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n               ¿Qué puedes reciclar?\n             </a>\n             <Menu />\n           </div>\n-          <div className=\"flex items-center justify-center\">\n+          <div className=\"flex items-center\">\n             <Button />\n           </div>\n         </div>\n       </nav>\n"
+                },
+                {
+                    "date": 1728878100404,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n \n   return (\n     <>\n       <nav\n-        className=\"flex items-center p-3 lg:px-8 w-full justify-center bg-blue-900\"\n+        className=\"flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-br from-[#33D35E] to-[#2AB6D9];\"\n         aria-label=\"Global\"\n       >\n         <div className=\"flex flex-row w-screen justify-between\">\n           <div className=\"\">\n"
+                },
+                {
+                    "date": 1728878170394,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n \n   return (\n     <>\n       <nav\n-        className=\"flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-br from-[#33D35E] to-[#2AB6D9];\"\n+        className=\"flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to from-[#33D35E] to-[#2AB6D9];\"\n         aria-label=\"Global\"\n       >\n         <div className=\"flex flex-row w-screen justify-between\">\n           <div className=\"\">\n"
+                },
+                {
+                    "date": 1728878199021,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n \n   return (\n     <>\n       <nav\n-        className=\"flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to from-[#33D35E] to-[#2AB6D9];\"\n+        className=\"flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-br from-[#33D35E] to-[#2AB6D9] bg-gradient-to-br from-[#33D35E] to-[#2AB6D9];\"\n         aria-label=\"Global\"\n       >\n         <div className=\"flex flex-row w-screen justify-between\">\n           <div className=\"\">\n"
+                },
+                {
+                    "date": 1728878211117,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n \n   return (\n     <>\n       <nav\n-        className=\"flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-br from-[#33D35E] to-[#2AB6D9] bg-gradient-to-br from-[#33D35E] to-[#2AB6D9];\"\n+        className=\"flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-br from-[#33D35E] to-[#2AB6D9] ;\"\n         aria-label=\"Global\"\n       >\n         <div className=\"flex flex-row w-screen justify-between\">\n           <div className=\"\">\n"
+                },
+                {
+                    "date": 1728878310801,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,14 +36,14 @@\n           </div>\n \n           <div className=\"hidden lg:flex lg:gap-x-12 lg:items-center\">\n             <ButtonCreateWallet />\n-            <a\n-              href=\"#\"\n-              className=\"-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50\"\n-            >\n+            <button\n+              className=\"color-primary w-40 h-11 text-white font-bold text-base rounded-full \n+              shadow-xl hover:opacity-70 transition ease-in-out hover:-translate-y-1 hover:scale-110 \n+              duration-300\">\n               ¿Qué puedes reciclar?\n-            </a>\n+            </button>\n             <Menu />\n           </div>\n           <div className=\"flex items-center\">\n             <Button />\n"
+                },
+                {
+                    "date": 1728878363429,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n \n           <div className=\"hidden lg:flex lg:gap-x-12 lg:items-center\">\n             <ButtonCreateWallet />\n             <button\n-              className=\"color-primary w-40 h-11 text-white font-bold text-base rounded-full \n+              className=\"color-primary w-50 h-11 text-white font-bold text-base rounded-full \n               shadow-xl hover:opacity-70 transition ease-in-out hover:-translate-y-1 hover:scale-110 \n               duration-300\">\n               ¿Qué puedes reciclar?\n             </button>\n"
+                },
+                {
+                    "date": 1728878378239,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n \n           <div className=\"hidden lg:flex lg:gap-x-12 lg:items-center\">\n             <ButtonCreateWallet />\n             <button\n-              className=\"color-primary w-50 h-11 text-white font-bold text-base rounded-full \n+              className=\"color-primary w-60 h-11 text-white font-bold text-base rounded-full \n               shadow-xl hover:opacity-70 transition ease-in-out hover:-translate-y-1 hover:scale-110 \n               duration-300\">\n               ¿Qué puedes reciclar?\n             </button>\n"
+                },
+                {
+                    "date": 1728878399853,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n \n           <div className=\"hidden lg:flex lg:gap-x-12 lg:items-center\">\n             <ButtonCreateWallet />\n             <button\n-              className=\"color-primary w-60 h-11 text-white font-bold text-base rounded-full \n+              className=\"color-primary w-56 h-11 text-white font-bold text-base rounded-full \n               shadow-xl hover:opacity-70 transition ease-in-out hover:-translate-y-1 hover:scale-110 \n               duration-300\">\n               ¿Qué puedes reciclar?\n             </button>\n"
+                },
+                {
+                    "date": 1728878757476,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,10 +20,10 @@\n \n   return (\n     <>\n       <nav\n-        className=\"flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-br from-[#33D35E] to-[#2AB6D9] ;\"\n-        aria-label=\"Global\"\n+       className=\"flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-br from-blue-900 via-white to-green-400\"\n+       aria-label=\"Global\"\n       >\n         <div className=\"flex flex-row w-screen justify-between\">\n           <div className=\"\">\n             <Image\n"
+                },
+                {
+                    "date": 1728882194129,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n import Image from \"next/image\";\n import Menu from \"./menu\";\n import { useWalletContext } from \"./walletContext\";\n import { useEffect } from \"react\";\n+import Home from \"./home\";\n \n const Header = () => {\n   const { connected } = useWalletContext();\n   // Usa el contexto\n@@ -24,8 +25,10 @@\n        className=\"flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-br from-blue-900 via-white to-green-400\"\n        aria-label=\"Global\"\n       >\n         <div className=\"flex flex-row w-screen justify-between\">\n+          <a\n+          href=\"/Home\">\n           <div className=\"\">\n             <Image\n               className=\"rounded-xl\"\n               src=\"/Logo_RecyExchange.jpg\"\n@@ -33,9 +36,9 @@\n               width={80}\n               height={80}\n             />\n           </div>\n-\n+          </a>\n           <div className=\"hidden lg:flex lg:gap-x-12 lg:items-center\">\n             <ButtonCreateWallet />\n             <button\n               className=\"color-primary w-56 h-11 text-white font-bold text-base rounded-full \n"
+                },
+                {
+                    "date": 1728882223081,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n        aria-label=\"Global\"\n       >\n         <div className=\"flex flex-row w-screen justify-between\">\n           <a\n-          href=\"/Home\">\n+          href=\"/\">\n           <div className=\"\">\n             <Image\n               className=\"rounded-xl\"\n               src=\"/Logo_RecyExchange.jpg\"\n"
+                },
+                {
+                    "date": 1728887879626,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n \n   return (\n     <>\n       <nav\n-       className=\"flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-br from-blue-900 via-white to-green-400\"\n+       className=\" sticky flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-br from-blue-900 via-white to-green-400\"\n        aria-label=\"Global\"\n       >\n         <div className=\"flex flex-row w-screen justify-between\">\n           <a\n"
+                },
+                {
+                    "date": 1728887896385,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n \n   return (\n     <>\n       <nav\n-       className=\" sticky flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-br from-blue-900 via-white to-green-400\"\n+       className=\"flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-br from-blue-900 via-white to-green-400\"\n        aria-label=\"Global\"\n       >\n         <div className=\"flex flex-row w-screen justify-between\">\n           <a\n"
+                },
+                {
+                    "date": 1728887917886,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,8 @@\n import Image from \"next/image\";\n import Menu from \"./menu\";\n import { useWalletContext } from \"./walletContext\";\n import { useEffect } from \"react\";\n-import Home from \"./home\";\n \n const Header = () => {\n   const { connected } = useWalletContext();\n   // Usa el contexto\n"
+                },
+                {
+                    "date": 1728887990630,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n \n   return (\n     <>\n       <nav\n-       className=\"flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-br from-blue-900 via-white to-green-400\"\n+       className=\"sticky top-0 flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-br from-blue-900 via-white to-green-400\"\n        aria-label=\"Global\"\n       >\n         <div className=\"flex flex-row w-screen justify-between\">\n           <a\n"
+                },
+                {
+                    "date": 1728888312082,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n \n   return (\n     <>\n       <nav\n-       className=\"sticky top-0 flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-br from-blue-900 via-white to-green-400\"\n+       className=\" flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-br from-blue-900 via-white to-green-400\"\n        aria-label=\"Global\"\n       >\n         <div className=\"flex flex-row w-screen justify-between\">\n           <a\n"
+                },
+                {
+                    "date": 1728888341188,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n \n   return (\n     <>\n       <nav\n-       className=\" flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-br from-blue-900 via-white to-green-400\"\n+       className=\"flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-br from-blue-900 via-white to-green-400\"\n        aria-label=\"Global\"\n       >\n         <div className=\"flex flex-row w-screen justify-between\">\n           <a\n"
+                },
+                {
+                    "date": 1728888733949,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n \n   return (\n     <>\n       <nav\n-       className=\"flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-br from-blue-900 via-white to-green-400\"\n+       className=\" sticky top-0 z-50 flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-br from-blue-900 via-white to-green-400\"\n        aria-label=\"Global\"\n       >\n         <div className=\"flex flex-row w-screen justify-between\">\n           <a\n"
+                },
+                {
+                    "date": 1728889060590,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n \n   return (\n     <>\n       <nav\n-       className=\" sticky top-0 z-50 flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-br from-blue-900 via-white to-green-400\"\n+       className=\" sticky top-0 z-50 flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-r from-blue-800 via-white to-green-500\"\n        aria-label=\"Global\"\n       >\n         <div className=\"flex flex-row w-screen justify-between\">\n           <a\n"
+                },
+                {
+                    "date": 1728889121937,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n \n   return (\n     <>\n       <nav\n-       className=\" sticky top-0 z-50 flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-r from-blue-800 via-white to-green-500\"\n+       className=\" sticky top-0 z-50 flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-r from-blue-600 via-white to-green-400\"\n        aria-label=\"Global\"\n       >\n         <div className=\"flex flex-row w-screen justify-between\">\n           <a\n"
+                },
+                {
+                    "date": 1728889175521,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n \n   return (\n     <>\n       <nav\n-       className=\" sticky top-0 z-50 flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-r from-blue-600 via-white to-green-400\"\n+       className=\" sticky top-0 z-50 flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-r from-blue-300 via-white to-green-300\"\n        aria-label=\"Global\"\n       >\n         <div className=\"flex flex-row w-screen justify-between\">\n           <a\n"
+                },
+                {
+                    "date": 1728889297613,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n \n   return (\n     <>\n       <nav\n-       className=\" sticky top-0 z-50 flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-r from-blue-300 via-white to-green-300\"\n+       className=\" sticky top-0 z-50 flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-r from-blue-300 via-white to-green-300sticky top-0 z-50 flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-br from-blue-300 via-white to-green-300\"\n        aria-label=\"Global\"\n       >\n         <div className=\"flex flex-row w-screen justify-between\">\n           <a\n"
+                },
+                {
+                    "date": 1728889306187,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n \n   return (\n     <>\n       <nav\n-       className=\" sticky top-0 z-50 flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-r from-blue-300 via-white to-green-300sticky top-0 z-50 flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-br from-blue-300 via-white to-green-300\"\n+       className=\" sticky top-0 z-50 flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-br from-blue-300 via-white to-green-300\"\n        aria-label=\"Global\"\n       >\n         <div className=\"flex flex-row w-screen justify-between\">\n           <a\n"
+                },
+                {
+                    "date": 1728889562444,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n             <button\n               className=\"color-primary w-56 h-11 text-white font-bold text-base rounded-full \n               shadow-xl hover:opacity-70 transition ease-in-out hover:-translate-y-1 hover:scale-110 \n               duration-300\">\n-              ¿Qué puedes reciclar?\n+              what can you recycle?\n             </button>\n             <Menu />\n           </div>\n           <div className=\"flex items-center\">\n"
                 }
             ],
             "date": 1728430314767,

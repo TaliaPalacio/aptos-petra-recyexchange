@@ -10,13 +10,34 @@ export const WalletProvider = ({ children }: { children: ReactNode }) => {
   const [connected, setConnected] = useState<boolean>(false);
 
   useEffect(() => {
-    // Solo acceder a localStorage en el cliente
-    if (typeof window !== 'undefined') {
-      const storedConnected = localStorage.getItem('walletConnected');
-      if (storedConnected) {
-        setConnected(storedConnected === 'true');
+    const checkWalletConnection = async () => {
+      // Verifica si estamos en el lado del cliente
+      if (typeof window !== 'undefined') {
+        // Verifica el estado de conexión en la wallet Petra directamente
+        const petraWallet = (window as any)?.aptos; // Accede a la API de Petra
+        if (petraWallet) {
+          try {
+            const isConnected = await petraWallet.isConnected(); // Método que verifica si la wallet está conectada
+            if (isConnected) {
+              setConnected(true);
+              localStorage.setItem('walletConnected', 'true');
+            } else {
+              setConnected(false);
+              localStorage.setItem('walletConnected', 'false');
+            }
+          } catch (error) {
+            console.error('Error verificando la conexión con la wallet Petra', error);
+          }
+        } else {
+          const storedConnected = localStorage.getItem('walletConnected');
+          if (storedConnected) {
+            setConnected(storedConnected === 'true');
+          }
+        }
       }
-    }
+    };
+
+    checkWalletConnection();
   }, []);
 
   useEffect(() => {

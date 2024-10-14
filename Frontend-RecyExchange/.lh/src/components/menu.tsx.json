@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 7,
+            "activePatchIndex": 14,
             "patches": [
                 {
                     "date": 1728431429895,
@@ -36,6 +36,34 @@
                 {
                     "date": 1728776892690,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,13 +29,9 @@\n     return () => {\n       document.removeEventListener(\"mousedown\", handleClickOutside);\n     };\n   }, []);\n-  useEffect(() => {\n-    if (connected) {\n-      setIsOpen(true);\n-    }\n-  }, [connected]);\n+\n   if (!connected) return null; // No mostrar el menú si la wallet no está conectada\n //mostrar el menu si la wallet esta conectada y se actualiza la pagina\n \n   return (\n"
+                },
+                {
+                    "date": 1728852384550,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,27 @@\n import { useEffect, useRef, useState } from \"react\";\n import Image from \"next/image\";\n import { useWalletContext } from \"./walletContext\";\n+import Header from \"@/components/header\";\n \n+\n+\n const DropdownMenu = () => {\n \n   const [isOpen, setIsOpen] = useState(false);\n   const menuRef = useRef<HTMLDivElement>(null);\n   const { connected } = useWalletContext(); // Usa el contexto\n+// Usa el contexto\n+    useEffect(() => {\n+      // Forzar la actualización del estado del menú basado en la conexión\n+      if (connected) {\n+        console.log(\"Wallet conectada, mostrar el menú\");\n+      } else {\n+        console.log(\"Wallet desconectada, ocultar el menú\");\n+      }\n+    }, [connected]);\n+  }\n+\n   \n \n   const toggleMenu = () => {\n     setIsOpen((prev) => !prev);\n"
+                },
+                {
+                    "date": 1728852471008,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,12 +18,9 @@\n       } else {\n         console.log(\"Wallet desconectada, ocultar el menú\");\n       }\n     }, [connected]);\n-  }\n-\n   \n-\n   const toggleMenu = () => {\n     setIsOpen((prev) => !prev);\n   };\n \n"
+                },
+                {
+                    "date": 1728852477340,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,8 @@\n import { useEffect, useRef, useState } from \"react\";\n import Image from \"next/image\";\n import { useWalletContext } from \"./walletContext\";\n-import Header from \"@/components/header\";\n \n-\n-\n const DropdownMenu = () => {\n \n   const [isOpen, setIsOpen] = useState(false);\n   const menuRef = useRef<HTMLDivElement>(null);\n"
+                },
+                {
+                    "date": 1728852655597,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n       // Forzar la actualización del estado del menú basado en la conexión\n       if (connected) {\n         console.log(\"Wallet conectada, mostrar el menú\");\n       } else {\n-        console.log(\"Wallet desconectada, ocultar el menú\");\n+         return null;\n       }\n     }, [connected]);\n   \n   const toggleMenu = () => {\n@@ -38,9 +38,9 @@\n       document.removeEventListener(\"mousedown\", handleClickOutside);\n     };\n   }, []);\n \n-  if (!connected) return null; // No mostrar el menú si la wallet no está conectada\n+   // No mostrar el menú si la wallet no está conectada\n //mostrar el menu si la wallet esta conectada y se actualiza la pagina\n \n   return (\n     <div className=\"relative\">\n"
+                },
+                {
+                    "date": 1728852767600,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n       // Forzar la actualización del estado del menú basado en la conexión\n       if (connected) {\n         console.log(\"Wallet conectada, mostrar el menú\");\n       } else {\n-         return null;\n+        console.log(\"Wallet desconectada, ocultar el menú\");\n       }\n     }, [connected]);\n   \n   const toggleMenu = () => {\n@@ -38,9 +38,9 @@\n       document.removeEventListener(\"mousedown\", handleClickOutside);\n     };\n   }, []);\n \n-   // No mostrar el menú si la wallet no está conectada\n+  if (!connected) return null; // No mostrar el menú si la wallet no está conectada\n //mostrar el menu si la wallet esta conectada y se actualiza la pagina\n \n   return (\n     <div className=\"relative\">\n"
+                },
+                {
+                    "date": 1728852892101,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,18 +6,9 @@\n \n   const [isOpen, setIsOpen] = useState(false);\n   const menuRef = useRef<HTMLDivElement>(null);\n   const { connected } = useWalletContext(); // Usa el contexto\n-// Usa el contexto\n-    useEffect(() => {\n-      // Forzar la actualización del estado del menú basado en la conexión\n-      if (connected) {\n-        console.log(\"Wallet conectada, mostrar el menú\");\n-      } else {\n-        console.log(\"Wallet desconectada, ocultar el menú\");\n-      }\n-    }, [connected]);\n-  \n+\n   const toggleMenu = () => {\n     setIsOpen((prev) => !prev);\n   };\n \n"
+                },
+                {
+                    "date": 1728853144826,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,9 @@\n \n   const [isOpen, setIsOpen] = useState(false);\n   const menuRef = useRef<HTMLDivElement>(null);\n   const { connected } = useWalletContext(); // Usa el contexto\n+  \n \n   const toggleMenu = () => {\n     setIsOpen((prev) => !prev);\n   };\n"
                 }
             ],
             "date": 1728431429895,
