@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 120,
+            "activePatchIndex": 126,
             "patches": [
                 {
                     "date": 1728430314767,
@@ -488,6 +488,30 @@
                 {
                     "date": 1728889562444,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n             <button\n               className=\"color-primary w-56 h-11 text-white font-bold text-base rounded-full \n               shadow-xl hover:opacity-70 transition ease-in-out hover:-translate-y-1 hover:scale-110 \n               duration-300\">\n-              ¿Qué puedes reciclar?\n+              what can you recycle?\n             </button>\n             <Menu />\n           </div>\n           <div className=\"flex items-center\">\n"
+                },
+                {
+                    "date": 1728928458083,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,16 +8,16 @@\n \n const Header = () => {\n   const { connected } = useWalletContext();\n   // Usa el contexto\n-  useEffect(() => {\n+  /*useEffect(() => {\n     // Forzar la actualización del estado del menú basado en la conexión\n     if (connected) {\n       console.log(\"Wallet conectada, mostrar el menú\");\n     } else {\n       console.log(\"Wallet desconectada, ocultar el menú\");\n     }\n-  }, [connected]);\n+  }, [connected]);*/\n \n   return (\n     <>\n       <nav\n"
+                },
+                {
+                    "date": 1728973669224,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,22 +2,10 @@\n import Button from \"./button\";\n import ButtonCreateWallet from \"./buttonCreateWallet\";\n import Image from \"next/image\";\n import Menu from \"./menu\";\n-import { useWalletContext } from \"./walletContext\";\n-import { useEffect } from \"react\";\n \n const Header = () => {\n-  const { connected } = useWalletContext();\n-  // Usa el contexto\n-  /*useEffect(() => {\n-    // Forzar la actualización del estado del menú basado en la conexión\n-    if (connected) {\n-      console.log(\"Wallet conectada, mostrar el menú\");\n-    } else {\n-      console.log(\"Wallet desconectada, ocultar el menú\");\n-    }\n-  }, [connected]);*/\n \n   return (\n     <>\n       <nav\n"
+                },
+                {
+                    "date": 1728973994664,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,34 +4,33 @@\n import Image from \"next/image\";\n import Menu from \"./menu\";\n \n const Header = () => {\n-\n   return (\n     <>\n       <nav\n-       className=\" sticky top-0 z-50 flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-br from-blue-300 via-white to-green-300\"\n-       aria-label=\"Global\"\n+        className=\" sticky top-0 z-50 flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-br from-blue-300 via-white to-green-300\"\n+        aria-label=\"Global\"\n       >\n         <div className=\"flex flex-row w-screen justify-between\">\n-          <a\n-          href=\"/\">\n-          <div className=\"\">\n-            <Image\n-              className=\"rounded-xl\"\n-              src=\"/Logo_RecyExchange.jpg\"\n-              alt=\"Logo\"\n-              width={80}\n-              height={80}\n-            />\n-          </div>\n+          <a href=\"/\">\n+            <div className=\"\">\n+              <Image\n+                className=\"rounded-xl\"\n+                src=\"/Logo_RecyExchange.jpg\"\n+                alt=\"Logo\"\n+                width={80}\n+                height={80}\n+              />\n+            </div>\n           </a>\n           <div className=\"hidden lg:flex lg:gap-x-12 lg:items-center\">\n             <ButtonCreateWallet />\n             <button\n               className=\"color-primary w-56 h-11 text-white font-bold text-base rounded-full \n               shadow-xl hover:opacity-70 transition ease-in-out hover:-translate-y-1 hover:scale-110 \n-              duration-300\">\n+              duration-300\"\n+            >\n               what can you recycle?\n             </button>\n             <Menu />\n           </div>\n"
+                },
+                {
+                    "date": 1729011032833,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n const Header = () => {\n   return (\n     <>\n       <nav\n-        className=\" sticky top-0 z-50 flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-br from-blue-300 via-white to-green-300\"\n+        className=\" sticky top-0 z-50 flex items-center lg:px-8 w-full justify-center bg-gradient-to-br from-blue-300 via-white to-green-300\"\n         aria-label=\"Global\"\n       >\n         <div className=\"flex flex-row w-screen justify-between\">\n           <a href=\"/\">\n"
+                },
+                {
+                    "date": 1729011042487,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n const Header = () => {\n   return (\n     <>\n       <nav\n-        className=\" sticky top-0 z-50 flex items-center lg:px-8 w-full justify-center bg-gradient-to-br from-blue-300 via-white to-green-300\"\n+        className=\" sticky top-0 z-50 flex items-center p-3 lg:px-8 w-full justify-center bg-gradient-to-br from-blue-300 via-white to-green-300\"\n         aria-label=\"Global\"\n       >\n         <div className=\"flex flex-row w-screen justify-between\">\n           <a href=\"/\">\n"
+                },
+                {
+                    "date": 1729021350730,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,15 +24,17 @@\n             </div>\n           </a>\n           <div className=\"hidden lg:flex lg:gap-x-12 lg:items-center\">\n             <ButtonCreateWallet />\n+            <a href=\"/academy\">\n             <button\n               className=\"color-primary w-56 h-11 text-white font-bold text-base rounded-full \n               shadow-xl hover:opacity-70 transition ease-in-out hover:-translate-y-1 hover:scale-110 \n               duration-300\"\n             >\n               what can you recycle?\n             </button>\n+            </a>\n             <Menu />\n           </div>\n           <div className=\"flex items-center\">\n             <Button />\n"
                 }
             ],
             "date": 1728430314767,

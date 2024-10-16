@@ -5,6 +5,7 @@ import { AptosWalletAdapterProvider } from "@aptos-labs/wallet-adapter-react";
 import { WalletProvider } from "@/components/walletContext";
 import { Network } from "@aptos-labs/ts-sdk";
 import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -23,7 +24,7 @@ export default function App({ Component, pageProps }: AppProps) {
         {/* Aquí renderizas la página actual */}
         <Component {...pageProps} />
         </WalletProvider>
-
+          <Footer/> 
       </AptosWalletAdapterProvider>
     </React.StrictMode>
   );

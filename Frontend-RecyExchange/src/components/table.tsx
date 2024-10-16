@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Aptos, AptosConfig, Network } from "@aptos-labs/ts-sdk";
 import { useWallet } from "@aptos-labs/wallet-adapter-react";
+import ADDRESS from "@/utils/data";
 
 interface Recycling {
   type: string;
@@ -10,10 +11,10 @@ interface Recycling {
   observations: string;
   chats: [];
   available: boolean;
+  totalPrice: number;
 }
 
 export const aptos = new Aptos(new AptosConfig({ network: Network.TESTNET }));
-const ADDRESS = "0xfed39611e5ac476394ec5799b1e0ed2a577a47dcfa522ab92df24d5667bc4720";
 
 const Table = () => {
   const { account } = useWallet();
@@ -48,10 +49,13 @@ const Table = () => {
               observations: recycling.observations || "N/A",
               chats: recycling.chats || [],
               available: recycling.available || false,
+              totalPrice: recycling.totalPrice || 0,
             }))
         );
 
         setRecyclings(extractedRecyclings);
+
+
       } else {
         console.error("No se encontraron reciclajes");
       }
@@ -81,6 +85,8 @@ const Table = () => {
                 <th className="px-4 py-2 border">Price Per Pound</th>
                 <th className="px-4 py-2 border">Observations</th>
                 <th className="px-4 py-2 border">Available</th>
+                <th className="px-4 py-2 border">Total Price</th>
+
               </tr>
             </thead>
             <tbody>
@@ -94,9 +100,10 @@ const Table = () => {
                     <td className="px-4 py-2 border">{recycling.type}</td>
                     <td className="px-4 py-2 border">{recycling.ubication}</td>
                     <td className="px-4 py-2 border">{recycling.weight}</td>
-                    <td className="px-4 py-2 border">{recycling.pricePound}</td>
+                    <td className="px-4 py-2 border">{recycling.pricePound}octa</td>
                     <td className="px-4 py-2 border">{recycling.observations}</td>
                     <td className="px-4 py-2 border">{recycling.available ? "Sí" : "No"}</td>
+                    <td className="px-4 py-2 border">{recycling.totalPrice = recycling.pricePound*recycling.weight}octa</td>
                   </tr>
                 ))
               )}
@@ -116,9 +123,10 @@ const Table = () => {
               <p><strong>Type:</strong> {selectedRecycling.type}</p>
               <p><strong>Ubication:</strong> {selectedRecycling.ubication}</p>
               <p><strong>Weight:</strong> {selectedRecycling.weight}</p>
-              <p><strong>Price Per Pound:</strong> {selectedRecycling.pricePound}</p>
+              <p><strong>Price Per Pound:</strong> {selectedRecycling.pricePound} octa</p>
               <p><strong>Observations:</strong> {selectedRecycling.observations}</p>
               <p><strong>Available:</strong> {selectedRecycling.available ? "Sí" : "No"}</p>
+              <p><strong>Price Total:</strong>{selectedRecycling.totalPrice = selectedRecycling.pricePound*selectedRecycling.weight} octa</p>
               <div className="flex justify-center mt-4 space-x-4">
               <button onClick={handleCloseModal} className="mt-4 px-4 py-2 block w-32 rounded-md text-center bg-orange-600 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-transform transform hover:scale-105 duration-300">Close</button>
               <button onClick={handleCloseModal} className="mt-4 px-4 py-2 block w-32 rounded-md text-center bg-orange-600 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-transform transform hover:scale-105 duration-300">See Chat</button>

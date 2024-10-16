@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 51,
+            "activePatchIndex": 67,
             "patches": [
                 {
                     "date": 1728433104172,
@@ -212,6 +212,70 @@
                 {
                     "date": 1728772222290,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,26 +8,23 @@\n \n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n-    <WalletProvider>\n     <React.StrictMode>\n-      \n       <AptosWalletAdapterProvider\n         autoConnect={true}\n         optInWallets={[\"Petra\"]}\n         dappConfig={{ network: Network.TESTNET }}\n         onError={(error) => console.log(error)}\n         plugins={[]}\n       >\n         \n-        <Header/>\n+        <WalletProvider>\n+        <Header />\n         {/* Aquí renderizas la página actual */}\n         <Component {...pageProps} />\n-        \n+        </WalletProvider>\n \n       </AptosWalletAdapterProvider>\n-      \n     </React.StrictMode>\n-    </WalletProvider>\n   );\n }\n"
+                },
+                {
+                    "date": 1728998673858,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n import { AptosWalletAdapterProvider } from \"@aptos-labs/wallet-adapter-react\";\n import { WalletProvider } from \"@/components/walletContext\";\n import { Network } from \"@aptos-labs/ts-sdk\";\n import Header from \"@/components/header\";\n+import Footer from \"@/components/footer\";\n \n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n@@ -21,8 +22,11 @@\n         <WalletProvider>\n         <Header />\n         {/* Aquí renderizas la página actual */}\n         <Component {...pageProps} />\n+        {/* Aquí renderizas el footer */}\n+        {/* <Footer /> */}\n+        <Footer />\n         </WalletProvider>\n \n       </AptosWalletAdapterProvider>\n     </React.StrictMode>\n"
+                },
+                {
+                    "date": 1729003555695,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,13 +22,10 @@\n         <WalletProvider>\n         <Header />\n         {/* Aquí renderizas la página actual */}\n         <Component {...pageProps} />\n-        {/* Aquí renderizas el footer */}\n-        {/* <Footer /> */}\n+        </WalletProvider>\n         <Footer />\n-        </WalletProvider>\n-\n       </AptosWalletAdapterProvider>\n     </React.StrictMode>\n   );\n }\n"
+                },
+                {
+                    "date": 1729003834821,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,11 @@\n         <Header />\n         {/* Aquí renderizas la página actual */}\n         <Component {...pageProps} />\n         </WalletProvider>\n-        <Footer />\n+       \n       </AptosWalletAdapterProvider>\n+      <Footer />\n     </React.StrictMode>\n+    \n   );\n }\n"
+                },
+                {
+                    "date": 1729003855240,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,11 +23,9 @@\n         <Header />\n         {/* Aquí renderizas la página actual */}\n         <Component {...pageProps} />\n         </WalletProvider>\n-       \n+        <Footer />\n       </AptosWalletAdapterProvider>\n-      <Footer />\n     </React.StrictMode>\n-    \n   );\n }\n"
+                },
+                {
+                    "date": 1729004757850,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,11 @@\n         <Header />\n         {/* Aquí renderizas la página actual */}\n         <Component {...pageProps} />\n         </WalletProvider>\n-        <Footer />\n+        <div>\n+          <Footer/> \n+        </div>\n       </AptosWalletAdapterProvider>\n     </React.StrictMode>\n   );\n }\n"
+                },
+                {
+                    "date": 1729004768612,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         <Header />\n         {/* Aquí renderizas la página actual */}\n         <Component {...pageProps} />\n         </WalletProvider>\n-        <div>\n+        <div className=\"pt-86\">\n           <Footer/> \n         </div>\n       </AptosWalletAdapterProvider>\n     </React.StrictMode>\n"
+                },
+                {
+                    "date": 1729004781724,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         <Header />\n         {/* Aquí renderizas la página actual */}\n         <Component {...pageProps} />\n         </WalletProvider>\n-        <div className=\"pt-86\">\n+        <div className=\"pt-80\">\n           <Footer/> \n         </div>\n       </AptosWalletAdapterProvider>\n     </React.StrictMode>\n"
+                },
+                {
+                    "date": 1729004798193,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         <Header />\n         {/* Aquí renderizas la página actual */}\n         <Component {...pageProps} />\n         </WalletProvider>\n-        <div className=\"pt-80\">\n+        <div className=\"pt-2\">\n           <Footer/> \n         </div>\n       </AptosWalletAdapterProvider>\n     </React.StrictMode>\n"
+                },
+                {
+                    "date": 1729004806983,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         <Header />\n         {/* Aquí renderizas la página actual */}\n         <Component {...pageProps} />\n         </WalletProvider>\n-        <div className=\"pt-2\">\n+        <div className=\"pt-24\">\n           <Footer/> \n         </div>\n       </AptosWalletAdapterProvider>\n     </React.StrictMode>\n"
+                },
+                {
+                    "date": 1729004817373,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         <Header />\n         {/* Aquí renderizas la página actual */}\n         <Component {...pageProps} />\n         </WalletProvider>\n-        <div className=\"pt-24\">\n+        <div className=\"pt-28\">\n           <Footer/> \n         </div>\n       </AptosWalletAdapterProvider>\n     </React.StrictMode>\n"
+                },
+                {
+                    "date": 1729004858447,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         <Header />\n         {/* Aquí renderizas la página actual */}\n         <Component {...pageProps} />\n         </WalletProvider>\n-        <div className=\"pt-28\">\n+        <div className=\"pt-24\">\n           <Footer/> \n         </div>\n       </AptosWalletAdapterProvider>\n     </React.StrictMode>\n"
+                },
+                {
+                    "date": 1729004874203,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         <Header />\n         {/* Aquí renderizas la página actual */}\n         <Component {...pageProps} />\n         </WalletProvider>\n-        <div className=\"pt-24\">\n+        <div className=\"pt-28\">\n           <Footer/> \n         </div>\n       </AptosWalletAdapterProvider>\n     </React.StrictMode>\n"
+                },
+                {
+                    "date": 1729007508606,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n import { WalletProvider } from \"@/components/walletContext\";\n import { Network } from \"@aptos-labs/ts-sdk\";\n import Header from \"@/components/header\";\n import Footer from \"@/components/footer\";\n+import Particles from \"@tsparticles/react\";\n \n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n@@ -20,8 +21,9 @@\n       >\n         \n         <WalletProvider>\n         <Header />\n+        <Particles/>\n         {/* Aquí renderizas la página actual */}\n         <Component {...pageProps} />\n         </WalletProvider>\n         <div className=\"pt-28\">\n"
+                },
+                {
+                    "date": 1729010710828,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,13 +21,12 @@\n       >\n         \n         <WalletProvider>\n         <Header />\n-        <Particles/>\n         {/* Aquí renderizas la página actual */}\n         <Component {...pageProps} />\n         </WalletProvider>\n-        <div className=\"pt-28\">\n+        <div className=\"\">\n           <Footer/> \n         </div>\n       </AptosWalletAdapterProvider>\n     </React.StrictMode>\n"
+                },
+                {
+                    "date": 1729014854706,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,8 @@\n import { WalletProvider } from \"@/components/walletContext\";\n import { Network } from \"@aptos-labs/ts-sdk\";\n import Header from \"@/components/header\";\n import Footer from \"@/components/footer\";\n-import Particles from \"@tsparticles/react\";\n \n \n export default function App({ Component, pageProps }: AppProps) {\n   return (\n"
+                },
+                {
+                    "date": 1729016597547,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,11 +23,9 @@\n         <Header />\n         {/* Aquí renderizas la página actual */}\n         <Component {...pageProps} />\n         </WalletProvider>\n-        <div className=\"\">\n           <Footer/> \n-        </div>\n       </AptosWalletAdapterProvider>\n     </React.StrictMode>\n   );\n }\n"
                 }
             ],
             "date": 1728433104172,

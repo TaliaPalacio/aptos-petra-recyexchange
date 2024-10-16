@@ -1,25 +1,25 @@
-import * as React from "react"
+import * as React from "react";
 
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel"
+} from "@/components/ui/carousel";
 
 // Definimos el tipo de setSelectedType como una función que recibe un string
 interface CarouselShadcnProps {
   setSelectedType: (type: string) => void;
 }
 
-const CarouselShadcn: React.FC<CarouselShadcnProps> = ({ setSelectedType })=>  {
+const CarouselShadcn: React.FC<CarouselShadcnProps> = ({ setSelectedType }) => {
   const items = [
-    {type: "Plastics", image: "/plastic.jpeg"},
-    {type: "Cardboard", image: "/cardboard.jpeg"},
-    {type: "Glasses", image: "/glass.jpeg"},
-    {type: "Metals", image: "/metals.jpeg"},
+    { type: "Plastics", image: "/plastic.jpeg" },
+    { type: "Cardboard", image: "/cardboard.jpeg" },
+    { type: "Glasses", image: "/glass.jpeg" },
+    { type: "Metals", image: "/metals.jpeg" },
   ];
   return (
     <Carousel
@@ -29,22 +29,22 @@ const CarouselShadcn: React.FC<CarouselShadcnProps> = ({ setSelectedType })=>  {
       orientation="vertical"
       className="w-full max-w-xs"
     >
-      <CarouselContent className="-mt-1 h-[200px]">
+      <CarouselContent className="-mt-1 h-[350px] flex"> {/* Aumentar la altura del contenedor */}
         {items.map((item, index) => (
-          <CarouselItem 
-          key={index} 
-          className="pt-1 md:basis-1/2"
-          onClick={() => setSelectedType(item.type)}
+          <CarouselItem
+            key={index}
+            className="pt-1 flex-none w-full" // flex-none y w-full para asegurar que cada tarjeta ocupe el ancho completo
+            onClick={() => setSelectedType(item.type)}
           >
             <div className="p-1">
-              <Card>
-                <CardContent className="flex items-center justify-center p-6 hover: cursor-pointer">
+              <Card className="h-[160px]"> {/* Ajustar el alto de la tarjeta */}
+                <CardContent className="flex items-center justify-center p-4 hover:cursor-pointer">
                   <img
                     src={item.image}
                     alt={item.type}
-                    className="h-16 w-16"
+                    className="h-24 w-24" // Imagen más grande
                   />
-                  <span className="text-3x1 font-semibold">{item.type}</span>
+                  <span className="text-2xl font-semibold">{item.type}</span> {/* Tamaño de texto ajustado */}
                 </CardContent>
               </Card>
             </div>

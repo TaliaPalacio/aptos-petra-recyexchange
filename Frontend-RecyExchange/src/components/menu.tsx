@@ -89,37 +89,6 @@ const DropdownMenu = () => {
                   </p>
                 </a>
               </div>
-              {/* Repite el bloque anterior para otras opciones del menú */}
-              <div
-                className="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50 cursor-pointer"
-                onClick={() => handleOptionClick("Reports")}
-              >
-                <div className="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                  <svg
-                    className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M3 8l9-5 9 5v13l-9 5-9-5V8z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <span className="font-semibold text-gray-900">
-                    Registrar reciclaje
-                  </span>
-                  <p className="mt-1 text-gray-600">
-                    Registra tu reciclaje y obtén tokens de recompensa.
-                  </p>
-                </div>
-              </div>
-              {/* Agrega más opciones según sea necesario */}
             </div>
           </div>
         </div>

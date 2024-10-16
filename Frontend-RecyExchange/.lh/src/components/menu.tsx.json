@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 14,
+            "activePatchIndex": 16,
             "patches": [
                 {
                     "date": 1728431429895,
@@ -64,6 +64,14 @@
                 {
                     "date": 1728853144826,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,9 @@\n \n   const [isOpen, setIsOpen] = useState(false);\n   const menuRef = useRef<HTMLDivElement>(null);\n   const { connected } = useWalletContext(); // Usa el contexto\n+  \n \n   const toggleMenu = () => {\n     setIsOpen((prev) => !prev);\n   };\n"
+                },
+                {
+                    "date": 1729003496442,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -89,37 +89,9 @@\n                   </p>\n                 </a>\n               </div>\n               {/* Repite el bloque anterior para otras opciones del menú */}\n-              <div\n-                className=\"group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50 cursor-pointer\"\n-                onClick={() => handleOptionClick(\"Reports\")}\n-              >\n-                <div className=\"mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white\">\n-                  <svg\n-                    className=\"h-6 w-6 text-gray-600 group-hover:text-indigo-600\"\n-                    fill=\"none\"\n-                    viewBox=\"0 0 24 24\"\n-                    strokeWidth=\"1.5\"\n-                    stroke=\"currentColor\"\n-                    aria-hidden=\"true\"\n-                  >\n-                    <path\n-                      strokeLinecap=\"round\"\n-                      strokeLinejoin=\"round\"\n-                      d=\"M3 8l9-5 9 5v13l-9 5-9-5V8z\"\n-                    />\n-                  </svg>\n-                </div>\n-                <div>\n-                  <span className=\"font-semibold text-gray-900\">\n-                    Registrar reciclaje\n-                  </span>\n-                  <p className=\"mt-1 text-gray-600\">\n-                    Registra tu reciclaje y obtén tokens de recompensa.\n-                  </p>\n-                </div>\n-              </div>\n+              \n               {/* Agrega más opciones según sea necesario */}\n             </div>\n           </div>\n         </div>\n"
+                },
+                {
+                    "date": 1729003501651,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -88,11 +88,8 @@\n                     Join us today and be a part of the recycling revolution!\n                   </p>\n                 </a>\n               </div>\n-              {/* Repite el bloque anterior para otras opciones del menú */}\n-              \n-              {/* Agrega más opciones según sea necesario */}\n             </div>\n           </div>\n         </div>\n       )}\n"
                 }
             ],
             "date": 1728431429895,

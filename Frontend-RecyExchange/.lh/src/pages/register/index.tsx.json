@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 123,
+            "activePatchIndex": 179,
             "patches": [
                 {
                     "date": 1728432706357,
@@ -500,6 +500,230 @@
                 {
                     "date": 1728770485817,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,12 @@\n import React from \"react\";\n import RadioGroupGlobal from \"@/components/radio-group-global\";\n-import Header from \"@/components/header\";\n \n const RegisterPage = () => {\n \n   return (\n     <div className=\"flex flex-col w-full items-center\">\n        <div className=\"w-full ml-8\">\n-        <Header />\n       </div>\n       <div className=\"w-full flex justify-center mt-20\">\n         <div className=\"w-1/3 ml-96\">\n           <RadioGroupGlobal />\n"
+                },
+                {
+                    "date": 1729004254360,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n   return (\n     <div className=\"flex flex-col w-full items-center\">\n        <div className=\"w-full ml-8\">\n       </div>\n-      <div className=\"w-full flex justify-center mt-20\">\n+      <div className=\"w-full flex justify-center mt-20 top-0\">\n         <div className=\"w-1/3 ml-96\">\n           <RadioGroupGlobal />\n         </div>\n       </div>\n"
+                },
+                {
+                    "date": 1729004586222,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,21 +1,22 @@\n import React from \"react\";\n import RadioGroupGlobal from \"@/components/radio-group-global\";\n+import Footer from \"@/components/Footer\"; // Asegúrate de importar tu componente Footer\n \n const RegisterPage = () => {\n-\n   return (\n-    <div className=\"flex flex-col w-full items-center\">\n-       <div className=\"w-full ml-8\">\n-      </div>\n-      <div className=\"w-full flex justify-center mt-20 top-0\">\n-        <div className=\"w-1/3 ml-96\">\n-          <RadioGroupGlobal />\n+    <div className=\"flex flex-col min-h-screen w-full\">\n+      <div className=\"flex-grow flex flex-col items-center justify-center\">\n+        <div className=\"w-full flex justify-center mt-20\">\n+          <div className=\"w-1/3\">\n+            <RadioGroupGlobal />\n+          </div>\n         </div>\n       </div>\n+\n+      {/* Footer global */}\n+      <Footer />\n     </div>\n   );\n };\n \n export default RegisterPage;\n-\n-\n"
+                },
+                {
+                    "date": 1729004626575,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,22 +1,21 @@\n import React from \"react\";\n import RadioGroupGlobal from \"@/components/radio-group-global\";\n-import Footer from \"@/components/Footer\"; // Asegúrate de importar tu componente Footer\n \n const RegisterPage = () => {\n+\n   return (\n-    <div className=\"flex flex-col min-h-screen w-full\">\n-      <div className=\"flex-grow flex flex-col items-center justify-center\">\n-        <div className=\"w-full flex justify-center mt-20\">\n-          <div className=\"w-1/3\">\n-            <RadioGroupGlobal />\n-          </div>\n+    <div className=\"flex flex-col w-full items-center\">\n+       <div className=\"w-full ml-8\">\n+      </div>\n+      <div className=\"w-full flex justify-center mt-20 top-0\">\n+        <div className=\"w-1/3 ml-96\">\n+          <RadioGroupGlobal />\n         </div>\n       </div>\n-\n-      {/* Footer global */}\n-      <Footer />\n     </div>\n   );\n };\n \n export default RegisterPage;\n+\n+\n"
+                },
+                {
+                    "date": 1729007696075,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,9 @@\n import React from \"react\";\n import RadioGroupGlobal from \"@/components/radio-group-global\";\n+import Particles from \"@tsparticles/react\";\n \n+\n const RegisterPage = () => {\n \n   return (\n     <div className=\"flex flex-col w-full items-center\">\n@@ -9,8 +11,9 @@\n       </div>\n       <div className=\"w-full flex justify-center mt-20 top-0\">\n         <div className=\"w-1/3 ml-96\">\n           <RadioGroupGlobal />\n+          <Particles/>\n         </div>\n       </div>\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1729007840108,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,14 +6,14 @@\n const RegisterPage = () => {\n \n   return (\n     <div className=\"flex flex-col w-full items-center\">\n+          <Particles/>\n        <div className=\"w-full ml-8\">\n       </div>\n       <div className=\"w-full flex justify-center mt-20 top-0\">\n         <div className=\"w-1/3 ml-96\">\n           <RadioGroupGlobal />\n-          <Particles/>\n         </div>\n       </div>\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1729007878722,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,8 @@\n const RegisterPage = () => {\n \n   return (\n     <div className=\"flex flex-col w-full items-center\">\n-          <Particles/>\n        <div className=\"w-full ml-8\">\n       </div>\n       <div className=\"w-full flex justify-center mt-20 top-0\">\n         <div className=\"w-1/3 ml-96\">\n"
+                },
+                {
+                    "date": 1729007888267,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,6 @@\n import React from \"react\";\n import RadioGroupGlobal from \"@/components/radio-group-global\";\n-import Particles from \"@tsparticles/react\";\n \n \n const RegisterPage = () => {\n \n"
+                },
+                {
+                    "date": 1729010342260,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,22 +1,19 @@\n import React from \"react\";\n import RadioGroupGlobal from \"@/components/radio-group-global\";\n \n-\n const RegisterPage = () => {\n-\n   return (\n     <div className=\"flex flex-col w-full items-center\">\n-       <div className=\"w-full ml-8\">\n+      <div className=\"w-full ml-8\">\n+        {/* Puedes agregar contenido aquí si es necesario */}\n       </div>\n-      <div className=\"w-full flex justify-center mt-20 top-0\">\n-        <div className=\"w-1/3 ml-96\">\n+      <div className=\"w-full flex justify-center mt-10\"> {/* Reducido de mt-20 a mt-10 */}\n+        <div className=\"w-1/3\">\n           <RadioGroupGlobal />\n         </div>\n       </div>\n     </div>\n   );\n };\n \n export default RegisterPage;\n-\n-\n"
+                },
+                {
+                    "date": 1729010375638,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import RadioGroupGlobal from \"@/components/radio-group-global\";\n \n const RegisterPage = () => {\n   return (\n-    <div className=\"flex flex-col w-full items-center\">\n+    <div className=\"flex flex-col w-full items-center mt-10\">\n       <div className=\"w-full ml-8\">\n         {/* Puedes agregar contenido aquí si es necesario */}\n       </div>\n       <div className=\"w-full flex justify-center mt-10\"> {/* Reducido de mt-20 a mt-10 */}\n"
+                },
+                {
+                    "date": 1729010392051,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import RadioGroupGlobal from \"@/components/radio-group-global\";\n \n const RegisterPage = () => {\n   return (\n-    <div className=\"flex flex-col w-full items-center mt-10\">\n+    <div className=\"flex flex-col w-full items-center mt-2\">\n       <div className=\"w-full ml-8\">\n         {/* Puedes agregar contenido aquí si es necesario */}\n       </div>\n       <div className=\"w-full flex justify-center mt-10\"> {/* Reducido de mt-20 a mt-10 */}\n"
+                },
+                {
+                    "date": 1729010404550,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import RadioGroupGlobal from \"@/components/radio-group-global\";\n \n const RegisterPage = () => {\n   return (\n-    <div className=\"flex flex-col w-full items-center mt-2\">\n+    <div className=\"flex flex-col w-full items-center mt-1\">\n       <div className=\"w-full ml-8\">\n         {/* Puedes agregar contenido aquí si es necesario */}\n       </div>\n       <div className=\"w-full flex justify-center mt-10\"> {/* Reducido de mt-20 a mt-10 */}\n"
+                },
+                {
+                    "date": 1729010413678,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import RadioGroupGlobal from \"@/components/radio-group-global\";\n \n const RegisterPage = () => {\n   return (\n-    <div className=\"flex flex-col w-full items-center mt-1\">\n+    <div className=\"flex flex-col w-full items-center mt-2\">\n       <div className=\"w-full ml-8\">\n         {/* Puedes agregar contenido aquí si es necesario */}\n       </div>\n       <div className=\"w-full flex justify-center mt-10\"> {/* Reducido de mt-20 a mt-10 */}\n"
+                },
+                {
+                    "date": 1729010420955,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import RadioGroupGlobal from \"@/components/radio-group-global\";\n \n const RegisterPage = () => {\n   return (\n-    <div className=\"flex flex-col w-full items-center mt-2\">\n+    <div className=\"flex flex-col w-full items-center mt-3\">\n       <div className=\"w-full ml-8\">\n         {/* Puedes agregar contenido aquí si es necesario */}\n       </div>\n       <div className=\"w-full flex justify-center mt-10\"> {/* Reducido de mt-20 a mt-10 */}\n"
+                },
+                {
+                    "date": 1729010429678,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import RadioGroupGlobal from \"@/components/radio-group-global\";\n \n const RegisterPage = () => {\n   return (\n-    <div className=\"flex flex-col w-full items-center mt-3\">\n+    <div className=\"flex flex-col w-full items-center mt-4\">\n       <div className=\"w-full ml-8\">\n         {/* Puedes agregar contenido aquí si es necesario */}\n       </div>\n       <div className=\"w-full flex justify-center mt-10\"> {/* Reducido de mt-20 a mt-10 */}\n"
+                },
+                {
+                    "date": 1729010661727,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import RadioGroupGlobal from \"@/components/radio-group-global\";\n \n const RegisterPage = () => {\n   return (\n-    <div className=\"flex flex-col w-full items-center mt-4\">\n+    <div className=\"flex flex-col w-full items-center mt-4 bg-blue-500\">\n       <div className=\"w-full ml-8\">\n         {/* Puedes agregar contenido aquí si es necesario */}\n       </div>\n       <div className=\"w-full flex justify-center mt-10\"> {/* Reducido de mt-20 a mt-10 */}\n"
+                },
+                {
+                    "date": 1729010734163,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import RadioGroupGlobal from \"@/components/radio-group-global\";\n \n const RegisterPage = () => {\n   return (\n-    <div className=\"flex flex-col w-full items-center mt-4 bg-blue-500\">\n+    <div className=\"flex flex-col w-full items-center mt-4 bg-blue-500 h-full\">\n       <div className=\"w-full ml-8\">\n         {/* Puedes agregar contenido aquí si es necesario */}\n       </div>\n       <div className=\"w-full flex justify-center mt-10\"> {/* Reducido de mt-20 a mt-10 */}\n"
+                },
+                {
+                    "date": 1729010762495,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import RadioGroupGlobal from \"@/components/radio-group-global\";\n \n const RegisterPage = () => {\n   return (\n-    <div className=\"flex flex-col w-full items-center mt-4 bg-blue-500 h-full\">\n+    <div className=\"flex flex-col w-full items-center mt-4 bg-blue-500 h-screen\">\n       <div className=\"w-full ml-8\">\n         {/* Puedes agregar contenido aquí si es necesario */}\n       </div>\n       <div className=\"w-full flex justify-center mt-10\"> {/* Reducido de mt-20 a mt-10 */}\n"
+                },
+                {
+                    "date": 1729010944862,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     <div className=\"flex flex-col w-full items-center mt-4 bg-blue-500 h-screen\">\n       <div className=\"w-full ml-8\">\n         {/* Puedes agregar contenido aquí si es necesario */}\n       </div>\n-      <div className=\"w-full flex justify-center mt-10\"> {/* Reducido de mt-20 a mt-10 */}\n+      <div className=\"w-full flex justify-center\"> {/* Reducido de mt-20 a mt-10 */}\n         <div className=\"w-1/3\">\n           <RadioGroupGlobal />\n         </div>\n       </div>\n"
+                },
+                {
+                    "date": 1729010963161,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     <div className=\"flex flex-col w-full items-center mt-4 bg-blue-500 h-screen\">\n       <div className=\"w-full ml-8\">\n         {/* Puedes agregar contenido aquí si es necesario */}\n       </div>\n-      <div className=\"w-full flex justify-center\"> {/* Reducido de mt-20 a mt-10 */}\n+      <div className=\"w-full flex justify-center mt-10\"> {/* Reducido de mt-20 a mt-10 */}\n         <div className=\"w-1/3\">\n           <RadioGroupGlobal />\n         </div>\n       </div>\n"
+                },
+                {
+                    "date": 1729010968481,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \n const RegisterPage = () => {\n   return (\n     <div className=\"flex flex-col w-full items-center mt-4 bg-blue-500 h-screen\">\n-      <div className=\"w-full ml-8\">\n+      <div className=\"w-full\">\n         {/* Puedes agregar contenido aquí si es necesario */}\n       </div>\n       <div className=\"w-full flex justify-center mt-10\"> {/* Reducido de mt-20 a mt-10 */}\n         <div className=\"w-1/3\">\n"
+                },
+                {
+                    "date": 1729010982608,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,11 +3,8 @@\n \n const RegisterPage = () => {\n   return (\n     <div className=\"flex flex-col w-full items-center mt-4 bg-blue-500 h-screen\">\n-      <div className=\"w-full\">\n-        {/* Puedes agregar contenido aquí si es necesario */}\n-      </div>\n       <div className=\"w-full flex justify-center mt-10\"> {/* Reducido de mt-20 a mt-10 */}\n         <div className=\"w-1/3\">\n           <RadioGroupGlobal />\n         </div>\n"
+                },
+                {
+                    "date": 1729011286958,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \n const RegisterPage = () => {\n   return (\n     <div className=\"flex flex-col w-full items-center mt-4 bg-blue-500 h-screen\">\n-      <div className=\"w-full flex justify-center mt-10\"> {/* Reducido de mt-20 a mt-10 */}\n+      <div className=\"w-full flex justify-center mt-10 items-center\"> {/* Reducido de mt-20 a mt-10 */}\n         <div className=\"w-1/3\">\n           <RadioGroupGlobal />\n         </div>\n       </div>\n"
+                },
+                {
+                    "date": 1729011301176,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \n const RegisterPage = () => {\n   return (\n     <div className=\"flex flex-col w-full items-center mt-4 bg-blue-500 h-screen\">\n-      <div className=\"w-full flex justify-center mt-10 items-center\"> {/* Reducido de mt-20 a mt-10 */}\n+      <div className=\"w-full flex justify-center items-center\"> {/* Reducido de mt-20 a mt-10 */}\n         <div className=\"w-1/3\">\n           <RadioGroupGlobal />\n         </div>\n       </div>\n"
+                },
+                {
+                    "date": 1729011312294,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,10 @@\n import RadioGroupGlobal from \"@/components/radio-group-global\";\n \n const RegisterPage = () => {\n   return (\n-    <div className=\"flex flex-col w-full items-center mt-4 bg-blue-500 h-screen\">\n-      <div className=\"w-full flex justify-center items-center\"> {/* Reducido de mt-20 a mt-10 */}\n+    <div className=\"flex flex-col w-full items-center bg-blue-500 h-screen\">\n+      <div className=\"w-full flex justify-center mt-10 items-center\"> {/* Reducido de mt-20 a mt-10 */}\n         <div className=\"w-1/3\">\n           <RadioGroupGlobal />\n         </div>\n       </div>\n"
+                },
+                {
+                    "date": 1729011346343,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const RegisterPage = () => {\n   return (\n     <div className=\"flex flex-col w-full items-center bg-blue-500 h-screen\">\n       <div className=\"w-full flex justify-center mt-10 items-center\"> {/* Reducido de mt-20 a mt-10 */}\n-        <div className=\"w-1/3\">\n+        <div className=\"w-11\">\n           <RadioGroupGlobal />\n         </div>\n       </div>\n     </div>\n"
+                },
+                {
+                    "date": 1729011363241,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const RegisterPage = () => {\n   return (\n     <div className=\"flex flex-col w-full items-center bg-blue-500 h-screen\">\n       <div className=\"w-full flex justify-center mt-10 items-center\"> {/* Reducido de mt-20 a mt-10 */}\n-        <div className=\"w-11\">\n+        <div className=\"w-5/6\">\n           <RadioGroupGlobal />\n         </div>\n       </div>\n     </div>\n"
+                },
+                {
+                    "date": 1729011379711,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const RegisterPage = () => {\n   return (\n     <div className=\"flex flex-col w-full items-center bg-blue-500 h-screen\">\n       <div className=\"w-full flex justify-center mt-10 items-center\"> {/* Reducido de mt-20 a mt-10 */}\n-        <div className=\"w-5/6\">\n+        <div className=\"w-1/3\">\n           <RadioGroupGlobal />\n         </div>\n       </div>\n     </div>\n"
+                },
+                {
+                    "date": 1729011417597,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,12 @@\n import React from \"react\";\n import RadioGroupGlobal from \"@/components/radio-group-global\";\n+import Particles from \"@tsparticles/react\";\n \n const RegisterPage = () => {\n   return (\n     <div className=\"flex flex-col w-full items-center bg-blue-500 h-screen\">\n+      <Particles/>\n       <div className=\"w-full flex justify-center mt-10 items-center\"> {/* Reducido de mt-20 a mt-10 */}\n         <div className=\"w-1/3\">\n           <RadioGroupGlobal />\n         </div>\n"
+                },
+                {
+                    "date": 1729011674954,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,11 @@\n \n const RegisterPage = () => {\n   return (\n     <div className=\"flex flex-col w-full items-center bg-blue-500 h-screen\">\n+      <div className=\"relative\">\n       <Particles/>\n+      </div>\n       <div className=\"w-full flex justify-center mt-10 items-center\"> {/* Reducido de mt-20 a mt-10 */}\n         <div className=\"w-1/3\">\n           <RadioGroupGlobal />\n         </div>\n"
+                },
+                {
+                    "date": 1729011742231,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import Particles from \"@tsparticles/react\";\n \n const RegisterPage = () => {\n   return (\n-    <div className=\"flex flex-col w-full items-center bg-blue-500 h-screen\">\n+    <div className=\"flex flex-col w-full items-center bg-black h-screen\">\n       <div className=\"relative\">\n       <Particles/>\n       </div>\n       <div className=\"w-full flex justify-center mt-10 items-center\"> {/* Reducido de mt-20 a mt-10 */}\n"
+                },
+                {
+                    "date": 1729011908168,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,11 @@\n import React from \"react\";\n import RadioGroupGlobal from \"@/components/radio-group-global\";\n-import Particles from \"@tsparticles/react\";\n \n const RegisterPage = () => {\n   return (\n     <div className=\"flex flex-col w-full items-center bg-black h-screen\">\n-      <div className=\"relative\">\n-      <Particles/>\n-      </div>\n-      <div className=\"w-full flex justify-center mt-10 items-center\"> {/* Reducido de mt-20 a mt-10 */}\n+      <div className=\"w-full flex justify-center mt-10 items-center\"> \n         <div className=\"w-1/3\">\n           <RadioGroupGlobal />\n         </div>\n       </div>\n"
+                },
+                {
+                    "date": 1729011994610,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import RadioGroupGlobal from \"@/components/radio-group-global\";\n \n const RegisterPage = () => {\n   return (\n-    <div className=\"flex flex-col w-full items-center bg-black h-screen\">\n+    <div className=\"flex flex-col w-full items-center bg-gradient-to-r from-blue-200 to-green-200\">\n       <div className=\"w-full flex justify-center mt-10 items-center\"> \n         <div className=\"w-1/3\">\n           <RadioGroupGlobal />\n         </div>\n"
+                },
+                {
+                    "date": 1729012012240,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import RadioGroupGlobal from \"@/components/radio-group-global\";\n \n const RegisterPage = () => {\n   return (\n-    <div className=\"flex flex-col w-full items-center bg-gradient-to-r from-blue-200 to-green-200\">\n+    <div className=\"flex flex-col w-full items-center \">\n       <div className=\"w-full flex justify-center mt-10 items-center\"> \n         <div className=\"w-1/3\">\n           <RadioGroupGlobal />\n         </div>\n"
+                },
+                {
+                    "date": 1729012025878,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import RadioGroupGlobal from \"@/components/radio-group-global\";\n \n const RegisterPage = () => {\n   return (\n-    <div className=\"flex flex-col w-full items-center \">\n+    <div className=\"flex flex-col w-full items-center bg-black h-screen\">\n       <div className=\"w-full flex justify-center mt-10 items-center\"> \n         <div className=\"w-1/3\">\n           <RadioGroupGlobal />\n         </div>\n"
+                },
+                {
+                    "date": 1729012035809,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import RadioGroupGlobal from \"@/components/radio-group-global\";\n \n const RegisterPage = () => {\n   return (\n-    <div className=\"flex flex-col w-full items-center bg-black h-screen\">\n+    <div className=\"flex flex-col w-full items-center bg-gradient-to-r from-blue-200 to-green-200 h-screen\">\n       <div className=\"w-full flex justify-center mt-10 items-center\"> \n         <div className=\"w-1/3\">\n           <RadioGroupGlobal />\n         </div>\n"
+                },
+                {
+                    "date": 1729012074116,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import RadioGroupGlobal from \"@/components/radio-group-global\";\n \n const RegisterPage = () => {\n   return (\n-    <div className=\"flex flex-col w-full items-center bg-gradient-to-r from-blue-200 to-green-200 h-screen\">\n+    <div className=\"flex flex-col w-full items-center bg-gradient-to-r from-blue-200 to-neutral-400 h-screen\">\n       <div className=\"w-full flex justify-center mt-10 items-center\"> \n         <div className=\"w-1/3\">\n           <RadioGroupGlobal />\n         </div>\n"
+                },
+                {
+                    "date": 1729012166989,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,14 @@\n \n const RegisterPage = () => {\n   return (\n     <div className=\"flex flex-col w-full items-center bg-gradient-to-r from-blue-200 to-neutral-400 h-screen\">\n+      <div\n+          className=\"absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80\"\n+          aria-hidden=\"true\"\n+        >\n+          <div className=\"relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]\"></div>\n+        </div>\n       <div className=\"w-full flex justify-center mt-10 items-center\"> \n         <div className=\"w-1/3\">\n           <RadioGroupGlobal />\n         </div>\n"
+                },
+                {
+                    "date": 1729012194945,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import RadioGroupGlobal from \"@/components/radio-group-global\";\n \n const RegisterPage = () => {\n   return (\n-    <div className=\"flex flex-col w-full items-center bg-gradient-to-r from-blue-200 to-neutral-400 h-screen\">\n+    <div className=\"flex flex-col w-full items-center bg-gradient-to-r  h-screen\">\n       <div\n           className=\"absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80\"\n           aria-hidden=\"true\"\n         >\n"
+                },
+                {
+                    "date": 1729012234696,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,14 @@\n         >\n           <div className=\"relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]\"></div>\n         </div>\n       <div className=\"w-full flex justify-center mt-10 items-center\"> \n+      <div\n+          className=\"absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]\"\n+          aria-hidden=\"true\"\n+        >\n+          <div className=\"relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]\"></div>\n+        </div>\n         <div className=\"w-1/3\">\n           <RadioGroupGlobal />\n         </div>\n       </div>\n"
+                },
+                {
+                    "date": 1729016628027,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import RadioGroupGlobal from \"@/components/radio-group-global\";\n \n const RegisterPage = () => {\n   return (\n-    <div className=\"flex flex-col w-full items-center bg-gradient-to-r  h-screen\">\n+    <div className=\"flex flex-col w-full items-center  h-screen\">\n       <div\n           className=\"absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80\"\n           aria-hidden=\"true\"\n         >\n"
+                },
+                {
+                    "date": 1729016703175,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,15 @@\n import RadioGroupGlobal from \"@/components/radio-group-global\";\n \n const RegisterPage = () => {\n   return (\n-    <div className=\"flex flex-col w-full items-center  h-screen\">\n+    <div className=\"flex flex-col w-full items-center  h-screen\" style={{\n+        backgroundImage: \"url('/path/to/your/background-image.jpg')\",\n+        backgroundSize: \"cover\",\n+        backgroundPosition: \"center\",\n+        backgroundRepeat: \"no-repeat\",\n+        opacity: 0.05,\n+      }}>\n       <div\n           className=\"absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80\"\n           aria-hidden=\"true\"\n         >\n"
+                },
+                {
+                    "date": 1729016726566,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \n const RegisterPage = () => {\n   return (\n     <div className=\"flex flex-col w-full items-center  h-screen\" style={{\n-        backgroundImage: \"url('/path/to/your/background-image.jpg')\",\n+        backgroundImage: \"url('/impactive.jpg')\",\n         backgroundSize: \"cover\",\n         backgroundPosition: \"center\",\n         backgroundRepeat: \"no-repeat\",\n         opacity: 0.05,\n"
+                },
+                {
+                    "date": 1729016822879,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import RadioGroupGlobal from \"@/components/radio-group-global\";\n \n const RegisterPage = () => {\n   return (\n-    <div className=\"flex flex-col w-full items-center  h-screen\" style={{\n+    <div className=\"flex flex-col w-full items-center  h-screen absolute inset-0 z-0 bg-cover bg-center opacity-5\" style={{\n         backgroundImage: \"url('/impactive.jpg')\",\n         backgroundSize: \"cover\",\n         backgroundPosition: \"center\",\n         backgroundRepeat: \"no-repeat\",\n"
+                },
+                {
+                    "date": 1729016833585,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import RadioGroupGlobal from \"@/components/radio-group-global\";\n \n const RegisterPage = () => {\n   return (\n-    <div className=\"flex flex-col w-full items-center  h-screen absolute inset-0 z-0 bg-cover bg-center opacity-5\" style={{\n+    <div className=\"flex flex-col w-full items-center  h-screen \" style={{\n         backgroundImage: \"url('/impactive.jpg')\",\n         backgroundSize: \"cover\",\n         backgroundPosition: \"center\",\n         backgroundRepeat: \"no-repeat\",\n"
+                },
+                {
+                    "date": 1729017014998,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,15 +2,10 @@\n import RadioGroupGlobal from \"@/components/radio-group-global\";\n \n const RegisterPage = () => {\n   return (\n-    <div className=\"flex flex-col w-full items-center  h-screen \" style={{\n-        backgroundImage: \"url('/impactive.jpg')\",\n-        backgroundSize: \"cover\",\n-        backgroundPosition: \"center\",\n-        backgroundRepeat: \"no-repeat\",\n-        opacity: 0.05,\n-      }}>\n+    <div className=\"flex flex-col w-full items-center  h-screen  \">\n+      <div className=\"absolute inset-0 z-0 bg-cover bg-center opacity-5\" style={{ backgroundImage: \"url('/path/to/your/background-image.jpg')\" }}/>  \n       <div\n           className=\"absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80\"\n           aria-hidden=\"true\"\n         >\n"
+                },
+                {
+                    "date": 1729017047389,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \n const RegisterPage = () => {\n   return (\n     <div className=\"flex flex-col w-full items-center  h-screen  \">\n-      <div className=\"absolute inset-0 z-0 bg-cover bg-center opacity-5\" style={{ backgroundImage: \"url('/path/to/your/background-image.jpg')\" }}/>  \n+      <div className=\"absolute inset-0 z-0 bg-cover bg-center opacity-5\" style={{ backgroundImage: \"url('/impactive.jpg')\" }}/>  \n       <div\n           className=\"absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80\"\n           aria-hidden=\"true\"\n         >\n"
+                },
+                {
+                    "date": 1729017252901,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \n const RegisterPage = () => {\n   return (\n     <div className=\"flex flex-col w-full items-center  h-screen  \">\n-      <div className=\"absolute inset-0 z-0 bg-cover bg-center opacity-5\" style={{ backgroundImage: \"url('/impactive.jpg')\" }}/>  \n+      <div className=\"absolute inset-0 z-0 bg-cover bg-center opacity-5\" style={{ backgroundImage: \"url('/tree.jpg')\" }}/>  \n       <div\n           className=\"absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80\"\n           aria-hidden=\"true\"\n         >\n"
+                },
+                {
+                    "date": 1729017376315,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n       <div\n           className=\"absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80\"\n           aria-hidden=\"true\"\n         >\n-          <div className=\"relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]\"></div>\n+          <div className=\"relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ffb3d1] to-[#b0a6f0] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]\"></div>\n         </div>\n       <div className=\"w-full flex justify-center mt-10 items-center\"> \n       <div\n           className=\"absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]\"\n"
+                },
+                {
+                    "date": 1729017445169,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \n const RegisterPage = () => {\n   return (\n     <div className=\"flex flex-col w-full items-center  h-screen  \">\n-      <div className=\"absolute inset-0 z-0 bg-cover bg-center opacity-5\" style={{ backgroundImage: \"url('/tree.jpg')\" }}/>  \n+      <div className=\"absolute inset-0 z-0 bg-cover bg-center opacity-20\" style={{ backgroundImage: \"url('/tree.jpg')\" }}/>  \n       <div\n           className=\"absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80\"\n           aria-hidden=\"true\"\n         >\n"
+                },
+                {
+                    "date": 1729017465657,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \n const RegisterPage = () => {\n   return (\n     <div className=\"flex flex-col w-full items-center  h-screen  \">\n-      <div className=\"absolute inset-0 z-0 bg-cover bg-center opacity-20\" style={{ backgroundImage: \"url('/tree.jpg')\" }}/>  \n+      <div className=\"absolute inset-0 z-0 bg-cover bg-center opacity-0\" style={{ backgroundImage: \"url('/tree.jpg')\" }}/>  \n       <div\n           className=\"absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80\"\n           aria-hidden=\"true\"\n         >\n"
+                },
+                {
+                    "date": 1729017483232,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \n const RegisterPage = () => {\n   return (\n     <div className=\"flex flex-col w-full items-center  h-screen  \">\n-      <div className=\"absolute inset-0 z-0 bg-cover bg-center opacity-0\" style={{ backgroundImage: \"url('/tree.jpg')\" }}/>  \n+      <div className=\"absolute inset-0 z-0 bg-cover bg-center bg-opacity-5\" style={{ backgroundImage: \"url('/tree.jpg')\" }}/>  \n       <div\n           className=\"absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80\"\n           aria-hidden=\"true\"\n         >\n"
+                },
+                {
+                    "date": 1729017504468,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \n const RegisterPage = () => {\n   return (\n     <div className=\"flex flex-col w-full items-center  h-screen  \">\n-      <div className=\"absolute inset-0 z-0 bg-cover bg-center bg-opacity-5\" style={{ backgroundImage: \"url('/tree.jpg')\" }}/>  \n+      <div className=\"absolute inset-0 z-0 bg-cover bg-center opacity-5\" style={{ backgroundImage: \"url('/tree.jpg')\" }}/>  \n       <div\n           className=\"absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80\"\n           aria-hidden=\"true\"\n         >\n"
+                },
+                {
+                    "date": 1729017549782,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \n const RegisterPage = () => {\n   return (\n     <div className=\"flex flex-col w-full items-center  h-screen  \">\n-      <div className=\"absolute inset-0 z-0 bg-cover bg-center opacity-5\" style={{ backgroundImage: \"url('/tree.jpg')\" }}/>  \n+      <div className=\"absolute inset-0 z-0 bg-cover bg-center backdrop-opacity-5\" style={{ backgroundImage: \"url('/tree.jpg')\" }}/>  \n       <div\n           className=\"absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80\"\n           aria-hidden=\"true\"\n         >\n"
+                },
+                {
+                    "date": 1729017562874,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \n const RegisterPage = () => {\n   return (\n     <div className=\"flex flex-col w-full items-center  h-screen  \">\n-      <div className=\"absolute inset-0 z-0 bg-cover bg-center backdrop-opacity-5\" style={{ backgroundImage: \"url('/tree.jpg')\" }}/>  \n+      <div className=\"absolute inset-0 z-0 bg-cover bg-center opacity-5\" style={{ backgroundImage: \"url('/tree.jpg')\" }}/>  \n       <div\n           className=\"absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80\"\n           aria-hidden=\"true\"\n         >\n"
+                },
+                {
+                    "date": 1729017589557,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \n const RegisterPage = () => {\n   return (\n     <div className=\"flex flex-col w-full items-center  h-screen  \">\n-      <div className=\"absolute inset-0 z-0 bg-cover bg-center opacity-5\" style={{ backgroundImage: \"url('/tree.jpg')\" }}/>  \n+      \n       <div\n           className=\"absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80\"\n           aria-hidden=\"true\"\n         >\n"
+                },
+                {
+                    "date": 1729017602984,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \n const RegisterPage = () => {\n   return (\n     <div className=\"flex flex-col w-full items-center  h-screen  \">\n-      \n+      <div className=\"absolute inset-0 z-0 bg-cover bg-center opacity-5\" style={{ backgroundImage: \"url('/tree.jpg')\" }}/>  \n       <div\n           className=\"absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80\"\n           aria-hidden=\"true\"\n         >\n"
                 }
             ],
             "date": 1728432706357,

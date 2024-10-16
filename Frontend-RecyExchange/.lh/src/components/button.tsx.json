@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 10,
+            "activePatchIndex": 12,
             "patches": [
                 {
                     "date": 1728430079231,
@@ -48,6 +48,14 @@
                 {
                     "date": 1728443766292,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,10 +19,10 @@\n     }\n   };\n \n   return (\n-    <div className=\"\">\n-      <div className=\"hidden lg:flex lg:flex-1 lg:justify-end flex items-center justify-self-end\">\n+    <div className=\"flex items-center justify-self-end\">\n+      <div className=\"hidden lg:flex lg:flex-1 lg:justify-end\">\n         <button\n           onClick={conexionWallet}\n           className=\"color-primary w-40 h-11 text-white font-bold text-base rounded-full \n           shadow-xl hover:opacity-70 transition ease-in-out hover:-translate-y-1 hover:scale-110 \n"
+                },
+                {
+                    "date": 1728947851763,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,18 +5,22 @@\n \n export const aptos = new Aptos(new AptosConfig({ network: Network.TESTNET }));\n \n const Button = () => {\n-  const { connect, connected, disconnect } = useWallet();\n-  const { setConnected } = useWalletContext(); // Usa el contexto\n+  const { connect, connected, disconnect, account } = useWallet();\n+  const { setConnected, addWalletAddress } = useWalletContext(); // Usa el contexto\n \n   const conexionWallet = async () => {\n     if (connected) {\n       await disconnect();\n       setConnected(false); // Actualiza el contexto\n     } else {\n       await connect(\"Petra\" as WalletName);\n       setConnected(true); // Actualiza el contexto\n+      if (account?.address) {\n+        addWalletAddress(account.address); // Guarda la dirección en el contexto\n+        console.log('Wallet address:', account.address); // Verifica la dirección en la consola\n+      }\n     }\n   };\n \n   return (\n"
+                },
+                {
+                    "date": 1728948661295,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,22 +5,18 @@\n \n export const aptos = new Aptos(new AptosConfig({ network: Network.TESTNET }));\n \n const Button = () => {\n-  const { connect, connected, disconnect, account } = useWallet();\n-  const { setConnected, addWalletAddress } = useWalletContext(); // Usa el contexto\n+  const { connect, connected, disconnect } = useWallet();\n+  const { setConnected } = useWalletContext(); // Usa el contexto\n \n   const conexionWallet = async () => {\n     if (connected) {\n       await disconnect();\n       setConnected(false); // Actualiza el contexto\n     } else {\n       await connect(\"Petra\" as WalletName);\n       setConnected(true); // Actualiza el contexto\n-      if (account?.address) {\n-        addWalletAddress(account.address); // Guarda la dirección en el contexto\n-        console.log('Wallet address:', account.address); // Verifica la dirección en la consola\n-      }\n     }\n   };\n \n   return (\n"
                 }
             ],
             "date": 1728430079231,

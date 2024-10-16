@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 54,
+            "activePatchIndex": 58,
             "patches": [
                 {
                     "date": 1728520292713,
@@ -224,6 +224,22 @@
                 {
                     "date": 1728872619340,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n \n         <div className=\"flex justify-center items-center min-h-screen\">\n           <Card/>\n         </div>\n-        <div className=\"w-10/12 mx-auto flex justify-center items-center mt-20 py-10\">\n+        <div className=\"w-10/12 mx-auto flex justify-center items-center mt-20 py-40\">\n             <Table />\n         </div>\n        \n       </div>\n"
+                },
+                {
+                    "date": 1728971858034,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import React from \"react\";\n import Image from \"next/image\";\n import Card from \"../../components/card\";\n-import Table from \"@/components/table\";\n+import TableBuy from \"@/components/tableBuy\";\n \n const collectRecycling = () => {\n \n   return (\n@@ -25,9 +25,9 @@\n         <div className=\"flex justify-center items-center min-h-screen\">\n           <Card/>\n         </div>\n         <div className=\"w-10/12 mx-auto flex justify-center items-center mt-20 py-40\">\n-            <Table />\n+            <TableBuy />\n         </div>\n        \n       </div>\n     </div>\n"
+                },
+                {
+                    "date": 1729012358837,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,14 @@\n \n   return (\n     <div>\n       <div className=\"text-center mt-6\">\n+      <div\n+          className=\"absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80\"\n+          aria-hidden=\"true\"\n+        >\n+          <div className=\"relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]\"></div>\n+        </div>\n         <h1 className=\"text-4xl font-bold tracking-tight text-gray-900 sm:text-xl\">\n           🌱 Help the environment\n         </h1>\n         <h1 className=\"text-4xl font-bold tracking-tight text-gray-900 sm:text-xl mt-6 flex items-center flex justify-center\">\n@@ -27,9 +33,14 @@\n         </div>\n         <div className=\"w-10/12 mx-auto flex justify-center items-center mt-20 py-40\">\n             <TableBuy />\n         </div>\n-       \n+        <div\n+          className=\"absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]\"\n+          aria-hidden=\"true\"\n+        >\n+          <div className=\"relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]\"></div>\n+        </div>\n       </div>\n     </div>\n   );\n };\n"
+                },
+                {
+                    "date": 1729017867876,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,8 +30,15 @@\n \n         <div className=\"flex justify-center items-center min-h-screen\">\n           <Card/>\n         </div>\n+        {/* Separator Line */}\n+      <div className=\"my-12 w-full flex justify-center pt-24 mt-7\">\n+        <hr className=\"w-[80%] border-t-4 border-gray-500 shadow-md rounded-full opacity-50\" />\n+      </div>\n+      <h2 className=\"text-3xl font-bold text-gray-900 flex justify-center transition-colors hover:text-violet-600 transform hover:translate-x-2\">\n+        Purchase History\n+      </h2>\n         <div className=\"w-10/12 mx-auto flex justify-center items-center mt-20 py-40\">\n             <TableBuy />\n         </div>\n         <div\n"
+                },
+                {
+                    "date": 1729018015620,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n       </div>\n       <h2 className=\"text-3xl font-bold text-gray-900 flex justify-center transition-colors hover:text-violet-600 transform hover:translate-x-2\">\n         Purchase History\n       </h2>\n-        <div className=\"w-10/12 mx-auto flex justify-center items-center mt-20 py-40\">\n+        <div className=\"w-full mx-auto flex justify-center items-center mt-36 pb-20\">\n             <TableBuy />\n         </div>\n         <div\n           className=\"absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]\"\n"
                 }
             ],
             "date": 1728520292713,
