@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 16,
+            "activePatchIndex": 17,
             "patches": [
                 {
                     "date": 1728957843458,
@@ -72,6 +72,10 @@
                 {
                     "date": 1728966460459,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,10 +45,8 @@\n           ],\n         },\n       });\n \n-      \n-\n       await aptos.waitForTransaction({ transactionHash: response.hash });\n       setSuccessMessage(\"¡La compra y el pago se realizaron con éxito!\");\n       await onBuySuccess(recycling.id); // Llama a la función onBuySuccess\n     } catch (error) {\n@@ -59,44 +57,17 @@\n   const closeMessage = () => {\n     setSuccessMessage(null);\n   };\n \n-  const handleBuySuccess = async (recyclingId: number) => {\n-    try {\n-      // Realiza la transacción\n-      const response = await signAndSubmitTransaction({\n-        sender: account?.address,\n-        data: {\n-          function: `${ADDRESS}::recicly::change_available`,\n-          typeArguments: [],\n-          functionArguments: [account?.address, recyclingId, false],\n-        },\n-      });\n \n-      await aptos.waitForTransaction({ transactionHash: response.hash });\n-      alert(\"Compra exitosa!\");\n-\n-      // Marca el reciclaje como no disponible y actualiza el estado\n-     setRecyclings((prevRecyclings) =>\n-        prevRecyclings.map((r) =>\n-          r.id === recyclingId ? { ...r, available: false } : r\n-        )\n-      );\n-      setSelectedRecycling(null); // Cierra el modal después de la compra\n-    } catch (error) {\n-      console.error(\"Error en la transacción:\", error);\n-    }\n-  };\n   return (\n     <div>\n       <button\n         onClick={transfer}\n-        onBuySuccess={handleBuySuccess}\n         className=\"bg-orange-500 text-white px-4 py-2 rounded-md flex items-center space-x-1 text-sm hover:bg-blue-600 transition-colors\"\n       >\n         Buy\n       </button>\n-      \n \n       {successMessage && (\n         <div className=\"fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50\">\n           <div className=\"bg-white rounded-lg shadow-lg w-full max-w-sm p-6 relative\">\n"
+                },
+                {
+                    "date": 1729047561216,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,8 @@\n // Configuración del contrato inteligente\n const config = new AptosConfig({ network: Network.TESTNET });\n const aptos = new Aptos(config);\n const CONTRACT_ADDRESS = \"0x1\";\n-const ADDRESS = \"0xf6dedb75631e78abc7efaf29ded3a5c5d44f0c017168aa9155e41ee3c271cb8c\";\n \n interface BuyProps {\n   recycling: {\n     id: number;\n@@ -38,9 +37,9 @@\n         data: {\n           function: `${CONTRACT_ADDRESS}::aptos_account::transfer`, // Función de tu contrato inteligente\n           typeArguments: [], // Si tu función usa argumentos de tipo\n           functionArguments: [\n-            ADDRESS, // Dirección del destinatario\n+            recycling.owner, // Dirección del destinatario\n             recycling.totalPrice, // Monto a transferir\n             //recycling.ubication, // Argumento adicional de reciclaje\n           ],\n         },\n"
                 }
             ],
             "date": 1728957843458,

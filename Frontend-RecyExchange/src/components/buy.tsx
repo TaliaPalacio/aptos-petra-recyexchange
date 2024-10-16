@@ -6,7 +6,6 @@ import { useWallet } from "@aptos-labs/wallet-adapter-react";
 const config = new AptosConfig({ network: Network.TESTNET });
 const aptos = new Aptos(config);
 const CONTRACT_ADDRESS = "0x1";
-const ADDRESS = "0xf6dedb75631e78abc7efaf29ded3a5c5d44f0c017168aa9155e41ee3c271cb8c";
 
 interface BuyProps {
   recycling: {
@@ -39,7 +38,7 @@ const Buy: React.FC<BuyProps> = ({ recycling, onBuySuccess }) => {
           function: `${CONTRACT_ADDRESS}::aptos_account::transfer`, // Función de tu contrato inteligente
           typeArguments: [], // Si tu función usa argumentos de tipo
           functionArguments: [
-            ADDRESS, // Dirección del destinatario
+            recycling.owner, // Dirección del destinatario
             recycling.totalPrice, // Monto a transferir
             //recycling.ubication, // Argumento adicional de reciclaje
           ],

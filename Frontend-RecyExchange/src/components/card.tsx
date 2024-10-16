@@ -47,6 +47,7 @@ const CardContainer = () => {
     const walletAddresses = [
       account?.address,
       "0xf6dedb75631e78abc7efaf29ded3a5c5d44f0c017168aa9155e41ee3c271cb8c",
+      "0x4f98a31ac13e9bfa1d1eeb2dca6aaf6f1396a75041ba9308f95e60aa61c47969"
     ]; // Direcciones de wallet
 
     try {
