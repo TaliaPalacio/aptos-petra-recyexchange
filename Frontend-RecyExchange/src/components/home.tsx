@@ -51,6 +51,45 @@ const Home = () => {
           <div className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"></div>
         </div>
       </div>
+
+
+      <div className="flex flex-row justify-around">
+        
+
+      {/* Sección de Desafío */}
+      <section className="py-20 bg-gradient-to-b from-white to-gray-100 px-10">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-gray-900">El Desafío que Enfrentamos</h2>
+          <p className="mt-4 text-lg text-gray-600 text-left ">
+            En Medellín, muchos ciudadanos carecen del hábito de reciclar, lo que impacta negativamente tanto al medio ambiente como a la comunidad. 
+            Nuestra app tiene como objetivo cambiar eso y facilitar la recolección de reciclables.
+          </p>
+        </div>
+      </section>
+
+      {/* Sección de Solución */}
+      <section className="py-20 bg-gradient-to-b from-white to-gray-100">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-gray-900">Nuestra Solución</h2>
+          <p className="mt-4 text-lg text-gray-600 text-left">
+            Nuestra app conecta a recicladores independientes con ciudadanos que desean reciclar, facilitando la comunicación y la coordinación para una recolección más eficiente y dignificante.
+          </p>
+        </div>
+      </section>
+
+      </div>
+      {/* Sección de Características */}
+      <section className="py-20 bg-gradient-to-b from-gray-100 to-white">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-gray-900">Características que Importan</h2>
+          <ul className="mt-4 text-lg text-gray-600 list-disc list-inside">
+            <li>💬 Chat Integrado: Comunícate directamente con los recicladores.</li>
+            <li>🎁 Sistema de Recompensas: Gana tokens por reciclar.</li>
+            <li>🔔 Notificaciones en Tiempo Real: Recibe alertas sobre oportunidades de reciclaje.</li>
+            <li>📚 Recursos Educativos: Accede a consejos sobre reciclaje efectivo.</li>
+          </ul>
+        </div>
+      </section>
     </div>
   );
 };
