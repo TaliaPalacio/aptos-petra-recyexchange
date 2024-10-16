@@ -2,15 +2,12 @@ module recyexchange::recicly {
     
     
     use aptos_std::table::{Self, Table};   
-    use std::string::{String, utf8};
+    use std::string::{String};
     use std::signer::address_of;
     use std::option::{Option, some};
     use std::vector;
 
 
-
-
-    
     const YA_INICIALIZADO: u64 = 1;    
     const NO_INICIALIZADO: u64 = 2;    
     const REGISTRO_NO_EXISTE: u64 = 3;    
@@ -26,6 +23,7 @@ module recyexchange::recicly {
     }
 
     struct Recycling has store, copy, drop {
+        id: u64,
         owner: address,
         type: String,
         ubication: String,
@@ -67,7 +65,7 @@ module recyexchange::recicly {
         chats: vector<Option<Chat>>, // Cambiar a un vector de IDs de chats
         available: bool,
     ) acquires BdRecy {
-        assert!(exists<BdRecy>(address_of(count)), NO_INICIALIZADO);
+        //assert!(exists<BdRecy>(address_of(count)), NO_INICIALIZADO);
 
         let registros = borrow_global_mut<BdRecy>(address_of(count));
         
@@ -81,6 +79,7 @@ module recyexchange::recicly {
         table::add(&mut registros.recyclings,
         id_generate,
         Recycling {
+            id: id_generate,
             owner: address_of(count),
             type,
             ubication,
@@ -110,12 +109,13 @@ module recyexchange::recicly {
     }
 
     // function to get chat in a recycling by id
+    #[view]
     public fun get_chat(
-        count: &signer,
+        count: address,
         id: u64,        
     ): vector<Option<Chat>> acquires BdRecy {
-        assert!(exists<BdRecy>(address_of(count)), NO_INICIALIZADO);
-        let registros = borrow_global<BdRecy>(address_of(count));
+        assert!(exists<BdRecy>(count), NO_INICIALIZADO);
+        let registros = borrow_global<BdRecy>(count);
         let recycling = table::borrow(&registros.recyclings, id);
         let chats = recycling.chats;  // Eliminar la referencia '&'
         chats  // Devolver el vector directamente
@@ -181,26 +181,19 @@ module recyexchange::recicly {
         *resultado
     }
 
-    #[view]
-    public fun change_available(
+    
+    public entry fun change_available(
         count: address,
         id: u64,
         
-    ): String acquires BdRecy {
-        let response: String = utf8(b"nothing to change");
+    ) acquires BdRecy {
+        
         assert!(exists<BdRecy>(count), NO_INICIALIZADO);
         let registros = borrow_global_mut<BdRecy>(count);
         let recycling = table::borrow_mut(&mut registros.recyclings, id);
         if (recycling.available) {
-            recycling.available = false;
-            response = utf8(b"Change with success")
-            
-        };
-
-        response
-
-
-        
+            recycling.available = false;           
+        };   
     }
 
     #[test(a = @0x1)]

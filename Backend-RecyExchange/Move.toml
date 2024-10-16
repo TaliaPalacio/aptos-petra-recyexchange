@@ -3,7 +3,7 @@ name = "Recy"
 version = "0.0.0"
 
 [addresses]
-recyexchange = "0xfed39611e5ac476394ec5799b1e0ed2a577a47dcfa522ab92df24d5667bc4720"
+recyexchange = "0xa22203b92230d35f35f5fb28f83ef292e7c09b388ddf4c9c0d7b773b44449ea5"
 
 [dependencies.AptosStdlib]
 git = 'https://github.com/aptos-labs/aptos-core.git'
