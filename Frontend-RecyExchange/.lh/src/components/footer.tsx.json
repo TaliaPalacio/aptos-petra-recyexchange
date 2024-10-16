@@ -1,0 +1,102 @@
+{
+    "sourceFile": "src/components/footer.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 21,
+            "patches": [
+                {
+                    "date": 1728998521295,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1728998631918,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import React from \"react\";\n+import { FaGithub, FaLinkedin } from \"react-icons/fa\";\n \n const Footer = () => {\n   return (\n     <footer className=\"bg-gradient-to-b from-gray-900 to-gray-700 text-white py-8\">\n"
+                },
+                {
+                    "date": 1728998758996,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { FaGithub, FaLinkedin } from \"react-icons/fa\";\n \n const Footer = () => {\n   return (\n-    <footer className=\"bg-gradient-to-b from-gray-900 to-gray-700 text-white py-8\">\n+    <footer className=\"bg-gradient-to-b from-gray-900 to-gray-700 text-white py-2\">\n       <div className=\"max-w-5xl mx-auto px-4\">\n         <div className=\"flex flex-col sm:flex-row justify-between items-center\">\n           {/* Logo o texto de la compañía */}\n           <div className=\"text-center sm:text-left\">\n"
+                },
+                {
+                    "date": 1728998795386,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { FaGithub, FaLinkedin } from \"react-icons/fa\";\n \n const Footer = () => {\n   return (\n-    <footer className=\"bg-gradient-to-b from-gray-900 to-gray-700 text-white py-2\">\n+    <footer className=\"bg-gradient-to-b from-gray-900 to-gray-700 text-white py-8\">\n       <div className=\"max-w-5xl mx-auto px-4\">\n         <div className=\"flex flex-col sm:flex-row justify-between items-center\">\n           {/* Logo o texto de la compañía */}\n           <div className=\"text-center sm:text-left\">\n@@ -12,9 +12,9 @@\n             <p className=\"text-gray-400 mt-2\">Making recycling easy for Medellín</p>\n           </div>\n \n           {/* Redes sociales */}\n-          <div className=\"mt-4 sm:mt-0 flex space-x-6\">\n+          <div className=\" sm:mt-0 flex space-x-6\">\n             <a\n               href=\"https://github.com/tu-usuario\"\n               target=\"_blank\"\n               rel=\"noopener noreferrer\"\n"
+                },
+                {
+                    "date": 1728998822382,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n             </a>\n           </div>\n         </div>\n \n-        <div className=\"text-center text-gray-400 mt-8\">\n+        <div className=\"text-center text-gray-400\">\n           <p>© {new Date().getFullYear()} RecyExchange. All rights reserved.</p>\n         </div>\n       </div>\n     </footer>\n"
+                },
+                {
+                    "date": 1728998863608,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n         <div className=\"flex flex-col sm:flex-row justify-between items-center\">\n           {/* Logo o texto de la compañía */}\n           <div className=\"text-center sm:text-left\">\n             <h3 className=\"text-2xl font-semibold\">RecyExchange</h3>\n-            <p className=\"text-gray-400 mt-2\">Making recycling easy for Medellín</p>\n+            <p className=\"text-gray-400\">Making recycling easy for Medellín</p>\n           </div>\n \n           {/* Redes sociales */}\n           <div className=\" sm:mt-0 flex space-x-6\">\n"
+                },
+                {
+                    "date": 1728998869749,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { FaGithub, FaLinkedin } from \"react-icons/fa\";\n \n const Footer = () => {\n   return (\n-    <footer className=\"bg-gradient-to-b from-gray-900 to-gray-700 text-white py-8\">\n+    <footer className=\"bg-gradient-to-b from-gray-900 to-gray-700 text-white py-2\">\n       <div className=\"max-w-5xl mx-auto px-4\">\n         <div className=\"flex flex-col sm:flex-row justify-between items-center\">\n           {/* Logo o texto de la compañía */}\n           <div className=\"text-center sm:text-left\">\n"
+                },
+                {
+                    "date": 1728999102518,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,23 +14,31 @@\n \n           {/* Redes sociales */}\n           <div className=\" sm:mt-0 flex space-x-6\">\n             <a\n-              href=\"https://github.com/tu-usuario\"\n+              href=\"https://github.com/TaliaPalacio/RecyExchange.git\"\n               target=\"_blank\"\n               rel=\"noopener noreferrer\"\n               className=\"text-white hover:text-gray-400\"\n             >\n               <FaGithub size={24} />\n             </a>\n             <a\n-              href=\"https://linkedin.com/in/tu-usuario\"\n+              href=\"https://www.linkedin.com/in/talia-palacio-mira-542871b2/\"\n               target=\"_blank\"\n               rel=\"noopener noreferrer\"\n               className=\"text-white hover:text-gray-400\"\n             >\n               <FaLinkedin size={24} />\n             </a>\n+            <a\n+              href=\"https://www.linkedin.com/in/alejandro-becerra-acevedo-8ba371226/\"\n+              target=\"_blank\"\n+              rel=\"noopener noreferrer\"\n+              className=\"text-white hover:text-gray-400\"\n+            >\n+              <FaLinkedin size={24} />\n+            </a>\n           </div>\n         </div>\n \n         <div className=\"text-center text-gray-400\">\n"
+                },
+                {
+                    "date": 1728999187501,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { FaGithub, FaLinkedin } from \"react-icons/fa\";\n \n const Footer = () => {\n   return (\n-    <footer className=\"bg-gradient-to-b from-gray-900 to-gray-700 text-white py-2\">\n+    <footer className=\"bg-gradient-to-b from-gray-900 to-gray-700 text-white py-2 mt-10\">\n       <div className=\"max-w-5xl mx-auto px-4\">\n         <div className=\"flex flex-col sm:flex-row justify-between items-center\">\n           {/* Logo o texto de la compañía */}\n           <div className=\"text-center sm:text-left\">\n"
+                },
+                {
+                    "date": 1728999200029,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { FaGithub, FaLinkedin } from \"react-icons/fa\";\n \n const Footer = () => {\n   return (\n-    <footer className=\"bg-gradient-to-b from-gray-900 to-gray-700 text-white py-2 mt-10\">\n+    <footer className=\"bg-gradient-to-b from-gray-900 to-gray-700 text-white py-2 mt-72\">\n       <div className=\"max-w-5xl mx-auto px-4\">\n         <div className=\"flex flex-col sm:flex-row justify-between items-center\">\n           {/* Logo o texto de la compañía */}\n           <div className=\"text-center sm:text-left\">\n"
+                },
+                {
+                    "date": 1728999217634,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { FaGithub, FaLinkedin } from \"react-icons/fa\";\n \n const Footer = () => {\n   return (\n-    <footer className=\"bg-gradient-to-b from-gray-900 to-gray-700 text-white py-2 mt-72\">\n+    <footer className=\"bg-gradient-to-b from-gray-900 to-gray-700 text-white py-2 mt-28\">\n       <div className=\"max-w-5xl mx-auto px-4\">\n         <div className=\"flex flex-col sm:flex-row justify-between items-center\">\n           {/* Logo o texto de la compañía */}\n           <div className=\"text-center sm:text-left\">\n"
+                },
+                {
+                    "date": 1729003577125,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { FaGithub, FaLinkedin } from \"react-icons/fa\";\n \n const Footer = () => {\n   return (\n-    <footer className=\"bg-gradient-to-b from-gray-900 to-gray-700 text-white py-2 mt-28\">\n+    <footer className=\"bg-gradient-to-b from-gray-900 to-gray-700 text-white py-2\">\n       <div className=\"max-w-5xl mx-auto px-4\">\n         <div className=\"flex flex-col sm:flex-row justify-between items-center\">\n           {/* Logo o texto de la compañía */}\n           <div className=\"text-center sm:text-left\">\n"
+                },
+                {
+                    "date": 1729003622589,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { FaGithub, FaLinkedin } from \"react-icons/fa\";\n \n const Footer = () => {\n   return (\n-    <footer className=\"bg-gradient-to-b from-gray-900 to-gray-700 text-white py-2\">\n+    <footer className=\"bg-gradient-to-b from-gray-900 to-gray-700 text-white py-2 mt-28\">\n       <div className=\"max-w-5xl mx-auto px-4\">\n         <div className=\"flex flex-col sm:flex-row justify-between items-center\">\n           {/* Logo o texto de la compañía */}\n           <div className=\"text-center sm:text-left\">\n"
+                },
+                {
+                    "date": 1729004200383,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { FaGithub, FaLinkedin } from \"react-icons/fa\";\n \n const Footer = () => {\n   return (\n-    <footer className=\"bg-gradient-to-b from-gray-900 to-gray-700 text-white py-2 mt-28\">\n+    <footer className=\"bg-gradient-to-b from-gray-900 to-gray-700 text-white py-2 mt-28 top-10\">\n       <div className=\"max-w-5xl mx-auto px-4\">\n         <div className=\"flex flex-col sm:flex-row justify-between items-center\">\n           {/* Logo o texto de la compañía */}\n           <div className=\"text-center sm:text-left\">\n"
+                },
+                {
+                    "date": 1729004218349,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { FaGithub, FaLinkedin } from \"react-icons/fa\";\n \n const Footer = () => {\n   return (\n-    <footer className=\"bg-gradient-to-b from-gray-900 to-gray-700 text-white py-2 mt-28 top-10\">\n+    <footer className=\"bg-gradient-to-b from-gray-900 to-gray-700 text-white py-2 mt-28\">\n       <div className=\"max-w-5xl mx-auto px-4\">\n         <div className=\"flex flex-col sm:flex-row justify-between items-center\">\n           {/* Logo o texto de la compañía */}\n           <div className=\"text-center sm:text-left\">\n"
+                },
+                {
+                    "date": 1729004687101,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { FaGithub, FaLinkedin } from \"react-icons/fa\";\n \n const Footer = () => {\n   return (\n-    <footer className=\"bg-gradient-to-b from-gray-900 to-gray-700 text-white py-2 mt-28\">\n+    <footer className=\"bg-gradient-to-b from-gray-900 to-gray-700 text-white py-2 mt-28 pt-80\">\n       <div className=\"max-w-5xl mx-auto px-4\">\n         <div className=\"flex flex-col sm:flex-row justify-between items-center\">\n           {/* Logo o texto de la compañía */}\n           <div className=\"text-center sm:text-left\">\n"
+                },
+                {
+                    "date": 1729004717040,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { FaGithub, FaLinkedin } from \"react-icons/fa\";\n \n const Footer = () => {\n   return (\n-    <footer className=\"bg-gradient-to-b from-gray-900 to-gray-700 text-white py-2 mt-28 pt-80\">\n+    <footer className=\"bg-gradient-to-b from-gray-900 to-gray-700 text-white py-2 mt-28\">\n       <div className=\"max-w-5xl mx-auto px-4\">\n         <div className=\"flex flex-col sm:flex-row justify-between items-center\">\n           {/* Logo o texto de la compañía */}\n           <div className=\"text-center sm:text-left\">\n"
+                },
+                {
+                    "date": 1729010204031,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { FaGithub, FaLinkedin } from \"react-icons/fa\";\n \n const Footer = () => {\n   return (\n-    <footer className=\"bg-gradient-to-b from-gray-900 to-gray-700 text-white py-2 mt-28\">\n+    <footer className=\" sticky bg-gradient-to-b from-gray-900 to-gray-700 text-white py-2 mt-28\">\n       <div className=\"max-w-5xl mx-auto px-4\">\n         <div className=\"flex flex-col sm:flex-row justify-between items-center\">\n           {/* Logo o texto de la compañía */}\n           <div className=\"text-center sm:text-left\">\n"
+                },
+                {
+                    "date": 1729010826236,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { FaGithub, FaLinkedin } from \"react-icons/fa\";\n \n const Footer = () => {\n   return (\n-    <footer className=\" sticky bg-gradient-to-b from-gray-900 to-gray-700 text-white py-2 mt-28\">\n+    <footer className=\" sticky bg-gradient-to-b from-gray-900 to-gray-700 text-white mt-28\">\n       <div className=\"max-w-5xl mx-auto px-4\">\n         <div className=\"flex flex-col sm:flex-row justify-between items-center\">\n           {/* Logo o texto de la compañía */}\n           <div className=\"text-center sm:text-left\">\n"
+                },
+                {
+                    "date": 1729010860558,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { FaGithub, FaLinkedin } from \"react-icons/fa\";\n \n const Footer = () => {\n   return (\n-    <footer className=\" sticky bg-gradient-to-b from-gray-900 to-gray-700 text-white mt-28\">\n+    <footer className=\" sticky bg-gradient-to-b from-gray-900 to-gray-700 text-white\">\n       <div className=\"max-w-5xl mx-auto px-4\">\n         <div className=\"flex flex-col sm:flex-row justify-between items-center\">\n           {/* Logo o texto de la compañía */}\n           <div className=\"text-center sm:text-left\">\n"
+                },
+                {
+                    "date": 1729010872222,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const Footer = () => {\n   return (\n     <footer className=\" sticky bg-gradient-to-b from-gray-900 to-gray-700 text-white\">\n       <div className=\"max-w-5xl mx-auto px-4\">\n-        <div className=\"flex flex-col sm:flex-row justify-between items-center\">\n+        <div className=\"flex flex-col sm:flex-row justify-between items-center p-10\">\n           {/* Logo o texto de la compañía */}\n           <div className=\"text-center sm:text-left\">\n             <h3 className=\"text-2xl font-semibold\">RecyExchange</h3>\n             <p className=\"text-gray-400\">Making recycling easy for Medellín</p>\n"
+                },
+                {
+                    "date": 1729010880495,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const Footer = () => {\n   return (\n     <footer className=\" sticky bg-gradient-to-b from-gray-900 to-gray-700 text-white\">\n       <div className=\"max-w-5xl mx-auto px-4\">\n-        <div className=\"flex flex-col sm:flex-row justify-between items-center p-10\">\n+        <div className=\"flex flex-col sm:flex-row justify-between items-center p-1\">\n           {/* Logo o texto de la compañía */}\n           <div className=\"text-center sm:text-left\">\n             <h3 className=\"text-2xl font-semibold\">RecyExchange</h3>\n             <p className=\"text-gray-400\">Making recycling easy for Medellín</p>\n"
+                }
+            ],
+            "date": 1728998521295,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\n\nconst Footer = () => {\n  return (\n    <footer className=\"bg-gradient-to-b from-gray-900 to-gray-700 text-white py-8\">\n      <div className=\"max-w-5xl mx-auto px-4\">\n        <div className=\"flex flex-col sm:flex-row justify-between items-center\">\n          {/* Logo o texto de la compañía */}\n          <div className=\"text-center sm:text-left\">\n            <h3 className=\"text-2xl font-semibold\">RecyExchange</h3>\n            <p className=\"text-gray-400 mt-2\">Making recycling easy for Medellín</p>\n          </div>\n\n          {/* Redes sociales */}\n          <div className=\"mt-4 sm:mt-0 flex space-x-6\">\n            <a\n              href=\"https://github.com/tu-usuario\"\n              target=\"_blank\"\n              rel=\"noopener noreferrer\"\n              className=\"text-white hover:text-gray-400\"\n            >\n              <FaGithub size={24} />\n            </a>\n            <a\n              href=\"https://linkedin.com/in/tu-usuario\"\n              target=\"_blank\"\n              rel=\"noopener noreferrer\"\n              className=\"text-white hover:text-gray-400\"\n            >\n              <FaLinkedin size={24} />\n            </a>\n          </div>\n        </div>\n\n        <div className=\"text-center text-gray-400 mt-8\">\n          <p>© {new Date().getFullYear()} RecyExchange. All rights reserved.</p>\n        </div>\n      </div>\n    </footer>\n  );\n};\n\nexport default Footer;\n"
+        }
+    ]
+}

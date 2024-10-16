@@ -1,0 +1,38 @@
+{
+    "sourceFile": "src/components/WalkingCharacter.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1729005493318,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1729005963547,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,25 +1,13 @@\n-import React, { useEffect, useRef } from 'react';\n+// components/WalkingCharacter.tsx\n+import React from 'react';\n+import Image from 'next/image';\n \n const WalkingCharacter = ({ isWalking }: { isWalking: boolean }) => {\n-  const characterRef = useRef<HTMLDivElement>(null);\n-\n-  useEffect(() => {\n-    if (isWalking) {\n-      const character = characterRef.current;\n-      if (character) {\n-        character.style.transition = 'transform 2s';\n-        character.style.transform = 'translateX(300px)'; // Ajusta la distancia según sea necesario\n-      }\n-    }\n-  }, [isWalking]);\n-\n   return (\n-    <div\n-      ref={characterRef}\n-      className=\"absolute bottom-0 left-0 transition-transform duration-500\"\n-      style={{ width: '50px', height: '50px', backgroundColor: 'blue', borderRadius: '50%' }} // Estilo del muñeco\n-    ></div>\n+    <div className={`transition-transform duration-300 ${isWalking ? 'animate-walking' : ''}`}>\n+      <Image src=\"/path-to-your-walking-character.png\" alt=\"Muñeco Caminando\" width={100} height={100} />\n+    </div>\n   );\n };\n \n export default WalkingCharacter;\n"
+                },
+                {
+                    "date": 1729006142553,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n const WalkingCharacter = ({ isWalking }: { isWalking: boolean }) => {\n   return (\n     <div className={`transition-transform duration-300 ${isWalking ? 'animate-walking' : ''}`}>\n-      <Image src=\"/path-to-your-walking-character.png\" alt=\"Muñeco Caminando\" width={100} height={100} />\n+      <Image src=\"/glass.jpeg\" alt=\"Muñeco Caminando\" width={100} height={100} />\n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1729006444098,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n const WalkingCharacter = ({ isWalking }: { isWalking: boolean }) => {\n   return (\n     <div className={`transition-transform duration-300 ${isWalking ? 'animate-walking' : ''}`}>\n-      <Image src=\"/glass.jpeg\" alt=\"Muñeco Caminando\" width={100} height={100} />\n+      <Image src=\"/solution.jpg\" alt=\"Muñeco Caminando\" width={100} height={100} />\n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1729007291070,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,17 @@\n+// components/WalkingCharacter.tsx\n+import React from 'react';\n+import Image from 'next/image';\n+\n+const WalkingCharacter = ({ isWalking }: { isWalking: boolean }) => {\n+  return (\n+    <div \n+      className={`transition-transform duration-300 ${isWalking ? 'animate-walking' : ''}`} \n+      style={{ position: 'absolute', bottom: '20%', left: '50%', transform: 'translate(-50%, 0)' }} // Ajustar la posición aquí\n+    >\n+      <Image src=\"/solution.jpg\" alt=\"Muñeco Caminando\" width={100} height={100} />\n+    </div>\n+  );\n+};\n+\n+export default WalkingCharacter;\n+\n"
+                },
+                {
+                    "date": 1729009977087,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,18 +13,4 @@\n   );\n };\n \n export default WalkingCharacter;\n-\n-// components/WalkingCharacter.tsx\n-import React from 'react';\n-import Image from 'next/image';\n-\n-const WalkingCharacter = ({ isWalking }: { isWalking: boolean }) => {\n-  return (\n-    <div className={`transition-transform duration-300 ${isWalking ? 'animate-walking' : ''}`}>\n-      <Image src=\"/solution.jpg\" alt=\"Muñeco Caminando\" width={100} height={100} />\n-    </div>\n-  );\n-};\n-\n-export default WalkingCharacter;\n"
+                }
+            ],
+            "date": 1729005493318,
+            "name": "Commit-0",
+            "content": "import React, { useEffect, useRef } from 'react';\n\nconst WalkingCharacter = ({ isWalking }: { isWalking: boolean }) => {\n  const characterRef = useRef<HTMLDivElement>(null);\n\n  useEffect(() => {\n    if (isWalking) {\n      const character = characterRef.current;\n      if (character) {\n        character.style.transition = 'transform 2s';\n        character.style.transform = 'translateX(300px)'; // Ajusta la distancia según sea necesario\n      }\n    }\n  }, [isWalking]);\n\n  return (\n    <div\n      ref={characterRef}\n      className=\"absolute bottom-0 left-0 transition-transform duration-500\"\n      style={{ width: '50px', height: '50px', backgroundColor: 'blue', borderRadius: '50%' }} // Estilo del muñeco\n    ></div>\n  );\n};\n\nexport default WalkingCharacter;\n"
+        }
+    ]
+}
